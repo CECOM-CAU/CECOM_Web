@@ -17,7 +17,9 @@ const config: Config = {
                 }
             },
             fontFamily: {
-                'gmarket': ['GmarketSansMedium'],
+                'gmarket-b': ['GmarketSansBold'],
+                'gmarket-m': ['GmarketSansMedium'],
+                'gmarket-l': ['GmarketSansLight'],
             },
         },
     },
