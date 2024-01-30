@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 interface Props{
     children:React.ReactNode;
@@ -6,11 +7,11 @@ interface Props{
 
 }
 
-const NavButton=({children}:Props)=>{
+const NavButton=({children, link}:Props)=>{
     return(
-        <a href='/activities'>
+        <Link href={`/${link}`}>
            <p className="w-40 font-[100] ">{children}</p>
-        </a>
+        </Link>
     )
 }
 
