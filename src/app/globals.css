@@ -4,7 +4,21 @@
 
 @font-face {
     font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    src: url(../fonts/GmarketSansMedium.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url(../fonts/GmarketSansBold.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url(../fonts/GmarketSansLight.otf);
     font-weight: normal;
     font-style: normal;
 }
