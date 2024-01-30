@@ -1,30 +1,21 @@
 import type {Metadata} from 'next'
-import {Inter} from 'next/font/google'
 import './globals.css'
-import {Children} from "react";
-import {NavBar} from "@/app/_components/NavBar";
-import {ReactNode} from "react";
-
-const inter = Inter({subsets: ['latin']})
+import {NavBar} from "@/app/_components/NavBar/NavBar";
 
 export const metadata: Metadata = {
     title: 'CECOM',
     description: 'Welcome to CECOM'
 }
 
-export default function RootLayout({
-                                       children,
-                                   }: {
+export default function RootLayout(
+    {children}: {
     children: React.ReactNode
 }) {
     return (
         <html lang="en">
-
         <body className="flex bg-transparent ">
-        <NavBar/>
-        {children}
-
-
+            <NavBar/>
+            {children}
         </body>
         </html>
     )
