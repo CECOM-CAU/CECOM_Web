@@ -7,10 +7,10 @@ interface Props{
 
 }
 
-const NavButton=({children, link}:Props)=>{
+const NavButton=({children, link}: Props) => {
     return(
         <Link href={`/${link}`}>
-           <p className="w-40 font-[100] ">{children}</p>
+           <p className="w-40 font-[100]">{children}</p>
         </Link>
     )
 }
