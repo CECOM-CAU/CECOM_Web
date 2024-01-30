@@ -1,4 +1,4 @@
-import NavBarDesktop from "@/app/_components/NavBarDesktop";
+import NavBarDesktop from "@/app/_components/NavBar/NavBarDesktop";
 
 
 export const NavBar = () => {

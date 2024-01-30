@@ -1,4 +1,4 @@
-import NavButton from "@/app/_components/NavButton";
+import NavButton from "@/app/_components/NavBar/NavButton";
 
 const NavBarDesktop = () => {
     return (
