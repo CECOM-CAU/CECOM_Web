@@ -17,12 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}><Header children={children}/> </body>
+      <body className={inter.className}><CustomHeader children={children}/> </body>
     </html>
   )
 }
 
-const Header = ({
+const CustomHeader = ({
                     children,
                 }: {
     children: React.ReactNode
