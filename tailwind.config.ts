@@ -8,7 +8,15 @@ const config: Config = {
     ],
     theme: {
         extend: {
-            fontFamily:{
+            colors: {
+                primary: {
+                    cecom_blue: '#0648A6FF',
+                    lightgray30: '#D9D9D955',
+                    lightgray50: '#D9D9D980',
+                    lightgray100: '#D9D9D9FF',
+                }
+            },
+            fontFamily: {
                 'gmarket': ['GmarketSansMedium'],
             },
         },
