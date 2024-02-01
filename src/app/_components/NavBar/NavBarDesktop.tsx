@@ -24,11 +24,14 @@ const NavBarDesktop = () => {
                 </div>
                 <div className="mr-[50px] h-30 flex justify-end items-center ">
                     <NavButton link="/activities" isClick={activity}>
-                        <a onClick={() => handleNavBTN(true, false, false)}>Activities</a></NavButton>
+                        <div onClick={() => handleNavBTN(true, false, false)}>Activities</div>
+                    </NavButton>
                     <NavButton link="/members" isClick={member}>
-                        <a onClick={() => handleNavBTN(false, true, false)}>Members</a></NavButton>
+                        <div onClick={() => handleNavBTN(false, true, false)}>Members</div>
+                    </NavButton>
                     <NavButton link="/things" isClick={thing}>
-                        <a onClick={() => handleNavBTN(false, false, true)}>Things</a></NavButton>
+                        <div onClick={() => handleNavBTN(false, false, true)}>Things</div>
+                    </NavButton>
                 </div>
             </div>
         </nav>
