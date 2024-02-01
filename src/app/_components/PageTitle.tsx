@@ -1,9 +1,12 @@
+import React from "react";
 
-
-const ThingsTitle = () => {
+interface Props{
+    children:React.ReactNode;
+}
+const PageTitle = ({children}:Props) => {
     return (
-        <p className={'text-[160px] font-gmarket'}>Things</p>
+        <p className="text-[180px] mt-[95px] ml-[120px]">{children}</p>
     );
 }
 
-export default ThingsTitle;
+export default PageTitle;
