@@ -7,25 +7,10 @@ const NavBarDesktop = () => {
     const [activity, setActivity] = useState(false)
     const [member, setMember] = useState(false)
     const [thing, setThing] = useState(false)
-    const handleActivity = () => {
-        setActivity(true);
-        setMember(false);
-        setThing(false);
-    }
-    const handleMember = () => {
-        setActivity(false);
-        setMember(true);
-        setThing(false);
-    }
-    const handleThing = () => {
-        setActivity(false);
-        setMember(false);
-        setThing(true);
-    }
-    const handleLogo = () => {
-        setActivity(false);
-        setMember(false);
-        setThing(false);
+    const handleNavBTN = (isActivity: boolean, isMember: boolean, isThing: boolean) => {
+        setActivity(isActivity);
+        setMember(isMember);
+        setThing(isThing);
     }
 
     return (
@@ -33,14 +18,17 @@ const NavBarDesktop = () => {
             <div className="flex flex-row justify-between h-30 mt-[15px] ml-[120px] mr-[40px]">
                 <div>
                     <Link href="/">
-                        <img className="h-30" src="/HeaderLogo.svg" alt="logo" onClick={handleLogo}/>
+                        <img className="h-30" src="/HeaderLogo.svg" alt="logo"
+                             onClick={() => handleNavBTN(false, false, false)}/>
                     </Link>
                 </div>
                 <div className="mr-[50px] h-30 flex justify-end items-center ">
-                    <NavButton link="/activities" click={activity}><a
-                        onClick={handleActivity}>Activities</a></NavButton>
-                    <NavButton link="/members" click={member}><a onClick={handleMember}>Members</a></NavButton>
-                    <NavButton link="/things" click={thing}><a onClick={handleThing}>Things</a></NavButton>
+                    <NavButton link="/activities" isClick={activity}>
+                        <a onClick={() => handleNavBTN(true, false, false)}>Activities</a></NavButton>
+                    <NavButton link="/members" isClick={member}>
+                        <a onClick={() => handleNavBTN(false, true, false)}>Members</a></NavButton>
+                    <NavButton link="/things" isClick={thing}>
+                        <a onClick={() => handleNavBTN(false, false, true)}>Things</a></NavButton>
                 </div>
             </div>
         </nav>
