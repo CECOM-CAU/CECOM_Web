@@ -17,7 +17,7 @@ const NavButton = ({children, link, click}: Props) => {
     } else {
         return (
             <Link href={`${link}`}>
-                <p className="px-4 py-2 w-30  mr-[20px] ml-[20px]">{children}</p>
+                <p className="px-4 py-2 mr-[20px] ml-[20px]">{children}</p>
             </Link>
         )
     }
