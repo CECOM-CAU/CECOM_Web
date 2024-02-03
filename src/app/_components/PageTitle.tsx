@@ -5,8 +5,12 @@ interface Props{
 }
 const PageTitle = ({children}:Props) => {
     return (
-        <p className="text-[180px] mt-[95px] ml-[120px]">{children}</p>
+        <div>
+            <p className="text-[130px] mt-[90px] ml-[120px]">{children}</p>
+            <img className="h-[60px] absolute top-[90px] left-[570px]" src="/Titlelogo.png" alt="Titlelogo"/>
+        </div>
     );
 }
 
 export default PageTitle;
+
