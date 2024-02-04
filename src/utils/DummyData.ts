@@ -12,12 +12,12 @@ const ActivityListItem: ActivityItem = {
     title: "Test Activity"
 }
 
-const ActivityList: Activity = {
+export const ActivityListData: Activity = {
     count: 3,
     data: [ActivityListItem, ActivityListItem, ActivityListItem]
 }
 
-const ActivityContent: ActivityContent = {
+export const ActivityContentData: ActivityContent = {
     id: "Activity Content Data",
     photo: {count: 3, data: ["BASE64_STRING", "BASE64_STRING", "BASE64_STRING"]},
     role: [
@@ -67,12 +67,12 @@ const Admin2024_2: AdminItem = {
     role: "부회장"
 }
 
-const Admin2023: Admin = {
+export const Admin2023: Admin = {
     list: [Admin2023_1, Admin2023_2],
     year: 2023
 }
 
-const Admin2024: Admin = {
+export const Admin2024: Admin = {
     list: [Admin2024_1, Admin2024_2],
     year: 2023
 }
@@ -89,7 +89,7 @@ const ThingItemData: ThingItem = {
     tag: "#분실물"
 }
 
-const Thing: Thing = {
+export const ThingData: Thing = {
     count: 5,
     data: [ThingItemData, ThingItemData, ThingItemData]
 }
