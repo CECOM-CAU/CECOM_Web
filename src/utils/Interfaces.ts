@@ -12,14 +12,13 @@ export interface ActivityItem {
 }
 
 export interface ActivityContent {
-    content: string
+    id: string
+    photo: Array<ActivityContentRoleItemPhoto>
     role: Array<ActivityContentRoleItem>
 }
 
 export interface ActivityContentRoleItem {
-    id: string
     member: Array<ActivityContentRoleItemMember>
-    photo: ActivityContentRoleItemPhoto
     title: string
 }
 
