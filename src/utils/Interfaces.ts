@@ -54,6 +54,11 @@ export interface Member {
 }
 
 export interface Thing {
+    count: number
+    data: Array<ThingItem>
+}
+
+export interface ThingItem {
     description: string
     id: string
     name: string
