@@ -5,9 +5,9 @@ interface Props{
 }
 const PageTitle = ({children}:Props) => {
     return (
-        <div>
-            <p className="text-[130px] mt-[90px] ml-[120px]">{children}</p>
-            <img className="h-[60px] absolute top-[90px] left-[570px]" src="/Titlelogo.png" alt="Titlelogo"/>
+        <div className="flex flex-row">
+            <p className="flex text-[130px] mt-[10px] ml-[120px]">{children}</p>
+            <img className="h-[60px] flex ml-[-15px] mt-[10px]" src="/Titlelogo.png" alt="Titlelogo"/>
         </div>
     );
 }
