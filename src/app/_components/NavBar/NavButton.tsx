@@ -13,7 +13,7 @@ const NavButton = ({children, link, isClick}: Props) => {
 
     return (
         <Link href={link}>
-            <p className={isClick ? NAV_BTN_STYLE_CLICKED : NAV_BTN_STYLE_NORMAL}>{children}</p>
+            <div className={isClick ? NAV_BTN_STYLE_CLICKED : NAV_BTN_STYLE_NORMAL}>{children}</div>
         </Link>
     )
 }
