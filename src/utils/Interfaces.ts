@@ -13,7 +13,7 @@ export interface ActivityItem {
 
 export interface ActivityContent {
     id: string
-    photo: Array<ActivityContentRoleItemPhoto>
+    photo: ActivityContentRoleItemPhoto
     role: Array<ActivityContentRoleItem>
 }
 
