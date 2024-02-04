@@ -17,3 +17,11 @@ interface Member {
     name: string
     project: Array<string>
 }
+
+interface Thing {
+    description: string
+    id: string
+    name: string
+    photo: string
+    tag: string
+}
