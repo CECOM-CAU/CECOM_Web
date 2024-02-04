@@ -1,4 +1,4 @@
-import {Activity, ActivityContent, ActivityItem, Admin, AdminItem} from "@/utils/Interfaces";
+import {Activity, ActivityContent, ActivityItem, Admin, AdminItem, Thing, ThingItem} from "@/utils/Interfaces";
 
 /**
  * TODO: Activity 관련 더미데이터
@@ -75,4 +75,21 @@ const Admin2023: Admin = {
 const Admin2024: Admin = {
     list: [Admin2024_1, Admin2024_2],
     year: 2023
+}
+
+/**
+ * TODO: Thing 관련 더미데이터
+ */
+
+const ThingItemData: ThingItem = {
+    description: "한줄소개",
+    id: "asdfasdf12341234",
+    name: "서유빈이 잃어버린 갤럭시버즈 왼쪽",
+    photo: "BASE64_STRING",
+    tag: "#분실물"
+}
+
+const Thing: Thing = {
+    count: 5,
+    data: [ThingItemData, ThingItemData, ThingItemData]
 }
