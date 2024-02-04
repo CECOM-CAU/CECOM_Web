@@ -1,4 +1,8 @@
-import {Activity, ActivityContent, ActivityItem} from "@/utils/Interfaces";
+import {Activity, ActivityContent, ActivityItem, Admin, AdminItem} from "@/utils/Interfaces";
+
+/**
+ * TODO: Activity 관련 더미데이터
+ */
 
 const ActivityListItem: ActivityItem = {
     member: ["서유빈", "임수현", "정세린"],
@@ -37,4 +41,38 @@ const ActivityContent: ActivityContent = {
             title: "Front-End"
         }
     ]
+}
+
+/**
+ * TODO: Admin 관련 더미데이터
+ */
+
+const Admin2023_1: AdminItem = {
+    member: "shiiinnnnsh",
+    role: "회장"
+}
+
+const Admin2023_2: AdminItem = {
+    member: "useful_min",
+    role: "부회장"
+}
+
+const Admin2024_1: AdminItem = {
+    member: "yuni_sang",
+    role: "회장"
+}
+
+const Admin2024_2: AdminItem = {
+    member: "vini_u",
+    role: "부회장"
+}
+
+const Admin2023: Admin = {
+    list: [Admin2023_1, Admin2023_2],
+    year: 2023
+}
+
+const Admin2024: Admin = {
+    list: [Admin2024_1, Admin2024_2],
+    year: 2023
 }
