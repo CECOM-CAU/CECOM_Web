@@ -1,6 +1,6 @@
 export interface Activity {
     count: number
-    list: Array<ActivityItem>
+    data: Array<ActivityItem>
 }
 
 export interface ActivityItem {
