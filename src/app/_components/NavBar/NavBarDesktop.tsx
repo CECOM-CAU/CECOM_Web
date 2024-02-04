@@ -15,11 +15,11 @@ const NavBarDesktop = () => {
     }
 
     return (
-        <nav className="w-full">
-            <div className="flex flex-row justify-between h-30 mt-[15px] ml-[120px] mr-[40px]">
+        <nav className="w-full bg-white">
+            <div className="flex flex-row justify-between h-30 mt-[15px] ml-[200px] mr-[40px]">
                 <div>
                     <Link href="/">
-                        <img className="h-30" src="/HeaderLogo.svg" alt="logo"
+                        <img className="h-30 min-w-[247px] " src="/HeaderLogo.svg" alt="logo"
                              onClick={() => handleNavBTN(false, false, false)}/>
                     </Link>
                 </div>
