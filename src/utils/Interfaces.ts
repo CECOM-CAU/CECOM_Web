@@ -1,9 +1,9 @@
-interface Activity {
+export interface Activity {
     count: number
     list: Array<ActivityItem>
 }
 
-interface ActivityItem {
+export interface ActivityItem {
     member: Array<string>
     mento: string
     tag: Array<string>
@@ -11,40 +11,40 @@ interface ActivityItem {
     title: string
 }
 
-interface ActivityContent {
+export interface ActivityContent {
     content: string
     role: Array<ActivityContentRoleItem>
 }
 
-interface ActivityContentRoleItem {
+export interface ActivityContentRoleItem {
     id: string
     member: Array<ActivityContentRoleItemMember>
     photo: ActivityContentRoleItemPhoto
     title: string
 }
 
-interface ActivityContentRoleItemMember {
+export interface ActivityContentRoleItemMember {
     icon: string
     name: string
     url: string
 }
 
-interface ActivityContentRoleItemPhoto {
+export interface ActivityContentRoleItemPhoto {
     count: number,
     data: Array<string>
 }
 
-interface Admin {
+export interface Admin {
     list: Array<AdminItem>
     year: number
 }
 
-interface AdminItem {
+export interface AdminItem {
     member: string
     role: string
 }
 
-interface Member {
+export interface Member {
     comment: string
     department: string
     github: string
@@ -54,7 +54,7 @@ interface Member {
     project: Array<string>
 }
 
-interface Thing {
+export interface Thing {
     description: string
     id: string
     name: string
