@@ -1,7 +1,7 @@
 export interface API_RESULT {
     RESULT_CODE: number
     RESULT_MSG: string
-    RESULT_DATA: Activity | ActivityContent | Admin | Member | Thing | undefined
+    RESULT_DATA: Activity | ActivityContent | Admin | Member | Photo | Thing | undefined
 }
 
 export interface Activity {
@@ -57,6 +57,11 @@ export interface Member {
     instagram: string
     name: string
     project: Array<string>
+}
+
+export interface Photo {
+    data: string,
+    filename: string,
 }
 
 export interface Thing {
