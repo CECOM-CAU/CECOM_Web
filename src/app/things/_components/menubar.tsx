@@ -20,7 +20,7 @@ const MenuBarDesktop = () => {
     return (
         <nav className="w-full">
             <div className="flex flex-row justify-between h-50">
-                <div className="h-50 flex items-center">
+                <div className="h-50 flex justify-center">
                     <NavButton link="/All" isClick={All}>
                         <div onClick={() => handleNavBTN(true,  false, false, false, false)}>All</div>
                     </NavButton>
@@ -45,7 +45,7 @@ const MenuBarDesktop = () => {
 
 const MenuBar = () => {
     return (
-        <div className={'flex flex-row'}>
+        <div  className={'flex flex-row'}>
             <MenuBarDesktop></MenuBarDesktop>
         </div>
     );
