@@ -12,11 +12,14 @@ const SmallBox = () => {
 const TextBox = () => {
     return (
         <div className={'flex flex-col'}>
-            <p className={'text-[24px] mr-[20px] font-gmarket-b'}>Title</p>
-            <div className={'mb-[10px]'}>
-                <hr className={'w-[180px] border-gray-500'}/>
+            <div className={'w-[200px] grid grid-cols-3 grid-rows-1 '}>
+                <span className={'text-[24px] col-span-2 font-gmarket-m'}>UNO 보드</span>
+                <span className={'h-[19px] w-[55px] place-self-center text-[12px] font-gmarket border bg-cover rounded-2xl border-0 bg-gray-300'}>#Board</span>
             </div>
-            <p className={'text-wrap w-[180px] text-[15px] font-gmarket'}>내용내용내용내용내용내용내용내용내용내용</p>
+            <div className={'mb-[10px]'}>
+                <hr className={'w-[200px] border-gray-500'}/>
+            </div>
+            <span className={'text-wrap w-[180px] text-[15px] font-gmarket'}>내용내용내용내용내용내용내용내용내용내용</span>
         </div>
     );
 }
