@@ -11,6 +11,7 @@ const config: Config = {
             colors: {
                 primary: {
                     cecom_blue: '#0648A6FF',
+                    cecom_blue_light: '#0029BB2E',
                     lightgray30: '#D9D9D955',
                     lightgray50: '#D9D9D980',
                     lightgray100: '#D9D9D9FF',
