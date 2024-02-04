@@ -14,7 +14,7 @@ const ActivityListItem: ActivityItem = {
 
 const ActivityList: Activity = {
     count: 3,
-    list: [ActivityListItem, ActivityListItem, ActivityListItem]
+    data: [ActivityListItem, ActivityListItem, ActivityListItem]
 }
 
 const ActivityContent: ActivityContent = {
