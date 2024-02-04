@@ -14,11 +14,11 @@ const ActivityCard = ({member,mento,tag,thumbnail,title}:ActivityItem) => {
                 <span className="mt-[10px]">{members}</span>
                 <div className="flex flex-row flex-wrap ">
                     {
-                    tag.map((t:string, index:number) => (
-                        index === 0 ?<div className="bg-primary-cecom_blue_light backdrop-opacity-5 rounded-3xl px-[5px] mr-[10px] mt-[10px]">{t}</div>
-                            :<div className="bg-primary-lightgray30 rounded-3xl px-[5px] mr-[10px] mt-[10px]">{t}</div>
-                    ))
-                }
+                        tag.map((t:string, index:number) => (
+                            index === 0 ?<div className="bg-primary-cecom_blue_light backdrop-opacity-5 rounded-3xl px-[5px] mr-[10px] mt-[10px]">{t}</div>
+                                :<div className="bg-primary-lightgray30 rounded-3xl px-[5px] mr-[10px] mt-[10px]">{t}</div>
+                        ))
+                    }
                 </div>
             </div>
         </div>
