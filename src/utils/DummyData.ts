@@ -1,4 +1,4 @@
-import {Activity, ActivityContent, ActivityItem, Admin, AdminItem, Thing, ThingItem} from "@/utils/Interfaces";
+import {Activity, ActivityContent, ActivityItem, Admin, AdminItem, Member, Thing, ThingItem} from "@/utils/Interfaces";
 
 /**
  * Activity 관련 더미데이터
@@ -79,6 +79,19 @@ export const Admin2023: Admin = {
 export const Admin2024: Admin = {
     list: [Admin2024_1, Admin2024_2],
     year: 2023
+}
+
+/**
+ * Member 관련 더미데이터
+ */
+export const MemberData: Member = {
+    comment: "집가고싶다",
+    department: "소프트웨어학부 19학번",
+    github: "yymin1022",
+    id: "useful_min",
+    instagram: "useful_min",
+    name: "유용민",
+    project: []
 }
 
 /**
