@@ -2,6 +2,7 @@
 import NavButton from "@/app/_components/NavBar/NavButton";
 import {useState} from "react";
 import Link from "next/link";
+import RecruitBTN from "@/app/_components/NavBar/RecruitBTN";
 
 const NavBarDesktop = () => {
     const [activity, setActivity] = useState(false)
@@ -23,15 +24,24 @@ const NavBarDesktop = () => {
                     </Link>
                 </div>
                 <div className="mr-[50px] h-30 flex justify-end items-center ">
-                    <NavButton link="/activities" isClick={activity}>
-                        <div onClick={() => handleNavBTN(true, false, false)}>Activities</div>
-                    </NavButton>
-                    <NavButton link="/members" isClick={member}>
-                        <div onClick={() => handleNavBTN(false, true, false)}>Members</div>
-                    </NavButton>
-                    <NavButton link="/things" isClick={thing}>
-                        <div onClick={() => handleNavBTN(false, false, true)}>Things</div>
-                    </NavButton>
+                    <div onClick={() => handleNavBTN(true, false, false)}>
+                        <NavButton link="/activities" isClick={activity}>
+                            Activities
+                        </NavButton>
+                    </div>
+                    <div onClick={() => handleNavBTN(false, true, false)}>
+                        <NavButton link="/members" isClick={member}>
+                            Members
+                        </NavButton>
+                    </div>
+                    <div onClick={() => handleNavBTN(false, false, true)}>
+                        <NavButton link="/things" isClick={thing}>
+                            Things
+                        </NavButton>
+                    </div>
+                    <div onClick={() => handleNavBTN(false, false, false)}>
+                        <RecruitBTN link="/">Recruit</RecruitBTN>
+                    </div>
                 </div>
             </div>
         </nav>
