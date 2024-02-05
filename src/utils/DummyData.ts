@@ -77,13 +77,13 @@ const Admin2024_2: AdminItem = {
 
 // 2023 운영진 더미데이터
 export const Admin2023: Admin = {
-    list: [Admin2023_1, Admin2023_2],
+    list: [Admin2023_1, Admin2023_2, Admin2023_1, Admin2023_2],
     year: 2023
 }
 
 // 2024 운영진 더미데이터
 export const Admin2024: Admin = {
-    list: [Admin2024_1, Admin2024_2],
+    list: [Admin2024_1, Admin2024_2, Admin2024_1, Admin2024_2],
     year: 2023
 }
 
