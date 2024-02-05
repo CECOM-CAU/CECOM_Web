@@ -15,8 +15,8 @@ const ActivityListItem: ActivityItem = {
 
 // Activity 리스트 더미데이터
 export const ActivityListData: Activity = {
-    count: 3,
-    data: [ActivityListItem, ActivityListItem, ActivityListItem]
+    count: 5,
+    data: [ActivityListItem, ActivityListItem, ActivityListItem, ActivityListItem, ActivityListItem]
 }
 
 // Activity 상세보기 더미데이터
