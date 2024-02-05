@@ -5,6 +5,7 @@ import {Activity, ActivityContent, ActivityItem, Admin, AdminItem, Member, Thing
  */
 
 const ActivityListItem: ActivityItem = {
+    id: "ACTIVITY_ID",
     member: ["서유빈", "임수현", "정세린"],
     mento: "유용민",
     tag: ["#TEST", "#TAG"],
@@ -14,12 +15,17 @@ const ActivityListItem: ActivityItem = {
 
 // Activity 리스트 더미데이터
 export const ActivityListData: Activity = {
-    count: 3,
-    data: [ActivityListItem, ActivityListItem, ActivityListItem]
+    count: 5,
+    data: [ActivityListItem, ActivityListItem, ActivityListItem, ActivityListItem, ActivityListItem]
 }
 
 // Activity 상세보기 더미데이터
 export const ActivityContentData: ActivityContent = {
+    content: "내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
+    내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
+    내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
+    내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
+    내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용",
     id: "Activity Content Data",
     photo: {count: 3, data: ["BASE64_STRING", "BASE64_STRING", "BASE64_STRING"]},
     role: [
@@ -71,13 +77,13 @@ const Admin2024_2: AdminItem = {
 
 // 2023 운영진 더미데이터
 export const Admin2023: Admin = {
-    list: [Admin2023_1, Admin2023_2],
+    list: [Admin2023_1, Admin2023_2, Admin2023_1, Admin2023_2],
     year: 2023
 }
 
 // 2024 운영진 더미데이터
 export const Admin2024: Admin = {
-    list: [Admin2024_1, Admin2024_2],
+    list: [Admin2024_1, Admin2024_2, Admin2024_1, Admin2024_2],
     year: 2023
 }
 
@@ -109,5 +115,5 @@ const ThingItemData: ThingItem = {
 // Thing 리스트 더미데이터
 export const ThingData: Thing = {
     count: 5,
-    data: [ThingItemData, ThingItemData, ThingItemData]
+    data: [ThingItemData, ThingItemData, ThingItemData, ThingItemData, ThingItemData]
 }

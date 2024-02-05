@@ -10,6 +10,7 @@ export interface Activity {
 }
 
 export interface ActivityItem {
+    id: string
     member: Array<string>
     mento: string
     tag: Array<string>
@@ -18,6 +19,7 @@ export interface ActivityItem {
 }
 
 export interface ActivityContent {
+    content: string
     id: string
     photo: ActivityContentRoleItemPhoto
     role: Array<ActivityContentRoleItem>
