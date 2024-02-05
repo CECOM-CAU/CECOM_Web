@@ -5,6 +5,7 @@ import {Activity, ActivityContent, ActivityItem, Admin, AdminItem, Member, Thing
  */
 
 const ActivityListItem: ActivityItem = {
+    id: "ACTIVITY_ID",
     member: ["서유빈", "임수현", "정세린"],
     mento: "유용민",
     tag: ["#TEST", "#TAG"],
@@ -20,6 +21,11 @@ export const ActivityListData: Activity = {
 
 // Activity 상세보기 더미데이터
 export const ActivityContentData: ActivityContent = {
+    content: "내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
+    내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
+    내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
+    내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
+    내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용",
     id: "Activity Content Data",
     photo: {count: 3, data: ["BASE64_STRING", "BASE64_STRING", "BASE64_STRING"]},
     role: [
