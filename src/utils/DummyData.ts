@@ -115,5 +115,5 @@ const ThingItemData: ThingItem = {
 // Thing 리스트 더미데이터
 export const ThingData: Thing = {
     count: 5,
-    data: [ThingItemData, ThingItemData, ThingItemData]
+    data: [ThingItemData, ThingItemData, ThingItemData, ThingItemData, ThingItemData]
 }
