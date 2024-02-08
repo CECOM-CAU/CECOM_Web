@@ -40,10 +40,10 @@ const ActivitiesPage = () => {
             <div className="flex flex-col items-center">
                 <div
                     className="grid container max-w-[1300px] grid-cols-4 grid-flow-row gap-[10px] justify-items-center">
-                    {ActivityListData.data.map(({member, mento, tag, thumbnail, title}: ActivityItem) => (
-                        <ActivityCard member={member} mento={mento} tag={tag} thumbnail={"/Activities.jpg"}
-                                      title={title}/>))
-                    }
+                    {/*{ActivityListData.data.map(({member, mento, tag, thumbnail, title}: ActivityItem) => (*/}
+                    {/*    <ActivityCard member={member} mento={mento} tag={tag} thumbnail={"/Activities.jpg"}*/}
+                    {/*                   title={title}/>))*/}
+                    {/*}*/}
                 </div>
             </div>
         </div>
