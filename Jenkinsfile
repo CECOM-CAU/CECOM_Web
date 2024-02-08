@@ -56,10 +56,24 @@ pipeline {
             script{
                 sh "curl --location --request POST 'https://api.telegram.org/bot${TELEGRAM_BOT_ID}/sendMessage' --form text='${TEXT_SUCCESS_BUILD}' --form chat_id='${TELEGRAM_CHAT_ID}'"
             }
+            withCredentials([string(credentialsId: 'discord-cecom-web', variable: 'DISCORD_WEBHOOK')]) {
+                discordSend description: "Build가 성공하였습니다.",
+                            link: env.BUILD_URL,
+                            result: currentBuild.currentResult,
+                            title: env.JOB_NAME,
+                            webhookURL: "$DISCORD_WEBHOOK"
+            }
         }
         failure {
             script{
                 sh "curl --location --request POST 'https://api.telegram.org/bot${TELEGRAM_BOT_ID}/sendMessage' --form text='${TEXT_FAILURE_BUILD}' --form chat_id='${TELEGRAM_CHAT_ID}'"
+            }
+            withCredentials([string(credentialsId: 'discord-cecom-web', variable: 'DISCORD_WEBHOOK')]) {
+                discordSend description: "Build가 실패하였습니다.",
+                            link: env.BUILD_URL,
+                            result: currentBuild.currentResult,
+                            title: env.JOB_NAME,
+                            webhookURL: "$DISCORD_WEBHOOK"
             }
         }
     }
