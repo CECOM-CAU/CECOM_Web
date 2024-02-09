@@ -12,7 +12,7 @@ export interface Activity {
 export interface ActivityItem {
     id: string
     member: Array<string>
-    mento: string
+    mentor: string
     tag: Array<string>
     thumbnail: string
     title: string

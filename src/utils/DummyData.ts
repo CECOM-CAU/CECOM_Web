@@ -7,7 +7,7 @@ import {Activity, ActivityContent, ActivityItem, Admin, AdminItem, Member, Thing
 const ActivityListItem: ActivityItem = {
     id: "ACTIVITY_ID",
     member: ["서유빈", "임수현", "정세린"],
-    mento: "유용민",
+    mentor: "유용민",
     tag: ["#TEST", "#TAG"],
     thumbnail: "BASE64_STRING",
     title: "Test Activity"
