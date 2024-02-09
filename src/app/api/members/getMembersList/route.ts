@@ -14,9 +14,9 @@ export async function GET(_: NextRequest) {
         apiResult.RESULT_CODE = 100;
         apiResult.RESULT_MSG = "An Error Occurred";
         apiResult.RESULT_DATA = undefined;
-        return apiResult;
+        return NextResponse.json(apiResult, { status: 200 });
     }
 
     apiResult.RESULT_DATA = adminList;
-    return NextResponse.json(apiResult, { status: 200 })
+    return NextResponse.json(apiResult, { status: 200 });
 }
