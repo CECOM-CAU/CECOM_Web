@@ -26,7 +26,7 @@ export const ActivityContentData: ActivityContent = {
     내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
     내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
     내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용",
-    id: "Activity Content Data",
+    id: "ACTIVITY_ID",
     photo: {count: 3, data: ["BASE64_STRING", "BASE64_STRING", "BASE64_STRING"]},
     role: [
         {
@@ -106,7 +106,7 @@ export const MemberData: Member = {
 
 const ThingItemData: ThingItem = {
     description: "한줄소개",
-    id: "asdfasdf12341234",
+    id: "THING_ID",
     name: "서유빈이 잃어버린 갤럭시버즈 왼쪽",
     photo: "BASE64_STRING",
     tag: "#분실물"
