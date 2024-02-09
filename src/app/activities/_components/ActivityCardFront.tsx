@@ -1,7 +1,7 @@
 import {ActivityItem} from "@/utils/Interfaces";
 
 
-const ActivityCardFront = ({member, mento, tag, thumbnail, title}: ActivityItem) => {
+const ActivityCardFront = ({member, mentor, tag, thumbnail, title}: ActivityItem) => {
     const firstTag = "bg-primary-cecom_blue backdrop-opacity-5 rounded-3xl px-[5px] mr-[10px] mt-[10px]"
     const normalTag = "bg-primary-lightgray30 rounded-3xl px-[5px] mr-[10px] mt-[10px]"
     const members: string = member.map((m) => m).join(', ')
@@ -12,7 +12,7 @@ const ActivityCardFront = ({member, mento, tag, thumbnail, title}: ActivityItem)
             <div className="flex flex-col w-full h-48 px-[15px]">
                 <div className="flex flex-row flex-wrap justify-start mt-[10px]">
                     <span className="font-gmarket-b ">{title}&nbsp;&nbsp;</span>
-                    <span>|&nbsp;&nbsp;{mento}</span>
+                    <span>|&nbsp;&nbsp;{mentor}</span>
                 </div>
                 <span className="mt-[10px]">{members}</span>
                 <div className="flex flex-row flex-wrap ">
