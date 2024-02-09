@@ -5,7 +5,7 @@ import {getAdminList} from "@/utils/FirebaseUtil";
 export async function GET(_: NextRequest) {
     const apiResult: API_RESULT = {
         RESULT_CODE: 200,
-        RESULT_MSG: "Members List API",
+        RESULT_MSG: "Success",
         RESULT_DATA: undefined
     }
 
