@@ -4,7 +4,8 @@ import {useState} from "react";
 import {ActivityListData} from "@/utils/DummyData";
 import {ActivityItem} from "@/utils/Interfaces";
 import MenuBTN from "@/app/activities/_components/MenuBTN";
-import ActivityCard from "@/app/activities/_components/ActivityCard";
+import ActivityCardFront from "@/app/activities/_components/ActivityCardFront";
+import ActivityCardBack from "@/app/activities/_components/ActivityCardBack";
 
 
 const ActivitiesPage = () => {
@@ -19,7 +20,6 @@ const ActivitiesPage = () => {
         setStudy(isStudy);
 
     }
-
     return (
         <div className="w-full flex flex-col">
             <PageTitle>Activities</PageTitle>
@@ -37,12 +37,27 @@ const ActivitiesPage = () => {
                     <MenuBTN isClicked={study}>Study</MenuBTN>
                 </div>
             </nav>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center ">
                 <div
                     className="grid container max-w-[1300px] grid-cols-4 grid-flow-row gap-[10px] justify-items-center">
-                    {ActivityListData.data.map(({member, mento, tag, thumbnail, title}: ActivityItem) => (
-                        <ActivityCard member={member} mento={mento} tag={tag} thumbnail={"/Activities.jpg"}
-                                      title={title}/>))
+                    {
+                        ActivityListData.data.map(({member, mento, tag, thumbnail, title, id}: ActivityItem) => (
+                            <div className="group [perspective:1000px]">
+                                <div className="transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                                    <div className="">
+                                        <ActivityCardFront id={id} member={member} mento={mento} tag={tag}
+                                                           thumbnail={"/Activities.jpg"}
+                                                           title={title}/>
+                                    </div>
+
+                                    <div
+                                        className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                                        <ActivityCardBack title={title} mento={mento} member={member} content={"내용내내용내용내용내용내용내용내"}/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        ))
                     }
                 </div>
             </div>
