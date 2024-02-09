@@ -1,5 +1,6 @@
 import {NextRequest, NextResponse} from "next/server";
 import {API_RESULT} from "@/utils/Interfaces";
+import {getAdminList} from "@/utils/FirebaseUtil";
 
 export async function GET(_: NextRequest) {
     const apiResult: API_RESULT = {
@@ -7,6 +8,8 @@ export async function GET(_: NextRequest) {
         RESULT_MSG: "Members List API",
         RESULT_DATA: undefined
     }
+
+    apiResult.RESULT_DATA = await getAdminList();
 
     return NextResponse.json(apiResult, { status: 200 })
 }
