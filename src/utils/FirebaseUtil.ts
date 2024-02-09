@@ -14,7 +14,7 @@ const firebaseConfig = {
     appId: process.env.FB_APP_ID
 };
 
-export const initFirebase = () => {
+const initFirebase = () => {
     if(firebaseApp == null || firestoreDB == null){
         firebaseApp = initializeApp(firebaseConfig);
         firestoreDB = getFirestore(firebaseApp);
@@ -36,6 +36,8 @@ const getMemberData = async (memberID: string)  => {
 }
 
 export const getAdminList = async (year: number) => {
+    initFirebase();
+
     const adminDoc = await getDoc(doc(firestoreDB!, "Admin", year.toString()));
     const adminList: Array<AdminItem> = [];
     for (const doc of adminDoc.get("list")){
