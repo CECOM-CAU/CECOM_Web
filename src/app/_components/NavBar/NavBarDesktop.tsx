@@ -16,7 +16,7 @@ const NavBarDesktop = () => {
 
     return (
         <nav className="w-full bg-white">
-            <div className="flex flex-row justify-between h-30 mt-[15px] ml-[200px] mr-[40px]">
+            <div className="flex flex-row items-center justify-between h-[100px] ml-[200px] mr-[40px]">
                 <div>
                     <Link href="/">
                         <img className="h-30 min-w-[247px] " src="/HeaderLogo.svg" alt="logo"
