@@ -57,26 +57,39 @@ export const ActivityContentData: ActivityContent = {
 }
 
 /**
+ * Member 관련 더미데이터
+ */
+export const MemberData: Member = {
+    comment: "집가고싶다",
+    department: "소프트웨어학부 19학번",
+    github: "yymin1022",
+    id: "useful_min",
+    instagram: "useful_min",
+    name: "유용민",
+    project: []
+}
+
+/**
  * Admin 관련 더미데이터
  */
 
 const Admin2023_1: AdminItem = {
-    member: "shiiinnnnsh",
+    member: MemberData,
     role: "회장"
 }
 
 const Admin2023_2: AdminItem = {
-    member: "useful_min",
+    member: MemberData,
     role: "부회장"
 }
 
 const Admin2024_1: AdminItem = {
-    member: "yuni_sang",
+    member: MemberData,
     role: "회장"
 }
 
 const Admin2024_2: AdminItem = {
-    member: "vini_u",
+    member: MemberData,
     role: "부회장"
 }
 
@@ -90,19 +103,6 @@ export const Admin2023: Admin = {
 export const Admin2024: Admin = {
     list: [Admin2024_1, Admin2024_2, Admin2024_1, Admin2024_2],
     year: 2023
-}
-
-/**
- * Member 관련 더미데이터
- */
-export const MemberData: Member = {
-    comment: "집가고싶다",
-    department: "소프트웨어학부 19학번",
-    github: "yymin1022",
-    id: "useful_min",
-    instagram: "useful_min",
-    name: "유용민",
-    project: []
 }
 
 /**

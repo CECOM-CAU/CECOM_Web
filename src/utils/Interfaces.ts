@@ -48,7 +48,7 @@ export interface Admin {
 }
 
 export interface AdminItem {
-    member: string
+    member: Member
     role: string
 }
 
