@@ -5,9 +5,14 @@ import {Activity, ActivityContent, ActivityItem, Admin, AdminItem, Member, Thing
  */
 
 const ActivityListItem: ActivityItem = {
+    content: "내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
+    내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
+    내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
+    내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
+    내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용",
     id: "ACTIVITY_ID",
     member: ["서유빈", "임수현", "정세린"],
-    mento: "유용민",
+    mentor: "유용민",
     tag: ["#TEST", "#TAG"],
     thumbnail: "BASE64_STRING",
     title: "Test Activity"
@@ -26,7 +31,7 @@ export const ActivityContentData: ActivityContent = {
     내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
     내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 \
     내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용",
-    id: "Activity Content Data",
+    id: "ACTIVITY_ID",
     photo: {count: 3, data: ["BASE64_STRING", "BASE64_STRING", "BASE64_STRING"]},
     role: [
         {
@@ -106,7 +111,7 @@ export const MemberData: Member = {
 
 const ThingItemData: ThingItem = {
     description: "한줄소개",
-    id: "asdfasdf12341234",
+    id: "THING_ID",
     name: "서유빈이 잃어버린 갤럭시버즈 왼쪽",
     photo: "BASE64_STRING",
     tag: "#분실물"

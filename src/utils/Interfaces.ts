@@ -10,9 +10,10 @@ export interface Activity {
 }
 
 export interface ActivityItem {
+    content: string
     id: string
     member: Array<string>
-    mento: string
+    mentor: string
     tag: Array<string>
     thumbnail: string
     title: string
