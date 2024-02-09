@@ -1,7 +1,8 @@
 import {FirebaseApp, initializeApp} from "@firebase/app";
-import {doc, Firestore, getDoc, getFirestore} from "@firebase/firestore";
+import {collection, doc, Firestore, getDoc, getFirestore} from "@firebase/firestore";
 import dotenv from "dotenv";
-import {AdminItem, Member} from "@/utils/Interfaces";
+import {Admin, AdminItem, Member} from "@/utils/Interfaces";
+import { getDocs } from "firebase/firestore";
 
 let firebaseApp: FirebaseApp | null = null;
 let firestoreDB: Firestore | null = null;
@@ -35,16 +36,25 @@ const getMemberData = async (memberID: string)  => {
     return memberData;
 }
 
-export const getAdminList = async (year: number) => {
+export const getAdminList = async () => {
     initFirebase();
 
-    const adminDoc = await getDoc(doc(firestoreDB!, "Admin", year.toString()));
-    const adminList: Array<AdminItem> = [];
-    for (const doc of adminDoc.get("list")){
-        adminList.push({
-            member: await getMemberData(doc.member),
-            role: doc.role
-        });
+    const adminList: Array<Admin> = [];
+    const adminDocs = await getDocs(collection(firestoreDB!, "Admin"));
+    if(adminDocs.empty){
+        return adminList;
     }
+
+    for(const adminDoc of adminDocs.docs){
+        const adminItemList: Array<AdminItem> = [];
+        for(const memberDoc of adminDoc.get("list")){
+            adminItemList.push({
+                member: await getMemberData(memberDoc.member),
+                role: memberDoc.role
+            });
+        }
+        adminList.push({list: adminItemList, year: adminDoc.get("year")});
+    }
+
     return adminList;
 }
