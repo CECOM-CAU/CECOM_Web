@@ -43,7 +43,8 @@ const ActivitiesPage = () => {
                     {
                         ActivityListData.data.map(({member, mento, tag, thumbnail, title, id}: ActivityItem) => (
                             <div className="group [perspective:1000px]">
-                                <div className="transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                                <div
+                                    className="transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                                     <div className="">
                                         <ActivityCardFront id={id} member={member} mento={mento} tag={tag}
                                                            thumbnail={"/Activities.jpg"}
@@ -52,7 +53,8 @@ const ActivitiesPage = () => {
 
                                     <div
                                         className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                                        <ActivityCardBack title={title} mento={mento} member={member} content={"내용내내용내용내용내용내용내용내"}/>
+                                        <ActivityCardBack title={title} mento={mento} member={member}
+                                                          content={"내용내내용내용내용내용내용내용내"}/>
                                     </div>
                                 </div>
                             </div>
