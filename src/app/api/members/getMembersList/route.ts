@@ -9,7 +9,14 @@ export async function GET(_: NextRequest) {
         RESULT_DATA: undefined
     }
 
-    apiResult.RESULT_DATA = await getAdminList();
+    const adminList = await getAdminList();
+    if(adminList === undefined || adminList.length == 0){
+        apiResult.RESULT_CODE = 100;
+        apiResult.RESULT_MSG = "An Error Occurred";
+        apiResult.RESULT_DATA = undefined;
+        return apiResult;
+    }
 
+    apiResult.RESULT_DATA = adminList;
     return NextResponse.json(apiResult, { status: 200 })
 }
