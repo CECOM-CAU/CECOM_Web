@@ -10,6 +10,7 @@ export interface Activity {
 }
 
 export interface ActivityItem {
+    content: string
     id: string
     member: Array<string>
     mentor: string
