@@ -1,7 +1,7 @@
 export interface API_RESULT {
     RESULT_CODE: number
     RESULT_MSG: string
-    RESULT_DATA: Activity | ActivityContent | Admin | Member | Photo | Thing | undefined
+    RESULT_DATA: Activity | ActivityContent | Array<Admin> | Member | Photo | Thing | undefined
 }
 
 export interface Activity {
@@ -48,7 +48,7 @@ export interface Admin {
 }
 
 export interface AdminItem {
-    member: string
+    member: Member
     role: string
 }
 

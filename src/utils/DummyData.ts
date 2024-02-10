@@ -57,42 +57,6 @@ export const ActivityContentData: ActivityContent = {
 }
 
 /**
- * Admin 관련 더미데이터
- */
-
-const Admin2023_1: AdminItem = {
-    member: "shiiinnnnsh",
-    role: "회장"
-}
-
-const Admin2023_2: AdminItem = {
-    member: "useful_min",
-    role: "부회장"
-}
-
-const Admin2024_1: AdminItem = {
-    member: "yuni_sang",
-    role: "회장"
-}
-
-const Admin2024_2: AdminItem = {
-    member: "vini_u",
-    role: "부회장"
-}
-
-// 2023 운영진 더미데이터
-export const Admin2023: Admin = {
-    list: [Admin2023_1, Admin2023_2, Admin2023_1, Admin2023_2],
-    year: 2023
-}
-
-// 2024 운영진 더미데이터
-export const Admin2024: Admin = {
-    list: [Admin2024_1, Admin2024_2, Admin2024_1, Admin2024_2],
-    year: 2023
-}
-
-/**
  * Member 관련 더미데이터
  */
 export const MemberData: Member = {
@@ -104,6 +68,43 @@ export const MemberData: Member = {
     name: "유용민",
     project: []
 }
+
+/**
+ * Admin 관련 더미데이터
+ */
+
+const Admin2023_1: AdminItem = {
+    member: MemberData,
+    role: "회장"
+}
+
+const Admin2023_2: AdminItem = {
+    member: MemberData,
+    role: "부회장"
+}
+
+const Admin2024_1: AdminItem = {
+    member: MemberData,
+    role: "회장"
+}
+
+const Admin2024_2: AdminItem = {
+    member: MemberData,
+    role: "부회장"
+}
+
+const Admin2023: Admin = {
+    list: [Admin2023_1, Admin2023_2, Admin2023_1, Admin2023_2],
+    year: 2023
+}
+
+const Admin2024: Admin = {
+    list: [Admin2024_1, Admin2024_2, Admin2024_1, Admin2024_2],
+    year: 2023
+}
+
+// 운영진 더미데이터
+export const AdminList: Array<Admin> = [Admin2024, Admin2023];
 
 /**
  * Thing 관련 더미데이터
