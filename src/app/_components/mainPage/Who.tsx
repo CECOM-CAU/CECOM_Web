@@ -15,8 +15,8 @@ const Who = () => {
         <div className="flex flex-row w-full items-center justify-center h-[90vh]">
             <div className="flex w-[1105px] flex-row items-center">
                 <div className="flex flex-col w-[435px]">
-                    <div className="font-gmarket-m text-[100px]">WHO</div>
-                    <div className="text-[100px]">WE ARE</div>
+                    <div className="font-gmarket-m text-[100px] h-[110px]">WHO</div>
+                    <div className="text-[100px] h-[130px]">WE ARE</div>
                 </div>
                 <div className="w-[570px] ml-[100px] z-20">
                     <div

@@ -5,7 +5,7 @@ const WhatWeDo = () => {
     return (
         <div className="flex flex-col items-center justify-center mt-[200px]">
             <div className="flex flex-col items-end w-[1105px] mb-[100px]">
-                <div className="flex justify-end w-[390px] font-gmarket-m text-[100px]">WHAT</div>
+                <div className="flex justify-end w-[390px] font-gmarket-m text-[100px] h-[110px]">WHAT</div>
                 <div className="text-[100px]">WE DO</div>
             </div>
             <div className="flex flex-col w-[1105px]">
