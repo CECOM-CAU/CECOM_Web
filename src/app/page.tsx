@@ -1,9 +1,19 @@
+import MainLogo from "@/app/_components/mainPage/MainLogo";
+import Who from "@/app/_components/mainPage/Who";
+import WhatWeDo from "@/app/_components/mainPage/WhatWeDO";
+
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <div className="flex flex-col items-center justify-center">
-                homePage
+        <main className="w-full h-[100vh] flex-col items-center justify-between z-0">
+            <div className="h-[100vh] w-full bg-gradient-to-br from-blue-100 to-transparent via-transparent">
+                <div className="h-[100vh] w-full bg-gradient-to-tl from-red-100 to-transparent via-transparent">
+                    <div className="flex flex-col w-full">
+                        <MainLogo/>
+                    </div>
+                </div>
             </div>
+            <Who/>
+            <WhatWeDo/>
         </main>
     )
 }
