@@ -25,6 +25,7 @@ export interface ActivityContent {
     photo: ActivityContentRoleItemPhoto
     role: Array<ActivityContentRoleItem>
     tag: Array<string>
+    title: string
 }
 
 export interface ActivityContentRoleItem {
