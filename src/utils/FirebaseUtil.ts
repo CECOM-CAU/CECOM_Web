@@ -3,6 +3,8 @@ import {collection, doc, Firestore, getDoc, getFirestore} from "@firebase/firest
 import dotenv from "dotenv";
 import {Activity, ActivityItem, Admin, AdminItem, Member} from "@/utils/Interfaces";
 import { getDocs } from "firebase/firestore";
+import * as fs from "fs";
+import * as buffer from "buffer";
 
 let firebaseApp: FirebaseApp | null = null;
 let firestoreDB: Firestore | null = null;
@@ -22,6 +24,17 @@ const initFirebase = () => {
     }
 }
 
+const getProjectThumbnail = (projectID: string) => {
+    const fileFullDir = `${process.env.FILE_DIR}/project/${projectID}/thumb.png`;
+    let fileBuffer: buffer.Buffer | undefined;
+    try {
+        fileBuffer = fs.readFileSync(fileFullDir);
+        return Buffer.from(fileBuffer!).toString("base64");
+    }catch(e){
+        return undefined;
+    }
+}
+
 export const getActivityList = async () => {
     initFirebase();
 
@@ -35,13 +48,18 @@ export const getActivityList = async () => {
     }
 
     for(const activityDoc of activityDocs.docs){
+        const thumbnailData = getProjectThumbnail(activityDoc.id);
+        if(thumbnailData === undefined){
+            continue;
+        }
+
         const activityItem: ActivityItem = {
             content: activityDoc.get("content"),
             id: activityDoc.id,
             member: activityDoc.get("members"),
             mentor: activityDoc.get("mentor"),
             tag: activityDoc.get("tag"),
-            thumbnail: activityDoc.get("thumbnail"),
+            thumbnail: thumbnailData!,
             title: activityDoc.get("title")
         }
 
