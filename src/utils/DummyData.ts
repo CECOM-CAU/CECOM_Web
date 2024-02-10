@@ -53,7 +53,8 @@ export const ActivityContentData: ActivityContent = {
             ],
             title: "Front-End"
         }
-    ]
+    ],
+    tag: ["#TEST", "#TAG"]
 }
 
 /**
