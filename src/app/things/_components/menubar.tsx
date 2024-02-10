@@ -19,25 +19,23 @@ const MenuBarDesktop = () => {
 
     return (
         <nav className="w-full">
-            <div className="flex flex-row justify-between h-50">
-                <div className="h-50 flex justify-center">
-                    <NavButton link="/All" isClick={All}>
-                        <div onClick={() => handleNavBTN(true,  false, false, false, false)}>All</div>
-                    </NavButton>
-                    <NavButton link="/Tools" isClick={Tools}>
-                        <div onClick={() => handleNavBTN(false,  true, false, false, false)}>Tools</div>
-                    </NavButton>
-                    <NavButton link="/Components" isClick={Components}>
-                        <div onClick={() => handleNavBTN(false,  false, true, false, false)}>Components</div>
-                    </NavButton>
-                    <NavButton link="/Printers" isClick={Printers}>
-                        <div onClick={() => handleNavBTN(false,  false, false, true, false)}>3D Printers</div>
-                    </NavButton>
-                    <NavButton link="/Board" isClick={Board}>
-                        <div onClick={() => handleNavBTN(false,  false, false, false, true)}>Board & Sensors</div>
-                    </NavButton>
+            <div className="flex flex-row justify-between h-50 flex justify-center">
+                <NavButton link="/All" isClick={All}>
+                    <div onClick={() => handleNavBTN(true,  false, false, false, false)}>All</div>
+                </NavButton>
+                <NavButton link="/Tools" isClick={Tools}>
+                    <div onClick={() => handleNavBTN(false,  true, false, false, false)}>Tools</div>
+                </NavButton>
+                <NavButton link="/Components" isClick={Components}>
+                    <div onClick={() => handleNavBTN(false,  false, true, false, false)}>Components</div>
+                </NavButton>
+                <NavButton link="/Printers" isClick={Printers}>
+                    <div onClick={() => handleNavBTN(false,  false, false, true, false)}>3D Printers</div>
+                </NavButton>
+                <NavButton link="/Board" isClick={Board}>
+                    <div onClick={() => handleNavBTN(false,  false, false, false, true)}>Board & Sensors</div>
+                </NavButton>
 
-                </div>
             </div>
         </nav>
     )
