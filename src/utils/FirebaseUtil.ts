@@ -30,6 +30,9 @@ export const getActivityList = async () => {
         data: []
     };
     const activityDocs = await getDocs(collection(firestoreDB!, "Activities"));
+    if(activityDocs.empty){
+        return activityList;
+    }
 
     for(const activityDoc of activityDocs.docs){
         const activityItem: ActivityItem = {
@@ -42,7 +45,12 @@ export const getActivityList = async () => {
             title: activityDoc.get("title")
         }
 
-        if(activityItem.id !== undefined){
+        if(activityItem.content !== undefined
+            && activityItem.member !== undefined
+            && activityItem.mentor !== undefined
+            && activityItem.tag !== undefined
+            && activityItem.thumbnail !== undefined
+            && activityItem.title !== undefined){
             activityList.count++;
             activityList.data.push(activityItem);
         }
