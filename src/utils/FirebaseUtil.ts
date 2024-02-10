@@ -1,7 +1,7 @@
 import {FirebaseApp, initializeApp} from "@firebase/app";
 import {collection, doc, Firestore, getDoc, getFirestore} from "@firebase/firestore";
 import dotenv from "dotenv";
-import {Admin, AdminItem, Member} from "@/utils/Interfaces";
+import {Activity, Admin, AdminItem, Member} from "@/utils/Interfaces";
 import { getDocs } from "firebase/firestore";
 
 let firebaseApp: FirebaseApp | null = null;
@@ -20,6 +20,17 @@ const initFirebase = () => {
         firebaseApp = initializeApp(firebaseConfig);
         firestoreDB = getFirestore(firebaseApp);
     }
+}
+
+export const getActivityList = async () => {
+    initFirebase();
+
+    const activityList: Activity = {
+        count: 0,
+        data: []
+    };
+
+    return activityList;
 }
 
 const getMemberData = async (memberID: string)  => {
