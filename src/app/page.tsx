@@ -1,6 +1,6 @@
 import MainLogo from "@/app/_components/mainPage/MainLogo";
 import Who from "@/app/_components/mainPage/Who";
-import WhatWeDo from "@/app/_components/mainPage/WhatWeDO";
+import WhatWeDo from "@/app/_components/mainPage/WhatWeDo";
 
 export default function Home() {
     return (
