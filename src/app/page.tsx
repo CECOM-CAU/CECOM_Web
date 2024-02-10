@@ -4,7 +4,8 @@ import WhatWeDo from "@/app/_components/mainPage/WhatWeDo";
 
 export default function Home() {
     return (
-        <main className="w-full h-[100vh] flex-col items-center justify-between z-0">
+        <main className="w-full flex-col items-center justify-between z-0">
+
             <div className="h-[100vh] w-full bg-gradient-to-br from-blue-100 to-transparent via-transparent">
                 <div className="h-[100vh] w-full bg-gradient-to-tl from-red-100 to-transparent via-transparent">
                     <div className="flex flex-col w-full">
