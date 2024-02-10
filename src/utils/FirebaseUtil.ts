@@ -1,7 +1,7 @@
 import {FirebaseApp, initializeApp} from "@firebase/app";
 import {collection, doc, Firestore, getDoc, getFirestore} from "@firebase/firestore";
 import dotenv from "dotenv";
-import {Activity, Admin, AdminItem, Member} from "@/utils/Interfaces";
+import {Activity, ActivityItem, Admin, AdminItem, Member} from "@/utils/Interfaces";
 import { getDocs } from "firebase/firestore";
 
 let firebaseApp: FirebaseApp | null = null;
@@ -29,6 +29,24 @@ export const getActivityList = async () => {
         count: 0,
         data: []
     };
+    const activityDocs = await getDocs(collection(firestoreDB!, "Activities"));
+
+    for(const activityDoc of activityDocs.docs){
+        const activityItem: ActivityItem = {
+            content: activityDoc.get("content"),
+            id: activityDoc.id,
+            member: activityDoc.get("members"),
+            mentor: activityDoc.get("mentor"),
+            tag: activityDoc.get("tag"),
+            thumbnail: activityDoc.get("thumbnail"),
+            title: activityDoc.get("title")
+        }
+
+        if(activityItem.id !== undefined){
+            activityList.count++;
+            activityList.data.push(activityItem);
+        }
+    }
 
     return activityList;
 }
