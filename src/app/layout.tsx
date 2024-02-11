@@ -1,6 +1,7 @@
 import type {Metadata} from 'next'
 import './globals.css'
 import {NavBar} from "@/app/_components/NavBar/NavBar";
+import {Footer} from "@/app/_components/Footer/Footer";
 
 export const metadata: Metadata = {
     title: 'CECOM',
@@ -13,10 +14,12 @@ export default function RootLayout(
 }) {
     return (
         <html lang="en">
-        <body className="flex bg-transparent ">
+        <body className="flex flex-col bg-transparent ">
             <NavBar/>
             {children}
+            <Footer/>
         </body>
+
         </html>
     )
 }

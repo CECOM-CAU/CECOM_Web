@@ -1,7 +1,7 @@
 'use client';
 import {useState} from "react";
-import {FaPlus} from "react-icons/fa6";
-
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
 const Who = () => {
     const [since, setSince] = useState<boolean>(true);
     const [goal, setGoal] = useState<boolean>(false);
@@ -29,7 +29,7 @@ const Who = () => {
                         {!since ?
                             <div className="flex justify-end duration-200"
                             >
-                                <FaPlus className="mr-[20px]" size={30}/>
+                                <FontAwesomeIcon icon={faPlus} size="2x" className="mr-[20px]" />
                             </div> :
                             <div
                                 className="ml-[10px] mr-[20px] my-[20px] duration-500">
@@ -58,7 +58,7 @@ const Who = () => {
                         {!goal ?
                             <div className="flex justify-end w-full duration-200">
 
-                                <FaPlus className=" mr-[20px]" size={30}/>
+                                <FontAwesomeIcon icon={faPlus} size="2x" className="mr-[20px]"/>
                             </div> :
                             <div className="ml-[10px] mr-[20px] my-[20px] duration-500">
                                 <div className="flex flex-row ">
@@ -82,7 +82,7 @@ const Who = () => {
                         </div>
                         {!member ?
                             <div className="flex justify-end w-full duration-200">
-                                <FaPlus className=" mr-[20px]" size={30}/>
+                                <FontAwesomeIcon icon={faPlus} size="2x" className="mr-[20px]"/>
                             </div> :
                             <div className="mr-[20px] my-[20px] ml-[10px] duration-500">
                                 <div className="flex flex-row">

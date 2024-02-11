@@ -10,7 +10,7 @@ interface Props {
 
 const NavButton = ({children, link, isClick}: Props) => {
     const NAV_BTN_STYLE_CLICKED = "px-4 py-2 rounded-3xl ml-[20px] mr-[20px] font-gmarket-m bg-primary-lightgray30 "
-    const NAV_BTN_STYLE_NORMAL = "px-4 py-2 mr-[20px] ml-[20px]"
+    const NAV_BTN_STYLE_NORMAL = "px-4 py-2 rounded-3xl mr-[20px] ml-[20px] hover:bg-primary-lightgray30"
     const [mounted, setMounted] = useState<boolean>(false);
     useEffect(() => {
         setMounted(true);

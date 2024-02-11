@@ -26,7 +26,9 @@ const TextBox = () => {
         <div className={'flex flex-col'}>
             <div className={'w-[200px] grid grid-cols-3 grid-rows-1 '}>
                 <span className={'text-[24px] col-span-2 font-gmarket-m'}>UNO 보드</span>
-                <span className={'h-[19px] w-[55px] place-self-center text-[12px] font-gmarket border bg-cover rounded-2xl border-0 bg-gray-300'}>#Board</span>
+                <div className={'self-center flex flex-col justify-center w-[55px] h-[21px] bg-cover rounded-2xl border-0 bg-gray-300'}>
+                    <span className={'place-self-center text-[12px] font-gmarket'}>#Board</span>
+                </div>
             </div>
             <div className={'mb-[10px]'}>
                 <hr className={'w-[200px] border-gray-500'}/>
