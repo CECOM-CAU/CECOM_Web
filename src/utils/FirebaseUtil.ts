@@ -110,6 +110,10 @@ export const getThingList = async () => {
         data: []
     };
     const thingDocs = await getDocs(collection(firestoreDB!, "Things"));
+    if(thingDocs.empty){
+        return thingList;
+    }
+
     for(const thingDoc of thingDocs.docs){
         const thingItem: ThingItem = {
             description: thingDoc.get("description"),
