@@ -1,7 +1,7 @@
 import {FirebaseApp, initializeApp} from "@firebase/app";
 import {collection, doc, Firestore, getDoc, getFirestore} from "@firebase/firestore";
 import dotenv from "dotenv";
-import {Activity, ActivityItem, Admin, AdminItem, Member, Thing} from "@/utils/Interfaces";
+import {Activity, ActivityItem, Admin, AdminItem, Member, Thing, ThingItem} from "@/utils/Interfaces";
 import {getDocs} from "firebase/firestore";
 import {getProjectThumbnail} from "@/app/api/_utils/FileUtil";
 
@@ -109,6 +109,24 @@ export const getThingList = async () => {
         count: 0,
         data: []
     };
+    const thingDocs = await getDocs(collection(firestoreDB!, "Things"));
+    for(const thingDoc of thingDocs.docs){
+        const thingItem: ThingItem = {
+            description: thingDoc.get("description"),
+            id: thingDoc.id,
+            name: thingDoc.get("name"),
+            photo: thingDoc.get("photo"),
+            tag: thingDoc.get("tag")
+        }
+
+        if(thingItem.description !== undefined
+            && thingItem.name !== undefined
+            && thingItem.photo !== undefined
+            && thingItem.tag !== undefined){
+            thingList.count++;
+            thingList.data.push(thingItem);
+        }
+    }
 
     return thingList;
 }
