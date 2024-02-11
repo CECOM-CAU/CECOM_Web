@@ -4,7 +4,6 @@ import {useState} from "react";
 import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub, faInstagram} from "@fortawesome/free-brands-svg-icons";
-import {faG} from "@fortawesome/free-solid-svg-icons";
 
 const InstaButton = ({role,member}:AdminItem) => {
     const [isClicked, setIsClicked] = useState(false)

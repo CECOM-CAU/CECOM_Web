@@ -102,7 +102,7 @@ const Admin2023: Admin = {
 
 const Admin2024: Admin = {
     list: [Admin2024_1, Admin2024_2, Admin2024_1, Admin2024_2],
-    year: 2023
+    year: 2024
 }
 
 // 운영진 더미데이터

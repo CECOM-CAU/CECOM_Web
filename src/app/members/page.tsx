@@ -2,7 +2,6 @@ import PageTitle from "@/app/_components/PageTitle";
 import MemberCard from "@/app/members/_components/flip";
 import {AdminList} from "@/utils/DummyData";
 import {Admin, AdminItem} from "@/utils/Interfaces";
-import Flip from "@/app/members/_components/flip";
 
 const MembersPage = () => {
     return (
@@ -11,7 +10,7 @@ const MembersPage = () => {
                 <PageTitle>Members</PageTitle>
             </div>
             <div className={'w-full flex flex-col items-center'}>
-                <span className={'mb-[30px] mt-[20px] text-[26px] font-gmarket-m'}>운영진</span>
+                <YearButton/>
                 <span className={'flex flex-row justify-center w-[1200px] flex-wrap'}>
                     {AdminList.map(({list,year}:Admin)=>(
                         list.map(({member,role}:AdminItem)=>(
@@ -22,6 +21,20 @@ const MembersPage = () => {
             </div>
         </div>
     );
+}
+
+const YearButton = () => {
+    return (
+        <div className="mb-[20px] grid w-[70px] h-[30px]">
+                <select color={'transparent'} className="font-gmarket-m text-[16px] border-0 rounded-xl row-start-1 col-start-1 bg-gray-200">
+                        {AdminList.map(({list,year}:Admin)=>(
+                            <option value='year' className="border-0 font-gmarket-l">{year}</option>
+                        ))}
+                </select>
+        </div>
+    );
+}
+const style = () => {
 }
 
 export default MembersPage;
