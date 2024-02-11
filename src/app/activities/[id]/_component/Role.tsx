@@ -5,7 +5,7 @@ import Member from "@/app/activities/[id]/_component/Member";
 
 const Role = ({member, title}: ActivityContentRoleItem) => {
     return (
-        <div className="flex flex-row my-[10px]">
+        <div className="flex flex-row my-[12px]">
             <div className="text-[20px] font-gmarket-m">{title}</div>
             <div className="text-[20px] font-gmarket-m mx-[10px]">&#124;</div>
             {member.map(({icon, name, url}: ActivityContentRoleItemMember) => (
