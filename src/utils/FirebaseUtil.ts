@@ -5,6 +5,7 @@ import {Activity, ActivityItem, Admin, AdminItem, Member} from "@/utils/Interfac
 import { getDocs } from "firebase/firestore";
 import * as fs from "fs";
 import * as buffer from "buffer";
+import {getProjectThumbnail} from "@/app/api/_utils/FileUtil";
 
 let firebaseApp: FirebaseApp | null = null;
 let firestoreDB: Firestore | null = null;
@@ -21,17 +22,6 @@ const initFirebase = () => {
     if(firebaseApp == null || firestoreDB == null){
         firebaseApp = initializeApp(firebaseConfig);
         firestoreDB = getFirestore(firebaseApp);
-    }
-}
-
-const getProjectThumbnail = (projectID: string) => {
-    const fileFullDir = `${process.env.FILE_DIR}/project/${projectID}/thumb.png`;
-    let fileBuffer: buffer.Buffer | undefined;
-    try {
-        fileBuffer = fs.readFileSync(fileFullDir);
-        return Buffer.from(fileBuffer!).toString("base64");
-    }catch(e){
-        return undefined;
     }
 }
 
