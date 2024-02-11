@@ -1,16 +1,47 @@
 import Projectname from "@/app/members/_components/projectname";
 import {AdminItem} from "@/utils/Interfaces";
+import {useState} from "react";
+import Link from "next/link";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faGithub, faInstagram} from "@fortawesome/free-brands-svg-icons";
+import {faG} from "@fortawesome/free-solid-svg-icons";
 
+const InstaButton = ({role,member}:AdminItem) => {
+    const [isClicked, setIsClicked] = useState(false)
+    const HandlePj = () => {
+        setIsClicked(!isClicked);
+    }
+    return(
+        <div onClick={() => HandlePj}>
+            <Link href={member.instagram}>
+                <FontAwesomeIcon icon={faInstagram} size="xl" className="ml-[-9px]"/>
+            </Link>
+        </div>
+    );
+}
+const GitButton = ({role,member}:AdminItem) => {
+    const [isClicked, setIsClicked] = useState(false)
+    const HandlePj = () => {
+        setIsClicked(!isClicked);
+    }
+    return(
+        <div onClick={() => HandlePj}>
+            <Link href={member.github}>
+                <FontAwesomeIcon icon={faGithub} size="xl" className="ml-[-9px]"/>
+            </Link>
+        </div>
+    );
+}
 const MemberBackCard = ({member,role}:AdminItem) => {
     return (
         <div className={'pt-[40px] pl-[20px] w-[260px] h-[400px] mr-[20px] mb-[20px] border-0 rounded-lg shadow-xl'}>
             <div className={'flex flex-col'}>
-                <img className={'w-[63px] h-[69px]'} src="" alt="BackIcon"/>
+                <img className={'w-[63px] h-[69px]'} src="/MemberBack.jpg" alt="BackIcon"/>
                 <div className={'flex flex-col mt-[8px]'}>
                     <div className={'h-[28px] w-[140px] grid grid-cols-5 grid-rows-1 items-end'}>
                         <span className={'col-span-3 text-[24px] h-[28px] font-gmarket-m mr-[5px]'}>{member.name}</span>
-                        <img className={'ml-[-9px] h-[25px]'} src={member.instagram} alt="Instagram"/>
-                        <img className={'ml-[-9px] mb-[2px] h-[22px]'} src={member.github} alt="Github"/>
+                        <InstaButton member={member} role={role}/>
+                        <GitButton member={member} role={role}/>
                     </div>
                     <div className={'mt-[8px] flex flex-col'}>
                         <div className={'flex flex-row items-center'}>
