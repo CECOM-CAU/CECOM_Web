@@ -14,11 +14,12 @@ export default function RootLayout(
 }) {
     return (
         <html lang="en">
-        <body className="flex bg-transparent ">
+        <body className="flex flex-col bg-transparent ">
             <NavBar/>
             {children}
+            <Footer/>
         </body>
-        <Footer/>
+
         </html>
     )
 }
