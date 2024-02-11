@@ -3,7 +3,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub, faInstagram} from "@fortawesome/free-brands-svg-icons";
 const FooterDesktop = () => {
     return (
-        <div className="w-full flex flex-col justify-center items-center h-[300px] mt-[150px]">
+        <div className="w-full flex flex-col justify-center items-center h-[300px] mt-[100px]">
             <div className="flex flex-row justify-center mb-[30px]">
 
                 <FontAwesomeIcon icon={faInstagram} size="2x" className="mr-[20px]" />
