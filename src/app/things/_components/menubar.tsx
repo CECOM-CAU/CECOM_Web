@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Link from "next/link";
 import NavButton from "@/app/_components/NavBar/NavButton";
+import MenuBTN from "@/app/activities/_components/MenuBTN";
 
 
 const MenuBarDesktop = () => {
@@ -18,26 +19,21 @@ const MenuBarDesktop = () => {
     }
 
     return (
-        <nav className="w-full">
-            <div className="flex flex-row justify-between h-50">
-                <div className="h-50 flex justify-center">
-                    <NavButton link="/All" isClick={All}>
-                        <div onClick={() => handleNavBTN(true,  false, false, false, false)}>All</div>
-                    </NavButton>
-                    <NavButton link="/Tools" isClick={Tools}>
-                        <div onClick={() => handleNavBTN(false,  true, false, false, false)}>Tools</div>
-                    </NavButton>
-                    <NavButton link="/Components" isClick={Components}>
-                        <div onClick={() => handleNavBTN(false,  false, true, false, false)}>Components</div>
-                    </NavButton>
-                    <NavButton link="/Printers" isClick={Printers}>
-                        <div onClick={() => handleNavBTN(false,  false, false, true, false)}>3D Printers</div>
-                    </NavButton>
-                    <NavButton link="/Board" isClick={Board}>
-                        <div onClick={() => handleNavBTN(false,  false, false, false, true)}>Board & Sensors</div>
-                    </NavButton>
-
-                </div>
+        <nav className="w-full gap-x-[40px] flex flex-row justify-between h-50">
+            <div onClick={() => handleNavBTN(true,  false, false, false, false)}>
+                <MenuBTN isClicked={All}>ALL</MenuBTN>
+            </div>
+            <div onClick={() => handleNavBTN(false,  true, false, false, false)}>
+                <MenuBTN isClicked={Tools}>Tools</MenuBTN>
+            </div>
+            <div onClick={() => handleNavBTN(false,  false, true, false, false)}>
+                <MenuBTN isClicked={Components}>Components</MenuBTN>
+            </div>
+            <div onClick={() => handleNavBTN(false,  false, false, true, false)}>
+                <MenuBTN isClicked={Printers}>3D Printer</MenuBTN>
+            </div>
+            <div onClick={() => handleNavBTN(false,  false, false, false, true)}>
+                <MenuBTN isClicked={Board}>Board & Sensors</MenuBTN>
             </div>
         </nav>
     )

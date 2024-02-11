@@ -6,16 +6,15 @@ const SmallBox = ({description, id, name, photo, tag}:ThingItem) => {
             <img className={'h-[100px] m-[20px]'} src="/Thingsphoto.jpg" alt="Things"/>
             <div className={'mt-[20px] mr-[30px] mb-[20px]'}>
                 <div className={'flex flex-col'}>
-                    <div className={'w-[200px] grid grid-cols-3 grid-rows-1 '}>
-                        <span className={'text-[24px] col-span-2 font-gmarket-m'}>{name}</span>
-                        <div className={'h-[20px] w-[55px] flex bg-cover rounded-2xl border-0 bg-gray-300'}>
-                            <span className={'ml-[3px] text-[12px] place-self-center font-gmarket'}>{tag}</span>
-                        </div>
+                    <div className={'w-[200px] flex flex-row gap-x-[10px]'}>
+                        <span className={'max-w-[130px] text-wrap text-[24px] font-gmarket-m'}>{name}</span>
+                        <span className={'px-[5px] py-[1px] rounded-2xl border-0 bg-gray-300 ' +
+                            'text-[12px] place-self-center font-gmarket'}>{tag}</span>
                     </div>
                     <div className={'mb-[10px]'}>
-                        <hr className={'w-[200px] border-gray-500'}/>
+                        <hr className={'w-[220px] border-gray-500'}/>
                     </div>
-                    <span className={'text-wrap w-[180px] text-[15px] font-gmarket'}>{description}</span>
+                    <span className={'text-wrap w-[200px] text-[15px] font-gmarket'}>{description}</span>
                 </div>
             </div>
         </div>
