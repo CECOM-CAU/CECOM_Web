@@ -1,10 +1,14 @@
 import axios from "axios";
+import {setDefaultResultOrder} from "dns";
 
 export const getProjectThumbnail = async (projectID: string) => {
     try{
-        const res = await axios.get(`http://127.0.0.1:3001/getImage/${projectID}/thumb.png`);
+        setDefaultResultOrder("ipv4first");
+        const res = await axios.get(`http://localhost:3001/getImage/${projectID}/thumb.png`);
+        console.log(res);
         return res.data;
     }catch(e){
+        console.log(e);
         return undefined;
     }
 }
