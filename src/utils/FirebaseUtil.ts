@@ -3,7 +3,7 @@ import {collection, doc, Firestore, getDoc, getFirestore} from "@firebase/firest
 import dotenv from "dotenv";
 import {Activity, ActivityItem, Admin, AdminItem, Member, Thing, ThingItem} from "@/utils/Interfaces";
 import {getDocs} from "firebase/firestore";
-import {getProjectThumbnail} from "@/app/api/_utils/FileUtil";
+import {getProjectThumbnail} from "@/utils/FileUtil";
 
 let firebaseApp: FirebaseApp | null = null;
 let firestoreDB: Firestore | null = null;
@@ -36,7 +36,7 @@ export const getActivityList = async () => {
     }
 
     for(const activityDoc of activityDocs.docs){
-        const thumbnailData = getProjectThumbnail(activityDoc.id);
+        const thumbnailData = await getProjectThumbnail(activityDoc.id);
         if(thumbnailData === undefined){
             continue;
         }
