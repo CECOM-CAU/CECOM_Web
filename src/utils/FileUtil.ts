@@ -1,13 +1,6 @@
-import buffer from "buffer";
-import fs from "fs";
+import axios from "axios";
 
-export const getProjectThumbnail = (projectID: string) => {
-    const fileFullDir = `${process.env.FILE_DIR}/project/${projectID}/thumb.png`;
-    let fileBuffer: buffer.Buffer | undefined;
-    try {
-        fileBuffer = fs.readFileSync(fileFullDir);
-        return Buffer.from(fileBuffer!).toString("base64");
-    }catch(e){
-        return undefined;
-    }
+export const getProjectThumbnail = async (projectID: string) => {
+    const res = await axios.get(`http://127.0.0.1:3001/getImage/${projectID}/thumb.png`);
+    return res.data;
 }
