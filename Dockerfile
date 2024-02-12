@@ -6,7 +6,12 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+RUN rm -rf AddOnServer
 RUN npm run build
+
+COPY AddOnServer ./addon
+RUN cd addon && npm install
+RUN cd addon && npm run build
 
 FROM node:18.18.2
 WORKDIR /app
@@ -22,9 +27,11 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+COPY --from=builder --chown=nextjs:nodejs /app/addon ./addon
+
 USER nextjs
 
 EXPOSE 3000
 ENV PORT 3000
 
-CMD ["node", "server.js"]
+CMD ["/bin/bash", "-c", "nohup node addon/build/index.js & node server.js"]
