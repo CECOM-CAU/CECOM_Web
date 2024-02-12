@@ -22,8 +22,14 @@ app.get("/getImage/:projectID/:fileName", (req: Request, res: Response) => {
     }
 });
 
-app.get("/getPost", (req: Request, res: Response) => {
-    res.send("Get Post");
+app.get("/getPost/:projectID", (req: Request, res: Response) => {
+    const params = req.params;
+    const filePath = `${process.env.FILE_DIR}/project/${params.projectID}/post.md`;
+    try{
+        res.send(`${fs.readFileSync(filePath, "utf-8")}`);
+    }catch(e){
+        res.sendStatus(500);
+    }
 });
 
 server.listen(3001, "0.0.0.0", () => {
