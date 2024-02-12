@@ -9,9 +9,13 @@ const server = http.createServer(app);
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 
-app.get("/", (req: Request, res: Response) => {
-    res.send("Hello, World!");
+app.get("/getImage", (req: Request, res: Response) => {
+    res.send("Get Image");
 });
+
+app.get("/getPost", (req: Request, res: Response) => {
+    res.send("Get Post");
+})
 
 server.listen(3001, "0.0.0.0", () => {
     console.log("Server listen on port 3001");
