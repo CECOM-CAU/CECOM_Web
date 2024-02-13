@@ -34,4 +34,4 @@ USER nextjs
 EXPOSE 3000
 ENV PORT 3000
 
-CMD ["/bin/bash", "-c", "nohup node addon/build/index.js & node server.js"]
+CMD ["/bin/bash", "-c", "nohup node addon/build/index.js & LOCALHOST_IP=$(hostname -I | tr -d ' ') node server.js"]
