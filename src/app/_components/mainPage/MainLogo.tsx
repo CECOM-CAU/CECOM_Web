@@ -2,7 +2,7 @@ const MainLogo = () => {
     const thin = "flex text-[80px] h-[100px] mr-[20px]";
     const bold = "flex text-[80px] h-[100px] font-gmarket-m";
     return (
-        <div className="flex flex-col justify-center x-[50vh] h-[100vh]">
+        <div className="flex flex-col justify-center x-[962px] h-[100vh]">
             <div className="flex flex-row">
                 <div className={thin}>That's</div>
                 <div className={bold}>crazy idea,</div>
