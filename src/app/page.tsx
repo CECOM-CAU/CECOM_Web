@@ -8,7 +8,7 @@ export default function Home() {
 
             <div className="h-[100vh] w-full bg-gradient-to-br from-blue-100 to-transparent via-transparent">
                 <div className="h-[100vh] w-full bg-gradient-to-tl from-red-100 to-transparent via-transparent">
-                    <div className="flex flex-col w-full ml-[300px]">
+                    <div className="flex flex-col w-full pl-[300px]">
                         <MainLogo/>
                     </div>
                 </div>
