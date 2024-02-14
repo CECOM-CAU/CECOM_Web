@@ -1,6 +1,7 @@
 import {NextRequest, NextResponse} from "next/server";
 import {API_RESULT} from "@/utils/Interfaces";
 import {getThingList} from "@/utils/FirebaseUtil";
+import {corsHeader} from "@/utils/CorsUtil";
 
 export async function GET(_: NextRequest) {
     const apiResult: API_RESULT = {
@@ -14,9 +15,9 @@ export async function GET(_: NextRequest) {
         apiResult.RESULT_CODE = 100;
         apiResult.RESULT_MSG = "An Error Occurred";
         apiResult.RESULT_DATA = undefined;
-        return NextResponse.json(apiResult, { status: 200 });
+        return NextResponse.json(apiResult, { status: 200, headers: corsHeader });
     }
 
     apiResult.RESULT_DATA = thingList;
-    return NextResponse.json(apiResult, { status: 200 })
+    return NextResponse.json(apiResult, { status: 200, headers: corsHeader })
 }
