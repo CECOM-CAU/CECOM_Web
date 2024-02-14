@@ -8,7 +8,7 @@ const ActivityCardBack = ({content, member, mentor, tag, thumbnail, title, id}: 
             <div className="flex flex-row items-center mt-[10px]">
                 <div className="text-[15px] font-gmarket-m">{mentor}</div>
                 <div className="mx-[10px] font-gmarket-m">|</div>
-                <div className="text-[13px] font-gmarket-l"> {member}</div>
+                <div className="text-[13px] font-gmarket-l"> {members}</div>
             </div>
             <div className="text-[12px] mt-[10px] truncate text-pretty ">{content}</div>
             <div></div>
