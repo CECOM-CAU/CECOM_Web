@@ -1,5 +1,6 @@
 import {NextRequest, NextResponse} from "next/server";
 import {API_RESULT} from "@/utils/Interfaces";
+import {corsHeader} from "@/utils/CorsUtil";
 
 export async function GET(_: NextRequest, {params}: {params: {id: string}}) {
     const apiResult: API_RESULT = {
@@ -8,5 +9,5 @@ export async function GET(_: NextRequest, {params}: {params: {id: string}}) {
         RESULT_DATA: undefined
     }
 
-    return NextResponse.json(apiResult, { status: 200 })
+    return NextResponse.json(apiResult, { status: 200, headers: corsHeader })
 }
