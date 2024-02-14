@@ -1,8 +1,9 @@
 import {FirebaseApp, initializeApp} from "@firebase/app";
 import {collection, doc, Firestore, getDoc, getFirestore} from "@firebase/firestore";
 import dotenv from "dotenv";
-import {Admin, AdminItem, Member} from "@/utils/Interfaces";
-import { getDocs } from "firebase/firestore";
+import {Activity, ActivityItem, Admin, AdminItem, Member, Thing, ThingItem} from "@/utils/Interfaces";
+import {getDocs} from "firebase/firestore";
+import {getProjectThumbnail} from "@/utils/FileUtil";
 
 let firebaseApp: FirebaseApp | null = null;
 let firestoreDB: Firestore | null = null;
@@ -20,6 +21,48 @@ const initFirebase = () => {
         firebaseApp = initializeApp(firebaseConfig);
         firestoreDB = getFirestore(firebaseApp);
     }
+}
+
+export const getActivityList = async () => {
+    initFirebase();
+
+    const activityList: Activity = {
+        count: 0,
+        data: []
+    };
+    const activityDocs = await getDocs(collection(firestoreDB!, "Activities"));
+    if(activityDocs.empty){
+        return activityList;
+    }
+
+    for(const activityDoc of activityDocs.docs){
+        const thumbnailData = await getProjectThumbnail(activityDoc.id);
+        if(thumbnailData === undefined){
+            continue;
+        }
+
+        const activityItem: ActivityItem = {
+            content: activityDoc.get("content"),
+            id: activityDoc.id,
+            member: activityDoc.get("members"),
+            mentor: activityDoc.get("mentor"),
+            tag: activityDoc.get("tag"),
+            thumbnail: thumbnailData!,
+            title: activityDoc.get("title")
+        }
+
+        if(activityItem.content !== undefined
+            && activityItem.member !== undefined
+            && activityItem.mentor !== undefined
+            && activityItem.tag !== undefined
+            && activityItem.thumbnail !== undefined
+            && activityItem.title !== undefined){
+            activityList.count++;
+            activityList.data.push(activityItem);
+        }
+    }
+
+    return activityList;
 }
 
 const getMemberData = async (memberID: string)  => {
@@ -57,4 +100,37 @@ export const getAdminList = async () => {
     }
 
     return adminList;
+}
+
+export const getThingList = async () => {
+    initFirebase();
+
+    const thingList: Thing = {
+        count: 0,
+        data: []
+    };
+    const thingDocs = await getDocs(collection(firestoreDB!, "Things"));
+    if(thingDocs.empty){
+        return thingList;
+    }
+
+    for(const thingDoc of thingDocs.docs){
+        const thingItem: ThingItem = {
+            description: thingDoc.get("description"),
+            id: thingDoc.id,
+            name: thingDoc.get("name"),
+            photo: thingDoc.get("photo"),
+            tag: thingDoc.get("tag")
+        }
+
+        if(thingItem.description !== undefined
+            && thingItem.name !== undefined
+            && thingItem.photo !== undefined
+            && thingItem.tag !== undefined){
+            thingList.count++;
+            thingList.data.push(thingItem);
+        }
+    }
+
+    return thingList;
 }

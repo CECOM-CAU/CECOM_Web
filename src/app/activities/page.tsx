@@ -42,7 +42,6 @@ const ActivitiesPage = () => {
                     {
                         ActivityListData.data.map(({content, member, mentor, tag, thumbnail, title, id}: ActivityItem) => (
                             <ActivityCard content={content} member={member} mentor={mentor} tag={tag} thumbnail={thumbnail} title={title} id={id}/>
-
                         ))
                     }
                 </div>
