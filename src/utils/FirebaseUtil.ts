@@ -1,9 +1,19 @@
 import {FirebaseApp, initializeApp} from "@firebase/app";
 import {collection, doc, Firestore, getDoc, getFirestore} from "@firebase/firestore";
 import dotenv from "dotenv";
-import {Activity, ActivityContent, ActivityItem, Admin, AdminItem, Member, Thing, ThingItem} from "@/utils/Interfaces";
+import {
+    Activity,
+    ActivityContent,
+    ActivityContentPhoto,
+    ActivityItem,
+    Admin,
+    AdminItem,
+    Member,
+    Thing,
+    ThingItem
+} from "@/utils/Interfaces";
 import {getDocs} from "firebase/firestore";
-import {getProjectThumbnail} from "@/utils/FileUtil";
+import {getActivityContent, getActivityPhoto, getActivityThumbnail} from "@/utils/FileUtil";
 
 let firebaseApp: FirebaseApp | null = null;
 let firestoreDB: Firestore | null = null;
@@ -36,7 +46,7 @@ export const getActivityList = async () => {
     }
 
     for(const activityDoc of activityDocs.docs){
-        const thumbnailData = await getProjectThumbnail(activityDoc.id);
+        const thumbnailData = await getActivityThumbnail(activityDoc.id);
         if(thumbnailData === undefined){
             continue;
         }
@@ -65,10 +75,35 @@ export const getActivityList = async () => {
     return activityList;
 }
 
-export const getActivityData = (activityID: string) => {
+const getActivityPhotos = async (activityID: string, photoCnt: number) => {
+    const photoData: ActivityContentPhoto = {
+        count: 0,
+        data: []
+    }
+
+    for(let photoIdx = 1; photoIdx <= photoCnt; photoIdx++){
+        const photoItem = await getActivityPhoto(activityID, photoIdx);
+        if(photoItem !== undefined){
+            photoCnt++;
+            photoData.data.push(photoItem);
+        }
+    }
+
+    return photoData;
+}
+
+export const getActivityData = async (activityID: string) => {
     initFirebase();
 
-    const activityContent: ActivityContent | undefined = undefined;
+    const activityDoc = await getDoc(doc(firestoreDB!, "Activities", activityID));
+    const activityContent: ActivityContent = {
+        content: await getActivityContent(activityID),
+        id: activityDoc.id,
+        photo: await getActivityPhotos(activityID, activityDoc.get("photoCnt")),
+        role: activityDoc.get("role"),
+        tag: activityDoc.get("tag"),
+        title: activityDoc.get("title")
+    }
 
     return activityContent;
 }
