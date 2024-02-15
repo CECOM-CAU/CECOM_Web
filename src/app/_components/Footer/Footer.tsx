@@ -1,4 +1,3 @@
-import NavBarDesktop from "@/app/_components/NavBar/NavBarDesktop";
 import FooterDesktop from "@/app/_components/Footer/FooterDesktop";
 
 export const Footer = () => {
