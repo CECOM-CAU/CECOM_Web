@@ -55,10 +55,10 @@ export interface AdminItem {
 }
 
 export interface MainImage {
-    event: string
-    mentoring: string
-    project: string
-    study: string
+    event: string | undefined
+    mentoring: string | undefined
+    project: string | undefined
+    study: string | undefined
 }
 
 export interface Member {
