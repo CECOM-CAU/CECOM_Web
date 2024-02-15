@@ -1,10 +1,11 @@
 "use client";
 import PageTitle from "@/app/_components/PageTitle";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {ActivityListData} from "@/utils/DummyData";
-import {ActivityItem} from "@/utils/Interfaces";
+import {Activity, ActivityItem} from "@/utils/Interfaces";
 import MenuBTN from "@/app/activities/_components/MenuBTN";
 import ActivityCard from "@/app/activities/_components/ActivityCard";
+import axios from "axios";
 
 
 const ActivitiesPage = () => {
@@ -12,13 +13,60 @@ const ActivitiesPage = () => {
     const [project, setProject] = useState<boolean>(false);
     const [mentoring, setMentoring] = useState<boolean>(false);
     const [study, setStudy] = useState<boolean>(false);
+    const [activityList, setActivityList] = useState<ActivityItem[]>([]);
+    const [menuList, setMenuList] = useState<ActivityItem[]>([]);
+    const [projectList, setProjectList] = useState<ActivityItem[]>([]);
+    const [mentoringList, setMentoringList] = useState<ActivityItem[]>([]);
+    const [studyList, setStudyList] = useState<ActivityItem[]>([]);
+    const MenuData = (isAll: boolean, isProject: boolean, isMentoring: boolean, isStudy: boolean) => {
+        if (isAll) {
+            setMenuList(activityList);
+        } else if (isProject) {
+            setMenuList(projectList);
+        } else if (isMentoring) {
+            setMenuList(mentoringList);
+        } else if (isStudy) {
+            setMenuList(studyList);
+        }
+    }
     const handleMenuBtn = (isAll: boolean, isProject: boolean, isMentoring: boolean, isStudy: boolean) => {
         setAll(isAll);
         setProject(isProject);
         setMentoring(isMentoring);
         setStudy(isStudy);
+        MenuData(isAll, isProject, isMentoring, isStudy);
+    };
 
-    }
+    useEffect(() => {
+        axios.get('/api/activities/getActivitiesList')
+            .then((res) => {
+                setActivityList(res.data.RESULT_DATA.data);
+                setMenuList(res.data.RESULT_DATA.data);
+                makeArray(res.data.RESULT_DATA.data);
+            }).catch((err) => {
+            console.log(err);
+        })
+    }, []);
+
+    const makeArray = (data: ActivityItem[]) => {
+        if ((projectList.length === 0) &&
+            (mentoringList.length === 0) && (studyList.length === 0)) {
+
+            console.log(projectList);
+            data.forEach((item: ActivityItem) => {
+                if ('Project' === item.tag[0]) {
+                    projectList.push(item);
+                }
+                if ('Mentoring' === item.tag[0]) {
+                    mentoringList.push(item);
+                }
+                if ('Study' === item.tag[0]) {
+                    studyList.push(item);
+                }
+            });
+            console.log(projectList);
+        }
+    };
     return (
         <div className="w-full flex flex-col">
             <PageTitle>Activities</PageTitle>
@@ -40,8 +88,17 @@ const ActivitiesPage = () => {
                 <div
                     className="grid container max-w-[1300px] grid-cols-4 grid-flow-row gap-[10px] justify-items-center">
                     {
-                        ActivityListData.data.map(({content, member, mentor, tag, thumbnail, title, id}: ActivityItem) => (
-                            <ActivityCard content={content} member={member} mentor={mentor} tag={tag} thumbnail={thumbnail} title={title} id={id}/>
+                        menuList.map(({
+                                          content,
+                                          member,
+                                          mentor,
+                                          tag,
+                                          thumbnail,
+                                          title,
+                                          id
+                                      }: ActivityItem) => (
+                            <ActivityCard content={content} member={member} mentor={mentor} tag={tag}
+                                          thumbnail={`data:image/png;base64,${thumbnail}`} title={title} id={id}/>
                         ))
                     }
                 </div>
