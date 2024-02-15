@@ -22,7 +22,7 @@ export interface ActivityItem {
 export interface ActivityContent {
     content: string
     id: string
-    photo: ActivityContentRoleItemPhoto
+    photo: ActivityContentPhoto
     role: Array<ActivityContentRoleItem>
     tag: Array<string>
     title: string
@@ -39,7 +39,7 @@ export interface ActivityContentRoleItemMember {
     url: string
 }
 
-export interface ActivityContentRoleItemPhoto {
+export interface ActivityContentPhoto {
     count: number,
     data: Array<string>
 }
