@@ -11,14 +11,14 @@ const ActivityCard = ({content, member, mentor, tag, thumbnail, title, id}: Acti
                     className="transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                     <div className="">
                         <ActivityCardFront content={content} id={id} member={member} mentor={mentor} tag={tag}
-                                           thumbnail={"https://velog.velcdn.com/images/kk1112k/post/3c313eca-0dbc-4cd5-b5f8-1ee2f41657d6/79351df114d5d8fa958cbc2065df6877.jpg"}
+                                           thumbnail={thumbnail}
                                            title={title}/>
                     </div>
 
                     <div
                         className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]">
                         <ActivityCardBack title={title} id={id} mentor={mentor} member={member} tag={tag}
-                                          thumbnail={"https://velog.velcdn.com/images/kk1112k/post/3c313eca-0dbc-4cd5-b5f8-1ee2f41657d6/79351df114d5d8fa958cbc2065df6877.jpg"}
+                                          thumbnail={thumbnail}
                                           content={content}/>
                     </div>
                 </div>
