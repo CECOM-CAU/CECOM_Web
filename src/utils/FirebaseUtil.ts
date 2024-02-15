@@ -1,7 +1,7 @@
 import {FirebaseApp, initializeApp} from "@firebase/app";
 import {collection, doc, Firestore, getDoc, getFirestore} from "@firebase/firestore";
 import dotenv from "dotenv";
-import {Activity, ActivityItem, Admin, AdminItem, Member, Thing, ThingItem} from "@/utils/Interfaces";
+import {Activity, ActivityContent, ActivityItem, Admin, AdminItem, Member, Thing, ThingItem} from "@/utils/Interfaces";
 import {getDocs} from "firebase/firestore";
 import {getProjectThumbnail} from "@/utils/FileUtil";
 
@@ -63,6 +63,14 @@ export const getActivityList = async () => {
     }
 
     return activityList;
+}
+
+export const getActivityData = (activityID: string) => {
+    initFirebase();
+
+    const activityContent: ActivityContent | undefined = undefined;
+
+    return activityContent;
 }
 
 const getMemberData = async (memberID: string)  => {
