@@ -18,5 +18,6 @@ export async function GET(_: NextRequest, {params}: {params: {id: string}}) {
         return NextResponse.json(apiResult, {status: 200, headers: corsHeader});
     }
 
+    apiResult.RESULT_DATA = activityData;
     return NextResponse.json(apiResult, { status: 200, headers: corsHeader });
 }
