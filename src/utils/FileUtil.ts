@@ -2,7 +2,7 @@ import axios from "axios";
 import {setDefaultResultOrder} from "dns";
 import {unstable_noStore} from "next/cache";
 
-export const getProjectThumbnail = async (projectID: string) => {
+export const getActivityThumbnail = async (projectID: string) => {
     unstable_noStore();
     try{
         setDefaultResultOrder("ipv4first");
