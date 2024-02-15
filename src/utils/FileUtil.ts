@@ -13,11 +13,11 @@ export const getActivityPhoto = async (activityID: string, photoIdx: number) => 
     }
 }
 
-export const getActivityThumbnail = async (projectID: string) => {
+export const getActivityThumbnail = async (activityID: string) => {
     unstable_noStore();
     try{
         setDefaultResultOrder("ipv4first");
-        const res = await axios.get(`http://${process.env.LOCALHOST_IP}:3001/getImage/${projectID}/thumb.png`);
+        const res = await axios.get(`http://${process.env.LOCALHOST_IP}:3001/getImage/${activityID}/thumb.png`);
         return res.data;
     }catch(e){
         return undefined;
