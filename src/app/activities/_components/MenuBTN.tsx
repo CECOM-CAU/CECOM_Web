@@ -6,8 +6,8 @@ interface props{
 
 }
 const MenuBTN = ({children, isClicked}:props) => {
-    const NAV_BTN_STYLE_CLICKED = "text-xl rounded-3xl ml-[20px] mr-[20px] font-gmarket-b"
-    const NAV_BTN_STYLE_NORMAL = "flex justify-center mx-[10px] text-xl";
+    const NAV_BTN_STYLE_CLICKED = "text-xl rounded-3xl mx-[15px] font-gmarket-m"
+    const NAV_BTN_STYLE_NORMAL = "flex justify-center mx-[15px] text-xl";
     return (
 
         <div className={isClicked?NAV_BTN_STYLE_CLICKED:NAV_BTN_STYLE_NORMAL}>
