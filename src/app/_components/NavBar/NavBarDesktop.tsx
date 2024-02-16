@@ -23,7 +23,7 @@ const NavBarDesktop = () => {
         } else if (params === "things") {
             handleNavBTN(false, false, true)
         }
-    },[params]);
+    }, [params]);
 
     return (
         <nav className="w-full bg-white">
@@ -35,24 +35,16 @@ const NavBarDesktop = () => {
                     </Link>
                 </div>
                 <div className="mr-[50px] h-30 flex justify-end items-center ">
-                    <div >
-                        <NavButton link="/activities" isClick={activity}>
-                            Activities
-                        </NavButton>
-                    </div>
-                    <div >
-                        <NavButton link="/members" isClick={member}>
-                            Members
-                        </NavButton>
-                    </div>
-                    <div >
-                        <NavButton link="/things" isClick={thing}>
-                            Things
-                        </NavButton>
-                    </div>
-                    <div >
-                        <RecruitBTN link="/">Recruit</RecruitBTN>
-                    </div>
+                    <NavButton link="/activities" isClick={activity}>
+                        Activities
+                    </NavButton>
+                    <NavButton link="/members" isClick={member}>
+                        Members
+                    </NavButton>
+                    <NavButton link="/things" isClick={thing}>
+                        Things
+                    </NavButton>
+                    <RecruitBTN link="/">Recruit</RecruitBTN>
                 </div>
             </div>
         </nav>
