@@ -2,7 +2,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub, faInstagram} from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
-const FooterDesktop = () => {
+const FooterMobile = () => {
     return (
         <div className="w-full flex flex-col justify-center items-center h-[300px] mt-[100px]">
             <div className="flex flex-row justify-center mb-[30px]">
@@ -27,4 +27,4 @@ const FooterDesktop = () => {
     )
 }
 
-export default FooterDesktop;
+export default FooterMobile;
