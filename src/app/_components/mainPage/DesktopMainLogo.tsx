@@ -1,4 +1,4 @@
-const MainLogo = () => {
+const DesktopMainLogo = () => {
     const thin = "flex text-[80px] h-[100px] mr-[20px]";
     const bold = "flex text-[80px] h-[100px] font-gmarket-m";
     return (
@@ -18,4 +18,4 @@ const MainLogo = () => {
         ;
 }
 
-export default MainLogo;
+export default DesktopMainLogo;
