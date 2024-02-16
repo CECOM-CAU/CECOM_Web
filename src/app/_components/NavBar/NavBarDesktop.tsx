@@ -1,10 +1,12 @@
 "use client"
 import NavButton from "@/app/_components/NavBar/NavButton";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Link from "next/link";
 import RecruitBTN from "@/app/_components/NavBar/RecruitBTN";
+import {useSelectedLayoutSegment} from "next/navigation";
 
 const NavBarDesktop = () => {
+    const params = useSelectedLayoutSegment();
     const [activity, setActivity] = useState(false)
     const [member, setMember] = useState(false)
     const [thing, setThing] = useState(false)
@@ -13,6 +15,15 @@ const NavBarDesktop = () => {
         setMember(isMember);
         setThing(isThing);
     }
+    useEffect(() => {
+        if (params === "activities") {
+            handleNavBTN(true, false, false)
+        } else if (params === "members") {
+            handleNavBTN(false, true, false)
+        } else if (params === "things") {
+            handleNavBTN(false, false, true)
+        }
+    }, [params]);
 
     return (
         <nav className="w-full bg-white">
@@ -24,24 +35,16 @@ const NavBarDesktop = () => {
                     </Link>
                 </div>
                 <div className="mr-[50px] h-30 flex justify-end items-center ">
-                    <div onClick={() => handleNavBTN(true, false, false)}>
-                        <NavButton link="/activities" isClick={activity}>
-                            Activities
-                        </NavButton>
-                    </div>
-                    <div onClick={() => handleNavBTN(false, true, false)}>
-                        <NavButton link="/members" isClick={member}>
-                            Members
-                        </NavButton>
-                    </div>
-                    <div onClick={() => handleNavBTN(false, false, true)}>
-                        <NavButton link="/things" isClick={thing}>
-                            Things
-                        </NavButton>
-                    </div>
-                    <div onClick={() => handleNavBTN(false, false, false)}>
-                        <RecruitBTN link="/">Recruit</RecruitBTN>
-                    </div>
+                    <NavButton link="/activities" isClick={activity}>
+                        Activities
+                    </NavButton>
+                    <NavButton link="/members" isClick={member}>
+                        Members
+                    </NavButton>
+                    <NavButton link="/things" isClick={thing}>
+                        Things
+                    </NavButton>
+                    <RecruitBTN link="/">Recruit</RecruitBTN>
                 </div>
             </div>
         </nav>
