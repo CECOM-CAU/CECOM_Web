@@ -9,17 +9,17 @@ const WhatWeDo = () => {
                 <div className="text-[100px]">WE DO</div>
             </div>
             <div className="flex flex-col w-[1105px]">
-                <div className="flex border-[1px] border-[#000000] my-[15px] "></div>
+                <div className="flex border-b-[1px] border-[#000000] my-[15px] "></div>
                 <DoLeft thumbnail={'https://velog.velcdn.com/images/kk1112k/post/3c313eca-0dbc-4cd5-b5f8-1ee2f41657d6/79351df114d5d8fa958cbc2065df6877.jpg'}
                         comment={["해당 분야에 대해 경험과 지식이 있는 멘토가", "6주 동안 멘티를 지도하는 활동입니다."]}>Mentoring</DoLeft>
-                <div className="flex border-[1px] border-[#000000] my-[15px] "></div>
+                <div className="flex border-b-[1px] border-[#000000] my-[15px] "></div>
                 <DoRight comment={["프로젝트 혹은 그에 준하는 경험이 있는 부원들이 모여","재미있는 아이디어를 나누고 이를 실현시키는 활동입니다."]} thumbnail={'https://velog.velcdn.com/images/kk1112k/post/3c313eca-0dbc-4cd5-b5f8-1ee2f41657d6/79351df114d5d8fa958cbc2065df6877.jpg'}>Project</DoRight>
-                <div className="flex border-[1px] border-[#000000] my-[15px] "></div>
+                <div className="flex border-b-[1px] border-[#000000] my-[15px] "></div>
                 <DoLeft thumbnail={'https://velog.velcdn.com/images/kk1112k/post/3c313eca-0dbc-4cd5-b5f8-1ee2f41657d6/79351df114d5d8fa958cbc2065df6877.jpg'}
                         comment={["해당 분야에 관심이 있는 부원들이 모여", "공부하고, 배운 것을 나누는 활동입니다."]}>Study Group</DoLeft>
-                <div className="flex border-[1px] border-[#000000] my-[15px] "></div>
-                <DoRight comment={["재미있는 아이디어가 자유롭게 오갈 수 있는 환경을","만들기 위해 부원들 사이의 친목을 도모할 수 있는","다양한 친목 활동을 진행합니다."]} thumbnail={'https://velog.velcdn.com/images/kk1112k/post/3c313eca-0dbc-4cd5-b5f8-1ee2f41657d6/79351df114d5d8fa958cbc2065df6877.jpg'}>Project</DoRight>
-                <div className="flex border-[1px] border-[#000000] my-[15px] mb-[100px]"></div>
+                <div className="flex border-b-[1px] border-[#000000] my-[15px] "></div>
+                <DoRight comment={["재미있는 아이디어가 자유롭게 오갈 수 있는 환경을","만들기 위해 부원들 사이의 친목을 도모할 수 있는","다양한 친목 활동을 진행합니다."]} thumbnail={'https://velog.velcdn.com/images/kk1112k/post/3c313eca-0dbc-4cd5-b5f8-1ee2f41657d6/79351df114d5d8fa958cbc2065df6877.jpg'}>Events</DoRight>
+                <div className="flex border-b-[1px] border-[#000000] my-[15px] mb-[100px]"></div>
             </div>
         </div>
     )
