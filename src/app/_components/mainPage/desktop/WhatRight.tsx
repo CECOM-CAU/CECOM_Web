@@ -3,7 +3,7 @@ interface Props{
     comment:string[];
     thumbnail:string;
 }
-const DoRight= ({children,comment,thumbnail}:Props) => {
+const WhatRight= ({children,comment,thumbnail}:Props) => {
     return (
         <div className="flex flex-row w-full">
 
@@ -18,4 +18,4 @@ const DoRight= ({children,comment,thumbnail}:Props) => {
     )
 }
 
-export default DoRight;
+export default WhatRight;
