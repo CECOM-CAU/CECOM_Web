@@ -3,7 +3,7 @@ interface Props{
     comment:string[];
     thumbnail:string;
 }
-const DoLeft= ({children,comment,thumbnail}:Props) => {
+const WhatLeft= ({children,comment,thumbnail}:Props) => {
     return (
         <div className="flex flex-row w-full">
             <img src={thumbnail} alt="thumbnail" className="flex justify-end rounded-[60px] w-[450px] h-[350px]"/>
@@ -17,4 +17,4 @@ const DoLeft= ({children,comment,thumbnail}:Props) => {
     )
 }
 
-export default DoLeft;
+export default WhatLeft;
