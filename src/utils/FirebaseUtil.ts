@@ -139,7 +139,7 @@ export const getAdminList = async () => {
                 role: memberDoc.role
             });
         }
-        adminList.push({list: adminItemList, year: adminDoc.get("year")});
+        adminList.push({list: adminItemList, year: Number(adminDoc.id)});
     }
 
     return adminList;
