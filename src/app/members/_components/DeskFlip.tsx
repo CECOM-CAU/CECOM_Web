@@ -5,7 +5,7 @@ import MemberFrontCard from "@/app/members/_components/membercard";
 import MemberBackCard from "@/app/members/_components/Backcard";
 import {AdminItem} from "@/utils/Interfaces";
 
-const MemberCard = ({role,member}:AdminItem) => {
+const DeskMemberCard = ({role,member}:AdminItem) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const Handleimage = () => {
@@ -24,4 +24,4 @@ const MemberCard = ({role,member}:AdminItem) => {
     );
 };
 
-export default MemberCard;
+export default DeskMemberCard;

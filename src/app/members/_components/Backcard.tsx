@@ -11,11 +11,14 @@ const InstaButton = ({role,member}:AdminItem) => {
         setIsClicked(!isClicked);
     }
     return(
-        <div onClick={() => HandlePj}>
-            <Link href={member.instagram}>
-                <FontAwesomeIcon icon={faInstagram} size="xl" className="ml-[-9px]"/>
-            </Link>
+        <div className={`${member.instagram.length > 0 ? "visible" : "invisible"}`}>
+            <div onClick={() => HandlePj}>
+                <Link href={'https://www.instagram.com/'+member.instagram}>
+                    <FontAwesomeIcon icon={faInstagram} size="xl"/>
+                </Link>
+            </div>
         </div>
+
     );
 }
 const GitButton = ({role,member}:AdminItem) => {
@@ -24,11 +27,14 @@ const GitButton = ({role,member}:AdminItem) => {
         setIsClicked(!isClicked);
     }
     return(
-        <div onClick={() => HandlePj}>
-            <Link href={member.github}>
-                <FontAwesomeIcon icon={faGithub} size="xl" className="ml-[-9px]"/>
-            </Link>
+        <div className={`${member.github.length > 0 ? "visible" : "invisible"}`}>
+            <div onClick={() => HandlePj}>
+                <Link href={'https://www.github.com/'+member.github}>
+                    <FontAwesomeIcon icon={faGithub} size="xl"/>
+                </Link>
+            </div>
         </div>
+
     );
 }
 const MemberBackCard = ({member,role}:AdminItem) => {
@@ -36,17 +42,16 @@ const MemberBackCard = ({member,role}:AdminItem) => {
         <div className={'pt-[40px] pl-[20px] w-[260px] h-[400px] mr-[20px] mb-[20px] border-0 rounded-lg shadow-xl'}>
             <div className={'flex flex-col'}>
                 <img className={'w-[63px] h-[69px]'} src="/MemberBack.jpg" alt="BackIcon"/>
-                <div className={'flex flex-col mt-[8px]'}>
-                    <div className={'h-[28px] w-[140px] grid grid-cols-5 grid-rows-1 items-end'}>
-                        <span className={'col-span-3 text-[24px] h-[28px] font-gmarket-m mr-[5px]'}>{member.name}</span>
+                <div className={'flex flex-col mt-[14px]'}>
+                    <div className={'h-[24px] w-[140px] flex flex-row gap-[5px] items-center'}>
+                        <span className={'pt-[3px] text-[24px] place-self-center font-gmarket-m mr-[5px]'}>{member.name}</span>
                         <InstaButton member={member} role={role}/>
                         <GitButton member={member} role={role}/>
                     </div>
-                    <div className={'mt-[8px] flex flex-col'}>
+                    <div className={'mt-[4px] flex flex-col'}>
                         <div className={'flex flex-row items-center'}>
-                            <span className={'text-[15px] font-gmarket-m'}>{member.name}</span>
-                            <div className={'mr-[7px] ml-[7px] border border-left border-s-gray-400 h-[15px]'}></div>
-                            <span className={'text-[15px] font-gmarket'}>{role}</span>
+                            <div className={'mr-[7px] ml-[1px] border border-left border-s-gray-400 h-[15px]'}></div>
+                            <span className={'mt-[3px] text-[15px] font-gmarket'}>{role}</span>
                         </div>
                         <span className={'font-gmarket text-[15px]'}>{member.department}</span>
                     </div>

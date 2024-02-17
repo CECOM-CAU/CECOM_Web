@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {useState} from "react";
 import {Admin, AdminItem} from "@/utils/Interfaces";
+import {id} from "postcss-selector-parser";
 
 interface props {
     link : string;
@@ -12,7 +13,7 @@ const Projectname = ({role,member}:AdminItem) => {
     }
     return(
         <div onClick={() => HandlePj}>
-            <Link href="">
+            <Link href={`/activities/${id}`}>
                 <div className={'h-[20px] flex flex-col justify-center item-center' +
                     'bg-cover rounded-2xl border-0 bg-gray-300'}>
                     <span className={'text-[11px] mx-[3px] place-self-center font-gmarket'}>{member.project}</span>
