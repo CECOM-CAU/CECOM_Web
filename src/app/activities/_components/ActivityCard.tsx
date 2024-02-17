@@ -8,7 +8,7 @@ const ActivityCard = ({content, member, mentor, tag, thumbnail, title, id}: Acti
         <div className="group [perspective:1000px]">
             <Link href={`/activities/${id}`}>
                 <div
-                    className="transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    className="transition-all duration-500 [transform-style:preserve-3d] lg:group-hover:[transform:rotateY(180deg)]">
                     <div className="">
                         <ActivityCardFront content={content} id={id} member={member} mentor={mentor} tag={tag}
                                            thumbnail={thumbnail}

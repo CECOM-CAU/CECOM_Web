@@ -6,6 +6,7 @@ import {Activity, ActivityItem} from "@/utils/Interfaces";
 import MenuBTN from "@/app/activities/_components/MenuBTN";
 import ActivityCard from "@/app/activities/_components/ActivityCard";
 import axios from "axios";
+import {MobilePageTitle} from "@/app/_components/MobilePageTitle";
 
 
 const ActivitiesPage = () => {
@@ -69,7 +70,9 @@ const ActivitiesPage = () => {
     };
     return (
         <div className="w-full flex flex-col">
-            <PageTitle>Activities</PageTitle>
+            <div className="hidden lg:block">
+            <PageTitle>Activities</PageTitle></div>
+            <MobilePageTitle>Activities</MobilePageTitle>
             <nav className="w-full flex flex-row justify-center ">
                 <div onClick={() => handleMenuBtn(true, false, false, false)}>
                     <MenuBTN isClicked={all}>ALL</MenuBTN>
@@ -86,7 +89,7 @@ const ActivitiesPage = () => {
             </nav>
             <div className="flex flex-col items-center ">
                 <div
-                    className="grid container max-w-[1300px] grid-cols-4 grid-flow-row gap-[10px] justify-items-center">
+                    className="grid container lg:max-w-[1300px] grid-cols-1 lg:grid-cols-4 grid-flow-row gap-[10px] justify-items-center">
                     {
                         menuList.map(({
                                           content,
