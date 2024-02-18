@@ -1,5 +1,5 @@
 import {FirebaseApp, initializeApp} from "@firebase/app";
-import {collection, doc, Firestore, getDoc, getFirestore} from "@firebase/firestore";
+import {collection, doc, Firestore, getDoc, getFirestore, orderBy, query} from "@firebase/firestore";
 import dotenv from "dotenv";
 import {
     Activity,
@@ -140,6 +140,16 @@ export const getAdminList = async () => {
             });
         }
         adminList.push({list: adminItemList, year: Number(adminDoc.id)});
+    }
+
+    for(let i = 0;i < adminList.length; i++){
+        for(let j = i + 1; j < adminList.length; j++){
+            if(adminList[i].year < adminList[j].year){
+                let tmp = adminList[i];
+                adminList[i] = adminList[j];
+                adminList[j] = tmp;
+            }
+        }
     }
 
     return adminList;
