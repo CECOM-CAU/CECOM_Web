@@ -84,7 +84,7 @@ const getActivityPhotos = async (activityID: string, photoCnt: number) => {
     for(let photoIdx = 1; photoIdx <= photoCnt; photoIdx++){
         const photoItem = await getActivityPhoto(activityID, photoIdx);
         if(photoItem !== undefined){
-            photoCnt++;
+            photoData.count++;
             photoData.data.push(photoItem);
         }
     }
