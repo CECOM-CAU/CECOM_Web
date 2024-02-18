@@ -4,7 +4,7 @@ import {faGithub, faInstagram} from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 const FooterMobile = () => {
     return (
-        <div className="w-full flex flex-col justify-center items-center h-[300px] mt-[100px]">
+        <div className="w-[340px] flex flex-col justify-center items-center h-[300px] mt-[100px]">
             <div className="flex flex-row justify-center mb-[30px]">
                 <Link href={"https://instagram.com/cecom_cau"}>
                     <FontAwesomeIcon icon={faInstagram} size="2x" className="mr-[20px]" />
