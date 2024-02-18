@@ -39,12 +39,12 @@ const GitButton = ({role,member}:AdminItem) => {
 }
 const MemberBackCard = ({member,role}:AdminItem) => {
     return (
-        <div className={'pt-[40px] pl-[20px] w-[260px] h-[400px] mr-[20px] mb-[20px] border-0 rounded-lg shadow-xl'}>
+        <div className={'pt-[40px] pl-[20px] w-[260px] h-[400px] border-0 rounded-lg shadow-xl'}>
             <div className={'flex flex-col'}>
                 <img className={'w-[63px] h-[69px]'} src="/MemberBack.jpg" alt="BackIcon"/>
                 <div className={'flex flex-col mt-[14px]'}>
                     <div className={'h-[24px] w-[140px] flex flex-row gap-[5px] items-center'}>
-                        <span className={'pt-[3px] text-[24px] place-self-center font-gmarket-m mr-[5px]'}>{member.name}</span>
+                        <span className={'text-[26px] place-self-center font-gmarket-m mr-[5px]'}>{member.name}</span>
                         <InstaButton member={member} role={role}/>
                         <GitButton member={member} role={role}/>
                     </div>
