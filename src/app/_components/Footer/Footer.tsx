@@ -7,7 +7,7 @@ export const Footer = () => {
             <div className="w-0 invisible lg:w-full lg:visible">
                 <FooterDesktop />
             </div>
-            <div className="w-full visible lg:w-0 lg:invisible">
+            <div className="w-full flex justify-center visible lg:w-0 lg:invisible">
                 <FooterMobile />
             </div>
         </div>
