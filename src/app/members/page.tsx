@@ -8,6 +8,7 @@ import axios from "axios";
 import MenuBTN from "@/app/activities/_components/MenuBTN";
 import DeskMemberCard from "@/app/members/_components/DeskFlip";
 import MobMemberCard from "@/app/members/_components/MobFlip";
+import {MobilePageTitle} from "@/app/_components/MobilePageTitle";
 
 const MembersPage = () => {
     const [adminList, setAdminList] = useState<Admin[]>(AdminList);
@@ -26,26 +27,36 @@ const MembersPage = () => {
 
     return (
         <div className={'w-full flex flex-col'}>
-            <div className={'w-full'}>
+            <div className={'hidden lg:block'}>
                 <PageTitle>Members</PageTitle>
             </div>
+            <div className={'block lg:hidden'}>
+                <MobilePageTitle>Members</MobilePageTitle>
+            </div>
             <div className={'w-full flex flex-col items-center'}>
-                <NavDesktop current={current} HandleCurrent={setCurrent}/>
                 <div className={'hidden lg:block'}>
-                    <div className={'flex flex-row justify-center w-[1200px] flex-wrap'}>
+                    <NavDesktop current={current} HandleCurrent={setCurrent}/>
+                </div>
+                <div className={'block lg:hidden'}>
+                    <select value={current} onChange={(item)=>setCurrent(Number(item.target.value))}
+                            className={'ml-[-10px] pl-[3px] mb-[15px] text-[16px] font-gmarket-m ' +
+                                'w-[75px] h-[33px] bg-gray-200 rounded-xl'}>
                         {adminList.map(({list,year}:Admin)=>(
-                            list.map(({member,role}:AdminItem)=>(
-                                <DeskMemberCard member={member} role={role}/>
-                            ))
+                                <option value={year}>{year}</option>
+                        ))}
+                    </select>
+                </div>
+                <div className={'hidden lg:block'}>
+                    <div className={'flex flex-row gap-[20px] justify-center w-[1200px] flex-wrap'}>
+                        {adminList[AdminList[0]['year']-current].list.map(({member,role}:AdminItem)=>(
+                            <DeskMemberCard member={member} role={role}/>
                         ))}
                     </div>
                 </div>
                 <div className={'block lg:hidden'}>
-                    <div className={'flex flex-col justify-center w-full'}>
-                        {adminList.map(({list,year}:Admin)=>(
-                            list.map(({member,role}:AdminItem)=>(
-                                <MobMemberCard member={member} role={role}/>
-                            ))
+                    <div className={'flex flex-col gap-[20px] justify-center w-full'}>
+                        {adminList[AdminList[0]['year']-current].list.map(({member,role}:AdminItem)=>(
+                            <MobMemberCard member={member} role={role}/>
                         ))}
                     </div>
                 </div>
@@ -60,14 +71,15 @@ interface Props{
 }
 const NavDesktop=({current,HandleCurrent}:Props)=>{
     return(
-        <nav className="w-full gap-x-[40px] flex flex-row justify-center h-50">
+        <nav className="w-full mb-[15px] gap-x-[40px] flex flex-row justify-center h-50">
             {AdminList.map(({list,year}:Admin)=>(
                 <div onClick={() => HandleCurrent(year)}>
                     <MenuBTN isClicked={year===current}>{year}</MenuBTN>
                 </div>
             ))}
         </nav>
-    )
+    );
 }
+
 
 export default MembersPage;
