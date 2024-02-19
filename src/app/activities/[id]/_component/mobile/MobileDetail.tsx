@@ -25,9 +25,7 @@ export const MobileDetail = ({contentData}: { contentData: ActivityContent }) =>
                     <div className=" w-[320px] text-[28px] border-b-[1px] border-[#000000] mb-[10px]">
                         {contentData.title}
                     </div>
-                    <div>
-                        <MemberInfo role={contentData.role}/>
-                    </div>
+                    <MemberInfo role={contentData.role}/>
                 </div>
             </div>
             <div
