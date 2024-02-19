@@ -39,7 +39,7 @@ const ActivitiesPage = () => {
     };
 
     useEffect(() => {
-        axios.get('/api/activities/getActivitiesList')
+        axios.get('https://cecom.dev/api/activities/getActivitiesList')
             .then((res) => {
                 setActivityList(res.data.RESULT_DATA.data);
                 setMenuList(res.data.RESULT_DATA.data);
