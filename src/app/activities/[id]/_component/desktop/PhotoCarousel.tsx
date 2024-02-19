@@ -38,13 +38,12 @@ const PhotoCarousel = ({count, data}: { count: number, data: Array<string> }) =>
         });
     };
     return (
-
         <div className="relative flex h-[400px] x-[450px] items-center overflow-hidden bg-black-100">
             <div
                 className={`flex h-[400px] items-center ${moveStyle[current]} transition`}>
                 {imageList.map((image: string, index: number) => (
                     <div key={index} className="w-[450px] h-[400px] bg-cover rounded-[20px]">
-                        <img src={image} className="w-[450px] h-[400px] rounded-[20px]"/>
+                        <img src={`data:image/png;base64,${image}`} className="w-[450px] h-[400px] rounded-[20px]"/>
                     </div>
                 ))}
             </div>
@@ -59,7 +58,7 @@ const PhotoCarousel = ({count, data}: { count: number, data: Array<string> }) =>
                 <FontAwesomeIcon icon={faAngleLeft} size='2x' color='#D9D9D9FF'/>
 
             </button>
-            <ul className="absolute bottom-5 flex w-full justify-center gap-4">
+            <ul className="absolute bottom-5 flex w-[450px] justify-center gap-4">
                 {imageList.map((_, idx) => (
                     <li
                         key={idx}
