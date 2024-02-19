@@ -5,8 +5,9 @@ import MemberInfo from "@/app/activities/[id]/_component/MemberInfo";
 import React from "react";
 import {ActivityContent} from "@/utils/Interfaces";
 
-export const DesktopDetail = ({contentData}: {contentData:ActivityContent}) => {
-    return (<>
+export const DesktopDetail = ({contentData}: { contentData: ActivityContent }) => {
+    return (
+        <>
             <div className="flex flex-row w-full items-center h-[80px] my-[20px]">
                 <Link href={'/activities'}>
                     <div className="text-[20px] font-gmarket-m">Activities &#62;</div>
@@ -20,9 +21,7 @@ export const DesktopDetail = ({contentData}: {contentData:ActivityContent}) => {
                     <div className=" w-[400px] text-[35px] border-b-[1px] border-[#000000] mb-[10px]">
                         {contentData.title}
                     </div>
-                    <div>
-                        <MemberInfo role={contentData.role}/>
-                    </div>
+                    <MemberInfo role={contentData.role}/>
                 </div>
             </div>
             <div
