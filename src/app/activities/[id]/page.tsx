@@ -28,10 +28,9 @@ const ActivityDetailPage = ({params}: { params: { id: string } }) => {
         'https://velog.velcdn.com/images/kk1112k/post/3c313eca-0dbc-4cd5-b5f8-1ee2f41657d6/79351df114d5d8fa958cbc2065df6877.jpg'
     ];
     useEffect(() => {
-        axios.get(`https://cecom.dev/api/activities/getActivitiesData/${id}`)
+        axios.get(`/api/activities/getActivitiesData/${id}`)
             .then((res) => {
                     setContentDatas(res.data.RESULT_DATA);
-                    console.log(res.data.RESULT_DATA);
                 }
             ).catch((err) => {
         })

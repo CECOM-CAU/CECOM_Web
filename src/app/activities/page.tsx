@@ -45,15 +45,12 @@ const ActivitiesPage = () => {
                 setMenuList(res.data.RESULT_DATA.data);
                 makeArray(res.data.RESULT_DATA.data);
             }).catch((err) => {
-            console.log(err);
         })
     }, []);
 
     const makeArray = (data: ActivityItem[]) => {
         if ((projectList.length === 0) &&
             (mentoringList.length === 0) && (studyList.length === 0)) {
-
-            console.log(projectList);
             data.forEach((item: ActivityItem) => {
                 if ('Project' === item.tag[0]) {
                     projectList.push(item);
@@ -65,13 +62,12 @@ const ActivitiesPage = () => {
                     studyList.push(item);
                 }
             });
-            console.log(projectList);
         }
     };
     return (
         <div className="w-full flex flex-col">
             <div className="hidden lg:block">
-            <PageTitle>Activities</PageTitle></div>
+                <PageTitle>Activities</PageTitle></div>
             <MobilePageTitle>Activities</MobilePageTitle>
             <nav className="w-full flex flex-row justify-center ">
                 <div onClick={() => handleMenuBtn(true, false, false, false)}>
