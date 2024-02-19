@@ -39,7 +39,7 @@ const GitButton = ({role,member}:AdminItem) => {
 }
 const MemberBackCard = ({member,role}:AdminItem) => {
     return (
-        <div className={'pt-[40px] pl-[20px] w-[260px] h-[400px] border-0 rounded-lg shadow-xl'}>
+        <div className={'pt-[40px] pl-[20px] w-[260px] h-[400px] bg-white border-0 rounded-lg shadow-xl'}>
             <div className={'flex flex-col'}>
                 <img className={'w-[63px] h-[69px]'} src="/MemberBack.jpg" alt="BackIcon"/>
                 <div className={'flex flex-col mt-[14px]'}>
