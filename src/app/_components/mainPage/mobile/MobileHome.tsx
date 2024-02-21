@@ -1,6 +1,9 @@
+'use client';
 import MobileMainLogo from "@/app/_components/mainPage/mobile/MobileMainLogo";
 import MobileWho from "@/app/_components/mainPage/mobile/MobileWho";
 import MobileWhatWeDo from "@/app/_components/mainPage/mobile/MobileWhatWeDo";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 export const MobileHome = () => {
     return (
