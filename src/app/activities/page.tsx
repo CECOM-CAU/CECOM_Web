@@ -1,13 +1,11 @@
 "use client";
 import PageTitle from "@/app/_components/PageTitle";
 import {useEffect, useState} from "react";
-import {ActivityListData} from "@/utils/DummyData";
-import {Activity, ActivityItem} from "@/utils/Interfaces";
+import {ActivityItem} from "@/utils/Interfaces";
 import MenuBTN from "@/app/activities/_components/MenuBTN";
 import ActivityCard from "@/app/activities/_components/ActivityCard";
 import axios from "axios";
 import {MobilePageTitle} from "@/app/_components/MobilePageTitle";
-
 
 const ActivitiesPage = () => {
     const [all, setAll] = useState<boolean>(true);
@@ -19,6 +17,7 @@ const ActivitiesPage = () => {
     const [projectList, setProjectList] = useState<ActivityItem[]>([]);
     const [mentoringList, setMentoringList] = useState<ActivityItem[]>([]);
     const [studyList, setStudyList] = useState<ActivityItem[]>([]);
+
     const MenuData = (isAll: boolean, isProject: boolean, isMentoring: boolean, isStudy: boolean) => {
         if (isAll) {
             setMenuList(activityList);
@@ -29,7 +28,8 @@ const ActivitiesPage = () => {
         } else if (isStudy) {
             setMenuList(studyList);
         }
-    }
+    };
+
     const handleMenuBtn = (isAll: boolean, isProject: boolean, isMentoring: boolean, isStudy: boolean) => {
         setAll(isAll);
         setProject(isProject);
@@ -39,7 +39,7 @@ const ActivitiesPage = () => {
     };
 
     useEffect(() => {
-        axios.get('https://cecom.dev/api/activities/getActivitiesList')
+        axios.get('/api/activities/getActivitiesList')
             .then((res) => {
                 setActivityList(res.data.RESULT_DATA.data);
                 setMenuList(res.data.RESULT_DATA.data);
@@ -95,8 +95,8 @@ const ActivitiesPage = () => {
                                           thumbnail,
                                           title,
                                           id
-                                      }: ActivityItem) => (
-                            <ActivityCard content={content} member={member} mentor={mentor} tag={tag}
+                                      }: ActivityItem, index: number) => (
+                            <ActivityCard key={index} content={content} member={member} mentor={mentor} tag={tag}
                                           thumbnail={`data:image/png;base64,${thumbnail}`} title={title} id={id}/>
                         ))
                     }

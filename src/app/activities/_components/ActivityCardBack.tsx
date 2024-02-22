@@ -10,7 +10,6 @@ const ActivityCardBack = ({content, member, mentor, tag, thumbnail, title, id}: 
                 <div className="text-[13px] font-gmarket-l"> {members}</div>
             </div>
             <div className="w-[240px] text-[12px] mt-[10px] text-pretty">{content}</div>
-            <div></div>
         </div>
     )
 }

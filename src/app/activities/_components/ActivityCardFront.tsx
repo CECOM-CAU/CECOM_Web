@@ -1,9 +1,6 @@
 import {ActivityItem} from "@/utils/Interfaces";
 import Tag from "@/app/activities/_components/Tag";
-
 const ActivityCardFront = ({member, mentor, tag, thumbnail, title}: ActivityItem) => {
-    const firstTag = "flex h-[20px] text-center pt-[4px] text-[15px] align-bottom justify-center items-center bg-primary-cecom_blue_light rounded-3xl px-[6px]  mr-[10px] mt-[10px]"
-    const normalTag = "flex h-[20px] text-center pt-[4px] text-[15px] align-bottom justify-center items-center bg-primary-lightgray30 rounded-3xl px-[6px] mr-[10px] mt-[10px]"
     const members: string = member.map((m) => m).join(', ')
     return (
         <div
