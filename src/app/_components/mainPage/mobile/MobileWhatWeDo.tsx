@@ -1,24 +1,8 @@
 import MobileWhatLeft from "@/app/_components/mainPage/mobile/MobileWhatLeft";
 import MobileWhatRight from "@/app/_components/mainPage/mobile/MobileWhatRight";
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {MainImage} from "@/utils/Interfaces";
 
-const MobileWhatWeDo = () => {
-    const [project, setProject] = useState<string>('');
-    const [mentoring, setMentoring] = useState<string>('');
-    const [study, setStudy] = useState<string>('');
-    const [events, setEvents] = useState<string>('');
-
-    useEffect(() => {
-        axios.get("/api/main/getMainImages")
-            .then((res) => {
-                setProject(res.data.RESULT_DATA.project);
-                setEvents(res.data.RESULT_DATA.event);
-                setStudy(res.data.RESULT_DATA.study);
-                setMentoring(res.data.RESULT_DATA.mentoring);
-            }).catch((err) => {
-        });
-    },[]);
+const MobileWhatWeDo = ({project,study,mentoring,event} :MainImage) => {
     return (
         <div className="flex flex-col items-center justify-center mt-[200px]">
             <div className="flex flex-col items-end w-[340px] mb-[30px]">
@@ -40,7 +24,7 @@ const MobileWhatWeDo = () => {
                     comment={["해당 분야에 관심이 있는 부원들이 모여", "공부하고, 배운 것을 나누는 활동입니다."]}>Study Group</MobileWhatLeft>
 
                 <MobileWhatRight comment={["재미있는 아이디어가 자유롭게 오갈 수 있는", "환경을 만들기 위해","부원들 사이의 친목을 도모할 수 있는","다양한 친목 활동을 진행합니다."]}
-                                 thumbnail={`data:image/png;base64,${events}`}>Events</MobileWhatRight>
+                                 thumbnail={`data:image/png;base64,${event}`}>Events</MobileWhatRight>
 
             </div>
         </div>

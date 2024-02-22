@@ -1,8 +1,9 @@
 import DesktopMainLogo from "@/app/_components/mainPage/desktop/DesktopMainLogo";
 import Who from "@/app/_components/mainPage/desktop/Who";
 import WhatWeDo from "@/app/_components/mainPage/desktop/WhatWeDo";
+import {MainImage} from "@/utils/Interfaces";
 
-export const DesktopHome = () => {
+export const DesktopHome = ({project,study,mentoring,event} :MainImage) => {
     return (
         <div className="hidden lg:block">
             <div className="h-[100vh] w-full bg-gradient-to-br from-blue-100 to-transparent via-transparent">
@@ -13,7 +14,7 @@ export const DesktopHome = () => {
                 </div>
             </div>
             <Who/>
-            <WhatWeDo/>
+            <WhatWeDo project={project} mentoring={mentoring} study={study} event={event}/>
         </div>
     );
 }
