@@ -2,13 +2,7 @@ import React, {useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleLeft, faAngleRight} from "@fortawesome/free-solid-svg-icons";
 
-interface ImageList {
-    images: { id: number; order: number; url: string }[];
-    index: number;
-}
-
 const PhotoCarousel = ({count, data}: { count: number, data: Array<string> }) => {
-
     const imageList: Array<string> = data;
     const [current, setCurrent] = useState(0);
     const moveStyle: { [key: number]: string } = {
@@ -56,7 +50,6 @@ const PhotoCarousel = ({count, data}: { count: number, data: Array<string> }) =>
                 onClick={prevHandler}
                 className="absolute left-[-20px] flex h-[4rem] w-[4rem] items-center justify-center">
                 <FontAwesomeIcon icon={faAngleLeft} size='2x' color='#D9D9D9FF'/>
-
             </button>
             <ul className="absolute bottom-5 flex w-[450px] justify-center gap-4">
                 {imageList.map((_, idx) => (

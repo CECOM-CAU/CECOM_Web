@@ -2,7 +2,6 @@ import {ActivityContentRoleItem} from "@/utils/Interfaces";
 import Role from "@/app/activities/[id]/_component/Role";
 
 const MemberInfo = ({role}:{ role: Array<ActivityContentRoleItem>}) => {
-
     return (
         <div className="mt-[10px]">
             {

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import PhotoCarousel from "@/app/activities/[id]/_component/desktop/PhotoCarousel";
 import Tag from "@/app/activities/_components/Tag";
 import MemberInfo from "@/app/activities/[id]/_component/MemberInfo";
 import React from "react";
@@ -7,7 +6,6 @@ import {ActivityContent} from "@/utils/Interfaces";
 import MobileCarousel from "@/app/activities/[id]/_component/mobile/MobileCarousel";
 
 export const MobileDetail = ({contentData}: { contentData: ActivityContent }) => {
-
     return (
         <div className="flex flex-col w-full">
             <div className="flex flex-row w-full items-center justify-start h-[50px]">
