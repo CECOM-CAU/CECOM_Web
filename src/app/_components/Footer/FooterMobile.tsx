@@ -26,7 +26,7 @@ const FooterMobile = () => {
                 Designed by Yubin Seo
             </div>
             <div className="w-full text-[13px] text-center mb-[10px]">
-                Developed by Yongmin Yoo<br/>Sooghyun Lim, Serin Jeong
+                Developed by Yongmin Yoo<br/>Soohyun Lim, Serin Jeong
             </div>
             <div className="w-full text-[13px] text-center mt-[10px] mb-[-100px]">
                 &#169; 2024 CECOM ALL RIGHT RESERVED.
