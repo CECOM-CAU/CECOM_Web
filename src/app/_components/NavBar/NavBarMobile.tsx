@@ -1,24 +1,21 @@
 'use client';
 import Link from "next/link";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBars, faX} from "@fortawesome/free-solid-svg-icons";
 import {useState} from "react";
-import NavButton from "@/app/_components/NavBar/NavButton";
-import RecruitBTN from "@/app/_components/NavBar/RecruitBTN";
 
-const LogoStyle = "flex flex-row items-center h-[70px] bg-transparent pl-[20px] pt-[10px]"
+const BasicLogoStyle = "flex flex-row items-center h-[70px] bg-transparent pl-[20px] py-[10px] backdrop-blur-md"
+const openMenuLogoStyle = "flex flex-row items-center h-[70px] bg-transparent pl-[20px] py-[10px]"
 const NavBarMobile = () => {
     const [isClicked, setIsClicked] = useState<boolean>(false);
     return (
         <div>
             {
                 isClicked ? <div className="flex flex-col h-[100vh] bg-primary-lightgray50 backdrop-blur-md">
-                        <div className={LogoStyle}>
+                        <div className={openMenuLogoStyle}>
                             <Link href="/">
-                                <img className="w-[70px] h-[70px] " src="/MobileLogo.svg" alt="logo"/>
+                                <img className="w-[50px] h-[50px] " src="/MobileLogo.svg" alt="logo"/>
                             </Link>
                             <div className="absolute right-[20px]" onClick={() => setIsClicked(false)}>
-                                <FontAwesomeIcon icon={faX} size="xl"/>
+                                <img className="w-[50px] h-[50px]" src={"/Close.svg"} alt="close"/>
                             </div>
                         </div>
                         <div className="flex flex-col items-center justify-center mt-[90px] z-50">
@@ -47,12 +44,12 @@ const NavBarMobile = () => {
 
 
                     :
-                    <div className={LogoStyle}>
+                    <div className={BasicLogoStyle}>
                         <Link href="/">
-                            <img className="w-[70px] h-[70px]" src="/MobileLogo.svg" alt="logo"/>
+                            <img className="w-[50px] h-[50px]" src="/MobileLogo.svg" alt="logo"/>
                         </Link>
                         <div className="absolute right-[20px]" onClick={() => setIsClicked(true)}>
-                            <FontAwesomeIcon icon={faBars} size="2xl"/>
+                           <img  className="w-[50px] h-[50px]" src={"/Menu.svg"} alt="menu"/>
                         </div>
 
 
