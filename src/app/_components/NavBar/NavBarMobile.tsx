@@ -15,7 +15,7 @@ const NavBarMobile = () => {
                                 <img className="w-[50px] h-[50px] " src="/MobileLogo.svg" alt="logo"/>
                             </Link>
                             <div className="absolute right-[20px]" onClick={() => setIsClicked(false)}>
-                                <img className="w-[40px] h-[40px]" src={"/Close.svg"} alt="close"/>
+                                <img className="w-[50px] h-[50px]" src={"/Close.svg"} alt="close"/>
                             </div>
                         </div>
                         <div className="flex flex-col items-center justify-center mt-[90px] z-50">
