@@ -18,7 +18,7 @@ const FooterDesktop = () => {
             </div>
             <div className="border-[1px] border-[#000000] w-[200px] my-[20px]"></div>
             <div className="text-[15px] my-[10px]">
-                Designed by Yubin Seo / Developed by Yongmin Yoo, Sooghyun Lim, Serin Jeong
+                Designed by Yubin Seo / Developed by Yongmin Yoo, Soohyun Lim, Serin Jeong
             </div>
             <div className="text-[15px] mb-[10px]">
                 &#169; 2024 CECOM ALL RIGHT RESERVED.
