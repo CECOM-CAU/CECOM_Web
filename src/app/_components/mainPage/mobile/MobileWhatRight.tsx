@@ -10,8 +10,8 @@ const MobileWhatRight= ({children,comment,thumbnail}:Props) => {
             <div className="flex border-b-[1px] border-[#000000] mt-[15px] mb-[5px]"></div>
             <div className="flex flex-col justify-end items-start w-full">
                 <div className='flex w-full justify-end font-gmarket-m text-[30px] px-[10px] pb-[5px]'>{children}</div>
-                {comment.map((comment:string)=>(
-                    <div className="flex w-full justify-end text-start text-pretty font-gmarket-l text-[15px] px-[10px]">{comment}</div> ))
+                {comment.map((comment:string,index:number)=>(
+                    <div className="flex w-full justify-end text-start text-pretty font-gmarket-l text-[15px] px-[10px]" key={index}>{comment}</div> ))
                 }
             </div>
         </div>
