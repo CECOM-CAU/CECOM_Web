@@ -2,11 +2,6 @@ import React, {useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleLeft, faAngleRight} from "@fortawesome/free-solid-svg-icons";
 
-interface ImageList {
-    images: { id: number; order: number; url: string }[];
-    index: number;
-}
-
 const MobileCarousel = ({count, data}: { count: number, data: Array<string> }) => {
     const imageList: Array<string> = data;
     const [current, setCurrent] = useState(0);
@@ -37,7 +32,6 @@ const MobileCarousel = ({count, data}: { count: number, data: Array<string> }) =
         });
     };
     return (
-
         <div className="relative flex h-[250px] x-[320px] items-center overflow-hidden bg-black-100">
             <div
                 className={`flex h-[250px] items-center ${moveStyle[current]} transition`}>
@@ -72,6 +66,5 @@ const MobileCarousel = ({count, data}: { count: number, data: Array<string> }) =
         </div>
     );
 }
-
 
 export default MobileCarousel;
