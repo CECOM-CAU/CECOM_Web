@@ -37,7 +37,7 @@ const MobileCarousel = ({count, data}: { count: number, data: Array<string> }) =
                 className={`flex h-[250px] items-center ${moveStyle[current]} transition`}>
                 {imageList.map((image: string, index: number) => (
                     <div key={index} className="w-[320px] h-[250px] bg-cover rounded-[20px]">
-                        <img src={`data:image/png;base64,${image}`} className="w-[320px] h-[250px] rounded-[20px]"/>
+                        <img src={`data:image/png;base64,${image}`} className="w-[320px] h-[250px] rounded-[20px] object-cover"/>
                     </div>
                 ))}
             </div>
