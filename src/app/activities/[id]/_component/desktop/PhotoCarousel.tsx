@@ -37,7 +37,7 @@ const PhotoCarousel = ({count, data}: { count: number, data: Array<string> }) =>
                 className={`flex h-[400px] items-center ${moveStyle[current]} transition`}>
                 {imageList.map((image: string, index: number) => (
                     <div key={index} className="w-[450px] h-[400px] bg-cover rounded-[20px]">
-                        <img src={`data:image/png;base64,${image}`} className="w-[450px] h-[400px] rounded-[20px]"/>
+                        <img src={`data:image/png;base64,${image}`} className="w-[450px] h-[400px] rounded-[20px] object-cover"/>
                     </div>
                 ))}
             </div>
