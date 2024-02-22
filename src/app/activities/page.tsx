@@ -95,8 +95,8 @@ const ActivitiesPage = () => {
                                           thumbnail,
                                           title,
                                           id
-                                      }: ActivityItem) => (
-                            <ActivityCard content={content} member={member} mentor={mentor} tag={tag}
+                                      }: ActivityItem,index :number) => (
+                            <ActivityCard key={index} content={content} member={member} mentor={mentor} tag={tag}
                                           thumbnail={`data:image/png;base64,${thumbnail}`} title={title} id={id}/>
                         ))
                     }

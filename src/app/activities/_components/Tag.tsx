@@ -6,7 +6,7 @@ const Tag = ({tag}: { tag: Array<string> }) => {
         <div className="flex flex-row flex-wrap">
             {
                 tag.map((t: string, index: number) => (
-                    <div className={index === 0 ? firstTag : normalTag}>{t}</div>
+                    <div className={index === 0 ? firstTag : normalTag} key={index}>{t}</div>
                 ))
             }
         </div>

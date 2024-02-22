@@ -6,8 +6,8 @@ const MemberInfo = ({role}:{ role: Array<ActivityContentRoleItem>}) => {
     return (
         <div className="mt-[10px]">
             {
-                role.map(({member, title}: ActivityContentRoleItem) => (
-                    <div className="flex flex-col">
+                role.map(({member, title}: ActivityContentRoleItem,index:number) => (
+                    <div key={index} className="flex flex-col">
                         <Role member={member} title={title}/>
                     </div>
                 ))
