@@ -10,7 +10,7 @@ export default function Home() {
     const [events, setEvents] = useState<string>('');
 
     useEffect(() => {
-        axios.get("https://cecom.dev/api/main/getMainImages")
+        axios.get("/api/main/getMainImages")
             .then((res) => {
                 setProject(res.data.RESULT_DATA.project);
                 setEvents(res.data.RESULT_DATA.event);
