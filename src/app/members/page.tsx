@@ -62,7 +62,7 @@ const MembersPage = () => {
                         {
                             adminList.length > 0 && current != 0 ?
                                 adminList[AdminList[0]['year']-current].list.map(({member,role}:AdminItem)=>(
-                                    <DeskMemberCard member={member} role={role}/>
+                                    <MobMemberCard member={member} role={role}/>
                                 ))
                                 :<></>
                         }
