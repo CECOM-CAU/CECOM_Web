@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 import {ThingItem} from "@/utils/Interfaces";
 import axios from "axios";
 import DeskSmallBox from "@/app/things/_components/DesktopSmallBox";
-import MobSmallbox from "@/app/things/_components/MobSmallBox";
+import MobSmallbox from "@/app/things/_components/MobileSmallBox";
 import {MobilePageTitle} from "@/app/_components/MobilePageTitle";
 import ThingMenu from "@/app/things/_components/ThingMenu";
 import {ThingData} from "@/utils/DummyData";
