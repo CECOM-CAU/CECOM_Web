@@ -11,14 +11,14 @@ import MobMemberCard from "@/app/members/_components/MobFlip";
 import {MobilePageTitle} from "@/app/_components/MobilePageTitle";
 
 const MembersPage = () => {
-    const [adminList, setAdminList] = useState<Admin[]>(AdminList);
-    const [current,setCurrent] = useState(AdminList[0]['year']);
+    const [adminList, setAdminList] = useState<Admin[]>([]);
+    const [current,setCurrent] = useState(0);
 
     useEffect(() => {
         axios.get('/api/members/getMembersList')
             .then((res) => {
                 setAdminList(res.data.RESULT_DATA);
-                console.log(res.data.RESULT_DATA);
+                setCurrent(res.data.RESULT_DATA[0].year)
             }).catch((err) => {
             console.log(err);
         })
@@ -48,16 +48,24 @@ const MembersPage = () => {
                 </div>
                 <div className={'hidden lg:block'}>
                     <div className={'flex flex-row gap-[20px] justify-center w-[1200px] flex-wrap'}>
-                        {adminList[AdminList[0]['year']-current].list.map(({member,role}:AdminItem)=>(
-                            <DeskMemberCard member={member} role={role}/>
-                        ))}
+                        {
+                        adminList.length > 0 && current != 0 ?
+                            adminList[AdminList[0]['year']-current].list.map(({member,role}:AdminItem)=>(
+                                <DeskMemberCard member={member} role={role}/>
+                            ))
+                            :<></>
+                    }
                     </div>
                 </div>
                 <div className={'block lg:hidden'}>
                     <div className={'flex flex-col gap-[20px] justify-center w-full'}>
-                        {adminList[AdminList[0]['year']-current].list.map(({member,role}:AdminItem)=>(
-                            <MobMemberCard member={member} role={role}/>
-                        ))}
+                        {
+                            adminList.length > 0 && current != 0 ?
+                                adminList[AdminList[0]['year']-current].list.map(({member,role}:AdminItem)=>(
+                                    <DeskMemberCard member={member} role={role}/>
+                                ))
+                                :<></>
+                        }
                     </div>
                 </div>
             </div>
