@@ -2,7 +2,7 @@ import {ThingItem} from "@/utils/Interfaces";
 const MobSmallbox = ({description, id, name, photo, tag}:ThingItem) => {
     return (
         <div className={'border rounded-xl border-gray-400 flex flex-col flex-grow-0 hover:shadow-xl'}>
-            <img className={'h-[100px] w-[115px] m-[20px]'} src="/Thingsphoto.jpg" alt="Things"/>
+            <img className={'h-[100px] w-[115px] m-[20px]'} src={`data:image/jpeg;base64,${photo}`} alt="Things"/>
             <div className={'mx-[23px] mb-[23px]'}>
                 <div className={'flex flex-col'}>
                     <div className={'w-[105px] flex flex-col gap-y-[5px]'}>

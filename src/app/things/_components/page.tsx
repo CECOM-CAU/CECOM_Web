@@ -3,7 +3,7 @@ import {ThingItem} from "@/utils/Interfaces";
 const DeskSmallBox = ({description, id, name, photo, tag}:ThingItem) => {
     return (
         <div className={'border rounded-xl border-gray-400 flex flex-row flex-grow-0 hover:shadow-xl'}>
-            <img className={'h-[100px] m-[20px]'} src="/Thingsphoto.jpg" alt="Things"/>
+            <img className={'h-[100px] m-[20px]'} src={`data:image/jpeg;base64,${photo}`} alt="Things"/>
             <div className={'mt-[20px] mr-[30px] mb-[20px]'}>
                 <div className={'flex flex-col'}>
                     <div className={'w-[210px] flex flex-col gap-y-[5px]'}>
