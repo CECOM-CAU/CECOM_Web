@@ -1,5 +1,5 @@
 import Projectname from "@/app/members/_components/projectname";
-import {AdminItem} from "@/utils/Interfaces";
+import {Admin, AdminItem} from "@/utils/Interfaces";
 import {useState} from "react";
 import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -63,9 +63,9 @@ const MemberBackCard = ({member,role}:AdminItem) => {
                 <hr className={'mt-[10px] w-[220px] border-black'}/>
                 <span className={'text-[15px] font-gmarket mt-[10px]'}>참여 활동</span>
                 <div className={'flex flex-row gap-x-[5px] mt-[5px]'}>
-                    <Projectname member={member} role={role}/>
-                    <Projectname member={member} role={role}/>
-                    <Projectname member={member} role={role}/>
+                    {member.project.map((m) => (
+                        <Projectname id={m}/>
+                    ))}
                 </div>
             </div>
         </div>
