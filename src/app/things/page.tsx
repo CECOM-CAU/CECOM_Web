@@ -3,7 +3,7 @@ import PageTitle from "@/app/_components/PageTitle";
 import React, {useEffect, useState} from "react";
 import {ThingItem} from "@/utils/Interfaces";
 import axios from "axios";
-import DeskSmallBox from "@/app/things/_components/page";
+import DeskSmallBox from "@/app/things/_components/DesktopSmallBox";
 import MobSmallbox from "@/app/things/_components/MobSmallBox";
 import {MobilePageTitle} from "@/app/_components/MobilePageTitle";
 import ThingMenu from "@/app/things/_components/ThingMenu";
