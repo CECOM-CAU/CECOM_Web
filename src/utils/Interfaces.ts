@@ -68,6 +68,7 @@ export interface Member {
     gender: string
     github: string
     id: string
+    image: string
     instagram: string
     name: string
     project: Array<string>
