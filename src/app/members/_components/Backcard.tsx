@@ -41,7 +41,13 @@ const MemberBackCard = ({member,role}:AdminItem) => {
     return (
         <div className={'pt-[40px] pl-[20px] w-[260px] h-[400px] bg-white border-0 rounded-lg shadow-xl'}>
             <div className={'flex flex-col'}>
-                <img className={'w-[63px] h-[69px]'} src="/MemberBack.jpg" alt="BackIcon"/>
+                <img className={'w-[63px] h-[69px]'} src={
+                    member.image !== "" ?
+                        member.image
+                        : member.gender === "male" ?
+                            "/MemberMale.png"
+                            : "/MemberFemale.png"
+                } alt="BackIcon"/>
                 <div className={'flex flex-col mt-[14px]'}>
                     <div className={'h-[24px] w-[140px] flex flex-row gap-[5px] items-center'}>
                         <span className={'text-[26px] place-self-center font-gmarket-m mr-[5px]'}>{member.name}</span>
