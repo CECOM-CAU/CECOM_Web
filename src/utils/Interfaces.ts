@@ -34,6 +34,7 @@ export interface ActivityContentRoleItem {
 }
 
 export interface ActivityContentRoleItemMember {
+    gender: string
     icon: string
     name: string
     url: string
