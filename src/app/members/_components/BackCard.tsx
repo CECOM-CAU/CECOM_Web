@@ -1,4 +1,4 @@
-import Projectname from "@/app/members/_components/projectname";
+import MemberProjectItem from "@/app/members/_components/MemberProjectItem";
 import {Admin, AdminItem} from "@/utils/Interfaces";
 import {useState} from "react";
 import Link from "next/link";
@@ -70,7 +70,7 @@ const MemberBackCard = ({member,role}:AdminItem) => {
                 <span className={'text-[15px] font-gmarket mt-[10px]'}>참여 활동</span>
                 <div className={'flex flex-row gap-x-[5px] mt-[5px]'}>
                     {member.project.map((m) => (
-                        <Projectname id={m}/>
+                        <MemberProjectItem id={m}/>
                     ))}
                 </div>
             </div>

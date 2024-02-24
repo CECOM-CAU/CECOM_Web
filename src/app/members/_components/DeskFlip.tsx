@@ -1,8 +1,8 @@
 'use client'
 import {useState} from "react";
 import ReactCardFlip from "react-card-flip";
-import MemberFrontCard from "@/app/members/_components/membercard";
-import MemberBackCard from "@/app/members/_components/Backcard";
+import MemberFrontCard from "@/app/members/_components/FrontCard";
+import MemberBackCard from "@/app/members/_components/BackCard";
 import {AdminItem} from "@/utils/Interfaces";
 
 const DeskMemberCard = ({role,member}:AdminItem) => {
