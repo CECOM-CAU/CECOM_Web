@@ -43,7 +43,7 @@ const MemberBackCard = ({member,role}:AdminItem) => {
             <div className={'flex flex-col'}>
                 <img className={'w-[63px] h-[69px]'} src={
                     member.image !== "" ?
-                        member.image
+                        `data:image/png;base64,${member.image}`
                         : member.gender === "male" ?
                             "/MemberMale.png"
                             : "/MemberFemale.png"
