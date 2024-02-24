@@ -64,6 +64,7 @@ export interface MainImage {
 export interface Member {
     comment: string
     department: string
+    gender: string
     github: string
     id: string
     instagram: string
