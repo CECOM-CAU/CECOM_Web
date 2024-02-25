@@ -5,6 +5,8 @@ import {ActivityContent} from "@/utils/Interfaces";
 import {DesktopDetail} from "@/app/activities/[id]/_component/desktop/DesktopDetail";
 import {MobileDetail} from "@/app/activities/[id]/_component/mobile/MobileDetail";
 
+export const dynamic = "force-dynamic";
+
 const ActivityDetailPage = ({params}: { params: { id: string } }) => {
     const {id} = params;
 
