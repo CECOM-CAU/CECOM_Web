@@ -7,7 +7,6 @@ import DeskSmallBox from "@/app/things/_components/DesktopSmallBox";
 import MobSmallbox from "@/app/things/_components/MobileSmallBox";
 import {MobilePageTitle} from "@/app/_components/MobilePageTitle";
 import ThingMenu from "@/app/things/_components/ThingMenu";
-import {ThingData} from "@/utils/DummyData";
 
 const ThingsPage = () => {
     const [All, setAll] = useState<boolean>(true);

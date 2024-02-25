@@ -1,7 +1,5 @@
 'use client'
 import PageTitle from "@/app/_components/PageTitle";
-import MemberCard from "@/app/members/_components/DeskFlip";
-import {AdminList} from "@/utils/DummyData";
 import {Admin, AdminItem} from "@/utils/Interfaces";
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -35,7 +33,7 @@ const MembersPage = () => {
             </div>
             <div className={'w-full flex flex-col items-center'}>
                 <div className={'hidden lg:block'}>
-                    <NavDesktop current={current} HandleCurrent={setCurrent}/>
+                    <NavDesktop adminList={adminList} current={current} HandleCurrent={setCurrent}/>
                 </div>
                 <div className={'block lg:hidden'}>
                     <select value={current} onChange={(item)=>setCurrent(Number(item.target.value))}
@@ -50,7 +48,7 @@ const MembersPage = () => {
                     <div className={'flex flex-row gap-[20px] justify-center w-[1200px] flex-wrap'}>
                         {
                         adminList.length > 0 && current != 0 ?
-                            adminList[AdminList[0]['year']-current].list.map(({member,role}:AdminItem)=>(
+                            adminList[adminList[0]['year']-current].list.map(({member,role}:AdminItem)=>(
                                 <DeskMemberCard member={member} role={role}/>
                             ))
                             :<></>
@@ -61,7 +59,7 @@ const MembersPage = () => {
                     <div className={'flex flex-col gap-[20px] justify-center w-full'}>
                         {
                             adminList.length > 0 && current != 0 ?
-                                adminList[AdminList[0]['year']-current].list.map(({member,role}:AdminItem)=>(
+                                adminList[adminList[0]['year']-current].list.map(({member,role}:AdminItem)=>(
                                     <MobMemberCard member={member} role={role}/>
                                 ))
                                 :<></>
@@ -74,13 +72,14 @@ const MembersPage = () => {
 }
 
 interface Props{
+    adminList: Admin[];
     current: number;
     HandleCurrent: (num:number)=>void;
 }
-const NavDesktop=({current,HandleCurrent}:Props)=>{
+const NavDesktop=({adminList, current,HandleCurrent}:Props)=>{
     return(
         <nav className="w-full mb-[15px] gap-x-[40px] flex flex-row justify-center h-50">
-            {AdminList.map(({list,year}:Admin)=>(
+            {adminList.map(({list,year}:Admin)=>(
                 <div onClick={() => HandleCurrent(year)}>
                     <MenuBTN isClicked={year===current}>{year}</MenuBTN>
                 </div>
