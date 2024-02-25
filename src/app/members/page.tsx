@@ -8,6 +8,8 @@ import DeskMemberCard from "@/app/members/_components/DeskFlip";
 import MobMemberCard from "@/app/members/_components/MobFlip";
 import {MobilePageTitle} from "@/app/_components/MobilePageTitle";
 
+export const dynamic = "force-dynamic";
+
 const MembersPage = () => {
     const [adminList, setAdminList] = useState<Admin[]>([]);
     const [current,setCurrent] = useState(0);
