@@ -4,7 +4,13 @@ const MemberFrontCard = ({role,member}:AdminItem) => {
     return(
         <div className={'w-[260px] h-[400px] px-[12px] pt-[12px] ' +
             'shadow-xl border-0 rounded-lg flex flex-col justify-start flex-grow-0 item-center'}>
-            <img className="w-[260px] h-[260px] flex-grow-0" src="/Memberimg.jpg" alt="Icon"/>
+            <img className="w-[260px] h-[260px] flex-grow-0" src={
+                member.image !== "" ?
+                    `data:image/png;base64,${member.image}`
+                    : member.gender === "male" ?
+                        "/MemberMale.png"
+                        : "/MemberFemale.png"
+            } alt="Icon"/>
             <div className={'w-[260px] flex flex-row justify-center'}>
                 <div className={'w-[260px] flex flex-col mt-[15px] mb-[15px]'}>
                     <div className={'flex flex-row'}>

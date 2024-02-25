@@ -113,8 +113,10 @@ const getMemberData = async (memberID: string)  => {
     const memberData: Member = {
         comment: memberDoc.get("comment"),
         department: memberDoc.get("department"),
+        gender: memberDoc.get("gender"),
         github: memberDoc.get("github"),
         id: memberDoc.id,
+        image: memberDoc.get("image"),
         instagram: memberDoc.get("instagram"),
         name: memberDoc.get("name"),
         project: memberDoc.get("project")

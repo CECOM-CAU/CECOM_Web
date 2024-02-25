@@ -1,4 +1,4 @@
-import Projectname from "@/app/members/_components/projectname";
+import MemberProjectItem from "@/app/members/_components/MemberProjectItem";
 import {Admin, AdminItem} from "@/utils/Interfaces";
 import {useState} from "react";
 import Link from "next/link";
@@ -41,7 +41,13 @@ const MemberBackCard = ({member,role}:AdminItem) => {
     return (
         <div className={'pt-[40px] pl-[20px] w-[260px] h-[400px] bg-white border-0 rounded-lg shadow-xl'}>
             <div className={'flex flex-col'}>
-                <img className={'w-[63px] h-[69px]'} src="/MemberBack.jpg" alt="BackIcon"/>
+                <img className={'w-[63px] h-[69px]'} src={
+                    member.image !== "" ?
+                        `data:image/png;base64,${member.image}`
+                        : member.gender === "male" ?
+                            "/MemberMale.png"
+                            : "/MemberFemale.png"
+                } alt="BackIcon"/>
                 <div className={'flex flex-col mt-[14px]'}>
                     <div className={'h-[24px] w-[140px] flex flex-row gap-[5px] items-center'}>
                         <span className={'text-[26px] place-self-center font-gmarket-m mr-[5px]'}>{member.name}</span>
@@ -64,7 +70,7 @@ const MemberBackCard = ({member,role}:AdminItem) => {
                 <span className={'text-[15px] font-gmarket mt-[10px]'}>참여 활동</span>
                 <div className={'flex flex-row gap-x-[5px] mt-[5px]'}>
                     {member.project.map((m) => (
-                        <Projectname id={m}/>
+                        <MemberProjectItem id={m}/>
                     ))}
                 </div>
             </div>

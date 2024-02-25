@@ -5,7 +5,7 @@ interface Props{
    id: string
 }
 
-const Projectname = ({id}:Props) => {
+const MemberProjectItem = ({id}:Props) => {
     const [isClicked, setIsClicked] = useState(false)
     const HandlePj = () => {
         setIsClicked(!isClicked);
@@ -23,5 +23,5 @@ const Projectname = ({id}:Props) => {
 
     );
 }
-export default Projectname;
+export default MemberProjectItem;
 
