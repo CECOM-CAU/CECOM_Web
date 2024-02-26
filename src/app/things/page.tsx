@@ -8,6 +8,8 @@ import MobSmallbox from "@/app/things/_components/MobileSmallBox";
 import {MobilePageTitle} from "@/app/_components/MobilePageTitle";
 import ThingMenu from "@/app/things/_components/ThingMenu";
 
+export const dynamic = "force-dynamic";
+
 const ThingsPage = () => {
     const [All, setAll] = useState<boolean>(true);
     const [Sensors, setSensor] = useState<boolean>(false);
