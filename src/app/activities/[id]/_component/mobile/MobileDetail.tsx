@@ -7,8 +7,8 @@ import MobileCarousel from "@/app/activities/[id]/_component/mobile/MobileCarous
 
 export const MobileDetail = ({contentData}: { contentData: ActivityContent }) => {
     return (
-        <div className="flex flex-col w-full">
-            <div className="flex flex-row w-full items-center justify-start h-[50px]">
+        <div className="flex flex-col w-full px-[10px]">
+            <div className="flex flex-row w-full items-center justify-start h-[50px] ml-[20px]">
                 <Link href={'/activities'}>
                     <div className="text-[15px] font-gmarket-m">Activities &#62;</div>
                 </Link>
