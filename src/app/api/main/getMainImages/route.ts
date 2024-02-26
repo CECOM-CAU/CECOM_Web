@@ -3,6 +3,7 @@ import {API_RESULT, MainImage} from "@/utils/Interfaces";
 import {corsHeader} from "@/utils/CorsUtil";
 import {getMainImage} from "@/utils/FileUtil";
 
+export const dynamic = "force-dynamic";
 export async function GET(_: NextRequest) {
     const apiResult: API_RESULT = {
         RESULT_CODE: 200,

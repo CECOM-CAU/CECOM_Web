@@ -3,6 +3,7 @@ import {API_RESULT} from "@/utils/Interfaces";
 import {getAdminList} from "@/utils/FirebaseUtil";
 import {corsHeader} from "@/utils/CorsUtil";
 
+export const dynamic = "force-dynamic";
 export async function GET(_: NextRequest) {
     const apiResult: API_RESULT = {
         RESULT_CODE: 200,

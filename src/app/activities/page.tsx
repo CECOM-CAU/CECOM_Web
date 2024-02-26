@@ -7,8 +7,6 @@ import ActivityCard from "@/app/activities/_components/ActivityCard";
 import axios from "axios";
 import {MobilePageTitle} from "@/app/_components/MobilePageTitle";
 
-export const dynamic = "force-dynamic";
-
 const ActivitiesPage = () => {
     const [all, setAll] = useState<boolean>(true);
     const [project, setProject] = useState<boolean>(false);

@@ -3,9 +3,6 @@ import {DesktopHome} from "@/app/_components/mainPage/desktop/DesktopHome";
 import {MobileHome} from "@/app/_components/mainPage/mobile/MobileHome";
 import {useEffect, useState} from "react";
 import axios from "axios";
-
-export const dynamic = "force-dynamic";
-
 export default function Home() {
     const [project, setProject] = useState<string>('');
     const [mentoring, setMentoring] = useState<string>('');
