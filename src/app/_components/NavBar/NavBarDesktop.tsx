@@ -44,7 +44,7 @@ const NavBarDesktop = () => {
                     <NavButton link="/things" isClick={thing}>
                         Things
                     </NavButton>
-                    <RecruitBTN link="/">Recruit</RecruitBTN>
+                    <RecruitBTN>Recruit</RecruitBTN>
                 </div>
             </div>
         </nav>
