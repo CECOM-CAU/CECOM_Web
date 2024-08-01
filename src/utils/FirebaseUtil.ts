@@ -160,9 +160,25 @@ export const getAdminList = async () => {
 export const getRecruitSubmissionDetail = async (studentID: string) => {
     const submissionDetail: RecruitSubmissionDetail = {
         department: "",
-        id: 0,
+        id: "",
         name: "",
         timestamp: 0
+    }
+
+    const recruitSubmissionDocs = await getDocs(collection(firestoreDB!, "Recruit"));
+    if(recruitSubmissionDocs.empty){
+        return submissionDetail;
+    }
+
+    for(const recruitSubmissionDoc of recruitSubmissionDocs.docs){
+        if(recruitSubmissionDoc.get("id") == studentID){
+            submissionDetail.department = recruitSubmissionDoc.get("department");
+            submissionDetail.id = recruitSubmissionDoc.get("id");
+            submissionDetail.name = recruitSubmissionDoc.get("name");
+            submissionDetail.timestamp = Number.parseInt(recruitSubmissionDoc.id);
+
+            break;
+        }
     }
 
     return submissionDetail;
