@@ -8,7 +8,7 @@ import {
     ActivityItem,
     Admin,
     AdminItem,
-    Member,
+    Member, RecruitSubmissionList,
     Thing,
     ThingItem
 } from "@/utils/Interfaces";
@@ -155,6 +155,15 @@ export const getAdminList = async () => {
     }
 
     return adminList;
+}
+
+export const getRecruitSubmissionList = async () => {
+    const submissionList: RecruitSubmissionList = {
+        count: 0,
+        data: []
+    }
+
+    return submissionList;
 }
 
 export const getThingList = async () => {
