@@ -79,6 +79,13 @@ export interface Photo {
     filename: string,
 }
 
+export interface RecruitSubmissionDetail {
+    department: string
+    name: string
+    id: number
+    timestamp: number | undefined
+}
+
 export interface RecruitSubmissionItem {
     department: string
     name: string
