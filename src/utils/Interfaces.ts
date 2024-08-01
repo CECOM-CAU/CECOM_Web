@@ -94,7 +94,7 @@ export interface RecruitSubmissionItem {
 }
 
 export interface RecruitSubmissionList {
-    coutn: number
+    count: number
     data: Array<RecruitSubmissionItem>
 }
 
