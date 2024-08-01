@@ -79,6 +79,18 @@ export interface Photo {
     filename: string,
 }
 
+export interface RecruitSubmissionItem {
+    department: string
+    name: string
+    id: number
+    timestamp: number
+}
+
+export interface RecruitSubmissionList {
+    coutn: number
+    data: Array<RecruitSubmissionItem>
+}
+
 export interface Thing {
     count: number
     data: Array<ThingItem>
