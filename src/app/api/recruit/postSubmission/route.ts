@@ -25,5 +25,8 @@ export async function POST(req: NextRequest) {
         apiResult.RESULT_DATA = undefined;
     }
 
+    submissionData.timestamp = submissionResult;
+    apiResult.RESULT_DATA = submissionData;
+
     return NextResponse.json(apiResult, { status: 200, headers: corsHeader });
 }
