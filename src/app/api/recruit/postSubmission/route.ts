@@ -2,7 +2,7 @@ import {NextRequest, NextResponse} from "next/server";
 import {API_RESULT} from "@/utils/Interfaces";
 import {corsHeader} from "@/utils/CorsUtil";
 
-export async function GET(_: NextRequest) {
+export async function POST(_: NextRequest) {
     const apiResult: API_RESULT = {
         RESULT_CODE: 200,
         RESULT_MSG: "Success",
