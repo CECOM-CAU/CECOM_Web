@@ -1,5 +1,5 @@
 import {FirebaseApp, initializeApp} from "@firebase/app";
-import {collection, doc, Firestore, getDoc, getFirestore} from "@firebase/firestore";
+import {collection, doc, Firestore, getDoc, getFirestore, setDoc} from "@firebase/firestore";
 import dotenv from "dotenv";
 import {
     Activity,
@@ -252,6 +252,12 @@ export const getThingList = async () => {
     return thingList;
 }
 
-export const postRecruitingSubmission = (submission: RecruitSubmissionDetail) => {
-    return true;
+export const postRecruitingSubmission = async (submission: RecruitSubmissionDetail) => {
+    initFirebase();
+
+    let postTimestamp = Date.now();
+    submission.timestamp = postTimestamp;
+    await setDoc(doc(firestoreDB!, "Recruit", postTimestamp.toString()), submission);
+
+    return postTimestamp;
 }
