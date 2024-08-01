@@ -1,7 +1,7 @@
 export interface API_RESULT {
     RESULT_CODE: number
     RESULT_MSG: string
-    RESULT_DATA: Activity | ActivityContent | Array<Admin> | MainImage | Member | Photo | Thing | undefined
+    RESULT_DATA: Activity | ActivityContent | Array<Admin> | MainImage | Member | Photo | RecruitSubmissionDetail | RecruitSubmissionList | Thing | undefined
 }
 
 export interface Activity {
