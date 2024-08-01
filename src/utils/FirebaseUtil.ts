@@ -157,7 +157,7 @@ export const getAdminList = async () => {
     return adminList;
 }
 
-export const getRecruitSubmissionDetail = async () => {
+export const getRecruitSubmissionDetail = async (studentID: string) => {
     const submissionDetail: RecruitSubmissionDetail = {
         department: "",
         id: 0,
