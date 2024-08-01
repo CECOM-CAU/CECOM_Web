@@ -1,5 +1,5 @@
 import {FirebaseApp, initializeApp} from "@firebase/app";
-import {collection, doc, Firestore, getDoc, getFirestore, orderBy, query} from "@firebase/firestore";
+import {collection, doc, Firestore, getDoc, getFirestore} from "@firebase/firestore";
 import dotenv from "dotenv";
 import {
     Activity,
