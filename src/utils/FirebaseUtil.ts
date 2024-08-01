@@ -251,3 +251,7 @@ export const getThingList = async () => {
 
     return thingList;
 }
+
+export const postRecruitingSubmission = (submission: RecruitSubmissionDetail) => {
+    return true;
+}
