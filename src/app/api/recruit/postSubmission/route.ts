@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     }
 
     const submissionResult = await postRecruitingSubmission(submissionData);
-    if(!submissionResult){
+    if(submissionResult == 0){
         apiResult.RESULT_CODE = 100;
         apiResult.RESULT_MSG = "An Error Occurred";
         apiResult.RESULT_DATA = undefined;
