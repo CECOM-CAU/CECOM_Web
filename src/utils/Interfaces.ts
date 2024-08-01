@@ -82,14 +82,14 @@ export interface Photo {
 export interface RecruitSubmissionDetail {
     department: string
     name: string
-    id: number
-    timestamp: number | undefined
+    id: string
+    timestamp: number
 }
 
 export interface RecruitSubmissionItem {
     department: string
     name: string
-    id: number
+    id: string
     timestamp: number
 }
 
