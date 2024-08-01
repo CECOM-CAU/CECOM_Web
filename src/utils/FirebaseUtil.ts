@@ -158,6 +158,8 @@ export const getAdminList = async () => {
 }
 
 export const getRecruitSubmissionDetail = async (studentID: string) => {
+    initFirebase();
+
     const submissionDetail: RecruitSubmissionDetail = {
         department: "",
         id: "",
