@@ -11,7 +11,7 @@ export async function GET(_: NextRequest, {params}: {params: {id: string}}) {
     }
 
     const submissionDetail = await getRecruitSubmissionDetail(params.id);
-    if(submissionDetail === undefined || submissionDetail.id == 0){
+    if(submissionDetail === undefined || submissionDetail.timestamp == 0){
         apiResult.RESULT_CODE = 100;
         apiResult.RESULT_MSG = "An Error Occurred";
         apiResult.RESULT_DATA = undefined;
