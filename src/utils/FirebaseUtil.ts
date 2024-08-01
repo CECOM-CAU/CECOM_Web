@@ -8,7 +8,7 @@ import {
     ActivityItem,
     Admin,
     AdminItem,
-    Member, RecruitSubmissionList,
+    Member, RecruitSubmissionItem, RecruitSubmissionList,
     Thing,
     ThingItem
 } from "@/utils/Interfaces";
@@ -158,9 +158,33 @@ export const getAdminList = async () => {
 }
 
 export const getRecruitSubmissionList = async () => {
+    initFirebase();
+
     const submissionList: RecruitSubmissionList = {
         count: 0,
         data: []
+    }
+
+    const recruitSubmissionDocs = await getDocs(collection(firestoreDB!, "Recruit"));
+    if(recruitSubmissionDocs.empty){
+        return submissionList;
+    }
+
+    for(const recruitSubmissionDoc of recruitSubmissionDocs.docs){
+        const submissionItem: RecruitSubmissionItem = {
+            department: recruitSubmissionDoc.get("department"),
+            id: recruitSubmissionDoc.get("id"),
+            name: recruitSubmissionDoc.get("name"),
+            timestamp: Number.parseInt(recruitSubmissionDoc.id)
+        }
+
+        if(submissionItem.department !== undefined
+            && submissionItem.id !== undefined
+            && submissionItem.name !== undefined
+            && submissionItem.timestamp !== undefined){
+            submissionList.count++;
+            submissionList.data.push(submissionItem);
+        }
     }
 
     return submissionList;
