@@ -1,7 +1,7 @@
 export interface API_RESULT {
     RESULT_CODE: number
     RESULT_MSG: string
-    RESULT_DATA: Activity | ActivityContent | Array<Admin> | MainImage | Member | Photo | Thing | undefined
+    RESULT_DATA: Activity | ActivityContent | Array<Admin> | MainImage | Member | Photo | RecruitSubmissionDetail | RecruitSubmissionList | Thing | undefined
 }
 
 export interface Activity {
@@ -77,6 +77,25 @@ export interface Member {
 export interface Photo {
     data: string,
     filename: string,
+}
+
+export interface RecruitSubmissionDetail {
+    department: string
+    name: string
+    id: string
+    timestamp: number
+}
+
+export interface RecruitSubmissionItem {
+    department: string
+    name: string
+    id: string
+    timestamp: number
+}
+
+export interface RecruitSubmissionList {
+    count: number
+    data: Array<RecruitSubmissionItem>
 }
 
 export interface Thing {

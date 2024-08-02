@@ -1,5 +1,5 @@
 import {FirebaseApp, initializeApp} from "@firebase/app";
-import {collection, doc, Firestore, getDoc, getFirestore, orderBy, query} from "@firebase/firestore";
+import {collection, doc, Firestore, getDoc, getFirestore, setDoc} from "@firebase/firestore";
 import dotenv from "dotenv";
 import {
     Activity,
@@ -8,7 +8,7 @@ import {
     ActivityItem,
     Admin,
     AdminItem,
-    Member,
+    Member, RecruitSubmissionDetail, RecruitSubmissionItem, RecruitSubmissionList,
     Thing,
     ThingItem
 } from "@/utils/Interfaces";
@@ -157,6 +157,68 @@ export const getAdminList = async () => {
     return adminList;
 }
 
+export const getRecruitSubmissionDetail = async (studentID: string) => {
+    initFirebase();
+
+    const submissionDetail: RecruitSubmissionDetail = {
+        department: "",
+        id: "",
+        name: "",
+        timestamp: 0
+    }
+
+    const recruitSubmissionDocs = await getDocs(collection(firestoreDB!, "Recruit"));
+    if(recruitSubmissionDocs.empty){
+        return submissionDetail;
+    }
+
+    for(const recruitSubmissionDoc of recruitSubmissionDocs.docs){
+        if(recruitSubmissionDoc.get("id") == studentID){
+            submissionDetail.department = recruitSubmissionDoc.get("department");
+            submissionDetail.id = recruitSubmissionDoc.get("id");
+            submissionDetail.name = recruitSubmissionDoc.get("name");
+            submissionDetail.timestamp = Number.parseInt(recruitSubmissionDoc.id);
+
+            break;
+        }
+    }
+
+    return submissionDetail;
+}
+
+export const getRecruitSubmissionList = async () => {
+    initFirebase();
+
+    const submissionList: RecruitSubmissionList = {
+        count: 0,
+        data: []
+    }
+
+    const recruitSubmissionDocs = await getDocs(collection(firestoreDB!, "Recruit"));
+    if(recruitSubmissionDocs.empty){
+        return submissionList;
+    }
+
+    for(const recruitSubmissionDoc of recruitSubmissionDocs.docs){
+        const submissionItem: RecruitSubmissionItem = {
+            department: recruitSubmissionDoc.get("department"),
+            id: recruitSubmissionDoc.get("id"),
+            name: recruitSubmissionDoc.get("name"),
+            timestamp: Number.parseInt(recruitSubmissionDoc.id)
+        }
+
+        if(submissionItem.department !== undefined
+            && submissionItem.id !== undefined
+            && submissionItem.name !== undefined
+            && submissionItem.timestamp !== undefined){
+            submissionList.count++;
+            submissionList.data.push(submissionItem);
+        }
+    }
+
+    return submissionList;
+}
+
 export const getThingList = async () => {
     initFirebase();
 
@@ -188,4 +250,14 @@ export const getThingList = async () => {
     }
 
     return thingList;
+}
+
+export const postRecruitingSubmission = async (submission: RecruitSubmissionDetail) => {
+    initFirebase();
+
+    let postTimestamp = Date.now();
+    submission.timestamp = postTimestamp;
+    await setDoc(doc(firestoreDB!, "Recruit", postTimestamp.toString()), submission);
+
+    return postTimestamp;
 }
