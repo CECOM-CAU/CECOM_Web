@@ -21,7 +21,7 @@ const NavBarMobile = () => {
                         <div className="flex flex-col items-center justify-center mt-[90px] z-50">
                             <div onClick={() => setIsClicked(false)}>
                                 <MobileNavButton link="/">
-                                   About Us
+                                    About Us
                                 </MobileNavButton>
                             </div>
                             <div onClick={() => setIsClicked(false)}>
@@ -39,6 +39,11 @@ const NavBarMobile = () => {
                                     Things
                                 </MobileNavButton>
                             </div>
+                            <div onClick={() => setIsClicked(false)}>
+                                <MobileRecruitButton link="/recruit">
+                                    Recruit
+                                </MobileRecruitButton>
+                            </div>
                         </div>
                     </div>
 
@@ -49,7 +54,7 @@ const NavBarMobile = () => {
                             <img className="w-[50px] h-[50px]" src="/MobileLogo.svg" alt="logo"/>
                         </Link>
                         <div className="absolute right-[20px]" onClick={() => setIsClicked(true)}>
-                           <img  className="w-[50px] h-[50px]" src={"/Menu.svg"} alt="menu"/>
+                            <img className="w-[50px] h-[50px]" src={"/Menu.svg"} alt="menu"/>
                         </div>
 
 
@@ -69,6 +74,14 @@ const MobileNavButton = ({children, link}: Props) => {
     return (
         <Link href={link}>
             <div className="text-[30px] my-[20px] font-gmarket-m">{children}</div>
+        </Link>
+    )
+}
+
+const MobileRecruitButton = ({children, link}: Props) => {
+    return (
+        <Link href={link}>
+            <div className="text-[30px] my-[20px] font-gmarket-b">{children}</div>
         </Link>
     )
 }
