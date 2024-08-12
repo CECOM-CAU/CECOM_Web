@@ -22,6 +22,8 @@ const NavBarDesktop = () => {
             handleNavBTN(false, true, false)
         } else if (params === "things") {
             handleNavBTN(false, false, true)
+        }else if (params ==="recruit"){
+            handleNavBTN(false, false, false)
         }
     }, [params]);
 
