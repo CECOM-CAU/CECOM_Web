@@ -174,6 +174,7 @@ export const getRecruitSubmissionDetail = async (studentID: string) => {
 
     const submissionDetail: RecruitSubmissionDetail = {
         age: "",
+        answer: [],
         college: "",
         department: "",
         grade: "",
@@ -191,6 +192,7 @@ export const getRecruitSubmissionDetail = async (studentID: string) => {
     for(const recruitSubmissionDoc of recruitSubmissionDocs.docs){
         if(recruitSubmissionDoc.get("id") == studentID){
             submissionDetail.age = recruitSubmissionDoc.get("age");
+            submissionDetail.answer = recruitSubmissionDoc.get("answer");
             submissionDetail.college = recruitSubmissionDoc.get("college");
             submissionDetail.department = recruitSubmissionDoc.get("department");
             submissionDetail.grade = recruitSubmissionDoc.get("grade");
@@ -222,6 +224,7 @@ export const getRecruitSubmissionList = async () => {
     for(const recruitSubmissionDoc of recruitSubmissionDocs.docs){
         const submissionItem: RecruitSubmissionItem = {
             age: recruitSubmissionDoc.get("age"),
+            answer: recruitSubmissionDoc.get("answer"),
             college: recruitSubmissionDoc.get("college"),
             department: recruitSubmissionDoc.get("department"),
             grade: recruitSubmissionDoc.get("grade"),
@@ -232,6 +235,7 @@ export const getRecruitSubmissionList = async () => {
         }
 
         if(submissionItem.age !== undefined
+            && submissionItem.answer !== undefined
             && submissionItem.college !== undefined
             && submissionItem.department !== undefined
             && submissionItem.grade !== undefined
