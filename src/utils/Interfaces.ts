@@ -79,6 +79,11 @@ export interface Photo {
     filename: string,
 }
 
+export interface RecruitQuestionList {
+    count: number
+    list: Array<string>
+}
+
 export interface RecruitSubmissionDetail {
     department: string
     name: string
