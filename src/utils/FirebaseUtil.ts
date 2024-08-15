@@ -173,9 +173,13 @@ export const getRecruitSubmissionDetail = async (studentID: string) => {
     initFirebase();
 
     const submissionDetail: RecruitSubmissionDetail = {
+        age: "",
+        college: "",
         department: "",
+        grade: "",
         id: "",
         name: "",
+        phone: "",
         timestamp: 0
     }
 
@@ -186,9 +190,13 @@ export const getRecruitSubmissionDetail = async (studentID: string) => {
 
     for(const recruitSubmissionDoc of recruitSubmissionDocs.docs){
         if(recruitSubmissionDoc.get("id") == studentID){
+            submissionDetail.age = recruitSubmissionDoc.get("age");
+            submissionDetail.college = recruitSubmissionDoc.get("college");
             submissionDetail.department = recruitSubmissionDoc.get("department");
+            submissionDetail.grade = recruitSubmissionDoc.get("grade");
             submissionDetail.id = recruitSubmissionDoc.get("id");
             submissionDetail.name = recruitSubmissionDoc.get("name");
+            submissionDetail.phone = recruitSubmissionDoc.get("phone");
             submissionDetail.timestamp = Number.parseInt(recruitSubmissionDoc.id);
 
             break;
@@ -213,15 +221,23 @@ export const getRecruitSubmissionList = async () => {
 
     for(const recruitSubmissionDoc of recruitSubmissionDocs.docs){
         const submissionItem: RecruitSubmissionItem = {
+            age: recruitSubmissionDoc.get("age"),
+            college: recruitSubmissionDoc.get("college"),
             department: recruitSubmissionDoc.get("department"),
+            grade: recruitSubmissionDoc.get("grade"),
             id: recruitSubmissionDoc.get("id"),
             name: recruitSubmissionDoc.get("name"),
+            phone: recruitSubmissionDoc.get("phone"),
             timestamp: Number.parseInt(recruitSubmissionDoc.id)
         }
 
-        if(submissionItem.department !== undefined
+        if(submissionItem.age !== undefined
+            && submissionItem.college !== undefined
+            && submissionItem.department !== undefined
+            && submissionItem.grade !== undefined
             && submissionItem.id !== undefined
             && submissionItem.name !== undefined
+            && submissionItem.phone !== undefined
             && submissionItem.timestamp !== undefined){
             submissionList.count++;
             submissionList.data.push(submissionItem);
