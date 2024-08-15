@@ -1,7 +1,7 @@
 import {NextRequest, NextResponse} from "next/server";
 import {API_RESULT} from "@/utils/Interfaces";
 import {corsHeader} from "@/utils/CorsUtil";
-import {getAdminList, getRecruitSubmissionList} from "@/utils/FirebaseUtil";
+import {getRecruitSubmissionList} from "@/utils/FirebaseUtil";
 
 export async function GET(_: NextRequest) {
     const apiResult: API_RESULT = {
