@@ -85,16 +85,24 @@ export interface RecruitQuestionList {
 }
 
 export interface RecruitSubmissionDetail {
+    age: string
+    college: string
     department: string
-    name: string
+    grade: string
     id: string
+    name: string
+    phone: string
     timestamp: number
 }
 
 export interface RecruitSubmissionItem {
+    age: string
+    college: string
     department: string
-    name: string
+    grade: string
     id: string
+    name: string
+    phone: string
     timestamp: number
 }
 
