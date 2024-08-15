@@ -86,6 +86,7 @@ export interface RecruitQuestionList {
 
 export interface RecruitSubmissionDetail {
     age: string
+    answer: Array<string>
     college: string
     department: string
     grade: string
@@ -97,6 +98,7 @@ export interface RecruitSubmissionDetail {
 
 export interface RecruitSubmissionItem {
     age: string
+    answer: Array<string>
     college: string
     department: string
     grade: string
