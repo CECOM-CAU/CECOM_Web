@@ -8,7 +8,7 @@ import {
     ActivityItem,
     Admin,
     AdminItem,
-    Member, RecruitSubmissionDetail, RecruitSubmissionItem, RecruitSubmissionList,
+    Member, RecruitQuestionList, RecruitSubmissionDetail, RecruitSubmissionItem, RecruitSubmissionList,
     Thing,
     ThingItem
 } from "@/utils/Interfaces";
@@ -155,6 +155,15 @@ export const getAdminList = async () => {
     }
 
     return adminList;
+}
+
+export const getRecruitQuestionList = () => {
+    const questionList: RecruitQuestionList = {
+        count: 0,
+        list: []
+    }
+
+    return questionList;
 }
 
 export const getRecruitSubmissionDetail = async (studentID: string) => {
