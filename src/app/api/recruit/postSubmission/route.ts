@@ -11,22 +11,15 @@ export async function POST(req: NextRequest) {
     }
 
     const submissionBody: RecruitSubmissionDetail = JSON.parse(await req.text());
-    const submissionData: RecruitSubmissionDetail = {
-        department: submissionBody.department,
-        id: submissionBody.id,
-        name: submissionBody.name,
-        timestamp: 0
-    }
-
-    const submissionResult = await postRecruitingSubmission(submissionData);
+    const submissionResult = await postRecruitingSubmission(submissionBody);
     if(submissionResult == 0){
         apiResult.RESULT_CODE = 100;
         apiResult.RESULT_MSG = "An Error Occurred";
         apiResult.RESULT_DATA = undefined;
     }
 
-    submissionData.timestamp = submissionResult;
-    apiResult.RESULT_DATA = submissionData;
+    submissionBody.timestamp = submissionResult;
+    apiResult.RESULT_DATA = submissionBody;
 
     return NextResponse.json(apiResult, { status: 200, headers: corsHeader });
 }
