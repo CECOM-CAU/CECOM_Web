@@ -157,10 +157,13 @@ export const getAdminList = async () => {
     return adminList;
 }
 
-export const getRecruitQuestionList = () => {
+export const getRecruitQuestionList = async () => {
+    initFirebase();
+
+    const questionDoc = await getDoc(doc(firestoreDB!, "Question", "data"));
     const questionList: RecruitQuestionList = {
-        count: 0,
-        list: []
+        count: questionDoc.get("count"),
+        list: questionDoc.get("list")
     }
 
     return questionList;
