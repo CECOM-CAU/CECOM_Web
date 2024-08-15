@@ -8,7 +8,7 @@ import {
     ActivityItem,
     Admin,
     AdminItem,
-    Member, RecruitSubmissionDetail, RecruitSubmissionItem, RecruitSubmissionList,
+    Member, RecruitQuestionList, RecruitSubmissionDetail, RecruitSubmissionItem, RecruitSubmissionList,
     Thing,
     ThingItem
 } from "@/utils/Interfaces";
@@ -157,13 +157,30 @@ export const getAdminList = async () => {
     return adminList;
 }
 
+export const getRecruitQuestionList = async () => {
+    initFirebase();
+
+    const questionDoc = await getDoc(doc(firestoreDB!, "Question", "data"));
+    const questionList: RecruitQuestionList = {
+        count: questionDoc.get("count"),
+        list: questionDoc.get("list")
+    }
+
+    return questionList;
+}
+
 export const getRecruitSubmissionDetail = async (studentID: string) => {
     initFirebase();
 
     const submissionDetail: RecruitSubmissionDetail = {
+        age: "",
+        answer: [],
+        college: "",
         department: "",
+        grade: "",
         id: "",
         name: "",
+        phone: "",
         timestamp: 0
     }
 
@@ -174,9 +191,14 @@ export const getRecruitSubmissionDetail = async (studentID: string) => {
 
     for(const recruitSubmissionDoc of recruitSubmissionDocs.docs){
         if(recruitSubmissionDoc.get("id") == studentID){
+            submissionDetail.age = recruitSubmissionDoc.get("age");
+            submissionDetail.answer = recruitSubmissionDoc.get("answer");
+            submissionDetail.college = recruitSubmissionDoc.get("college");
             submissionDetail.department = recruitSubmissionDoc.get("department");
+            submissionDetail.grade = recruitSubmissionDoc.get("grade");
             submissionDetail.id = recruitSubmissionDoc.get("id");
             submissionDetail.name = recruitSubmissionDoc.get("name");
+            submissionDetail.phone = recruitSubmissionDoc.get("phone");
             submissionDetail.timestamp = Number.parseInt(recruitSubmissionDoc.id);
 
             break;
@@ -201,15 +223,25 @@ export const getRecruitSubmissionList = async () => {
 
     for(const recruitSubmissionDoc of recruitSubmissionDocs.docs){
         const submissionItem: RecruitSubmissionItem = {
+            age: recruitSubmissionDoc.get("age"),
+            answer: recruitSubmissionDoc.get("answer"),
+            college: recruitSubmissionDoc.get("college"),
             department: recruitSubmissionDoc.get("department"),
+            grade: recruitSubmissionDoc.get("grade"),
             id: recruitSubmissionDoc.get("id"),
             name: recruitSubmissionDoc.get("name"),
+            phone: recruitSubmissionDoc.get("phone"),
             timestamp: Number.parseInt(recruitSubmissionDoc.id)
         }
 
-        if(submissionItem.department !== undefined
+        if(submissionItem.age !== undefined
+            && submissionItem.answer !== undefined
+            && submissionItem.college !== undefined
+            && submissionItem.department !== undefined
+            && submissionItem.grade !== undefined
             && submissionItem.id !== undefined
             && submissionItem.name !== undefined
+            && submissionItem.phone !== undefined
             && submissionItem.timestamp !== undefined){
             submissionList.count++;
             submissionList.data.push(submissionItem);
