@@ -287,6 +287,19 @@ export const getThingList = async () => {
 export const postRecruitingSubmission = async (submission: RecruitSubmissionDetail) => {
     initFirebase();
 
+    if(submission.age.length == 0
+        || submission.answer.length == 0
+        || submission.college.length == 0
+        || submission.department.length == 0
+        || submission.grade.length == 0
+        || submission.id == undefined
+        || submission.id.length == 0
+        || submission.name == undefined
+        || submission.name.length == 0
+        || submission.phone == undefined
+        || submission.phone.length == 0)
+        return 0;
+
     let postTimestamp = Date.now();
     submission.timestamp = postTimestamp;
     await setDoc(doc(firestoreDB!, "Recruit", postTimestamp.toString()), submission);
