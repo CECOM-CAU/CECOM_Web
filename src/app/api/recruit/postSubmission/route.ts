@@ -11,14 +11,23 @@ export async function POST(req: NextRequest) {
     }
 
     const submissionBody: RecruitSubmissionDetail = JSON.parse(await req.text());
-    const submissionResult = await postRecruitingSubmission(submissionBody);
-    if(submissionResult == 0){
+
+    if(submissionBody.age.length == 0
+        || submissionBody.answer.length == 0
+        || submissionBody.college.length == 0
+        || submissionBody.department.length == 0
+        || submissionBody.grade.length == 0
+        || submissionBody.id.length == 0
+        || submissionBody.name.length == 0
+        || submissionBody.phone.length == 0){
         apiResult.RESULT_CODE = 100;
         apiResult.RESULT_MSG = "An Error Occurred";
         apiResult.RESULT_DATA = undefined;
+
+        return NextResponse.json(apiResult, { status: 200, headers: corsHeader });
     }
 
-    submissionBody.timestamp = submissionResult;
+    submissionBody.timestamp = await postRecruitingSubmission(submissionBody);
     apiResult.RESULT_DATA = submissionBody;
 
     return NextResponse.json(apiResult, { status: 200, headers: corsHeader });
