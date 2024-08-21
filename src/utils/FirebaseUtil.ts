@@ -292,11 +292,8 @@ export const postRecruitingSubmission = async (submission: RecruitSubmissionDeta
         || submission.college.length == 0
         || submission.department.length == 0
         || submission.grade.length == 0
-        || submission.id == undefined
         || submission.id.length == 0
-        || submission.name == undefined
         || submission.name.length == 0
-        || submission.phone == undefined
         || submission.phone.length == 0)
         return 0;
 
