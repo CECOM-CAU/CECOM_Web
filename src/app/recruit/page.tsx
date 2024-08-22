@@ -13,13 +13,14 @@ import LongAnswer from "@/app/recruit/_components/LongAnswer";
 import axios from "axios";
 import SubmitSuccess from "@/app/recruit/_components/SubmitSuccess";
 import SubmitFailModal from "@/app/recruit/_components/SubmitFailModal";
+import {RecruitSubmissionItem} from "@/utils/Interfaces";
 
 const RecruitPage = () => {
     const [ans, setAns] = useState<string[]>(['', '', '', '', '', '', '']);
     const [singleAns, setSingleAns] = useState<string>('');
     const [name, setName] = useState<string>('');
     const [id, setId] = useState<string>('');
-    const [year, setYear] = useState<string>('');
+    const [age, setAge] = useState<string>('');
     const [questionNum, setQuestionNum] = useState<number>(0);
     const [grade, setGrade] = useState<string>('');
     const [college, setCollege] = useState<string>('');
@@ -54,6 +55,7 @@ const RecruitPage = () => {
         {label: '3학년(5차, 6차)', value: '3학년(5차, 6차)'},
         {label: '4학년(7차, 8차)', value: '4학년(7차, 8차)'},
         {label: '9차 이상', value: '9차 이상'}];
+    const phoneRegex = /^01[016789]\d{7,8}$/;
     const currentYear = new Date().getFullYear();
     const startYear = currentYear - 29;
     const endYear = currentYear - 19;
@@ -73,13 +75,13 @@ const RecruitPage = () => {
     }, []);
 
     useEffect(() => {
-        if (year != '') {
+        if (age != '') {
             const tempList = [...ans];
-            tempList[1] = year;
+            tempList[1] = age;
             setAns(tempList);
             handleQuestionNum(1);
         }
-    }, [year]);
+    }, [age]);
 
     useEffect(() => {
         if (grade != '') {
@@ -134,17 +136,18 @@ const RecruitPage = () => {
     }
 
     const handleSubmit = () => {
-        axios.post(`/api/recruit/postSubmission`, {
-            name: name,
+        const applicationData: RecruitSubmissionItem = {
+            age: age,
+            answer: longAnswer,
             id: id,
-            year: year,
+            name: name,
             grade: grade,
             college: college,
             department: department,
             phone: phone,
-            answer: longAnswer,
-            timestamp: new Date().toISOString()
-        }).then((res) => {
+            timestamp: 0
+        }
+        axios.post(`/api/recruit/postSubmission`, applicationData).then((res) => {
             setSubmitSuccess('success');
         }).catch((err) => {
             setSubmitSuccess('fail');
@@ -159,116 +162,118 @@ const RecruitPage = () => {
                 <MobilePageTitle>Recruit</MobilePageTitle>
             </div>
             {submitSuccess === 'success' ? <SubmitSuccess>{name}</SubmitSuccess> :
-            <div className='flex flex-col w-full lg:items-center lg:px-[300px] px-[10px]'>
-                {page === 1 ?
-                    <>
-                        <div className="flex flex-col lg:w-[500px]">
-                            <ChatBubbleQ>이름이 무엇인가요?</ChatBubbleQ>
-                            {name ? (<><ChatBubbleA nowNum={questionNum} QuestionNum={0}
-                                                    setNumber={setQuestionNum}>{name}</ChatBubbleA>
-                                <ChatBubbleQ>나이는 어떻게 되나요?</ChatBubbleQ>
-                                <ChatBubbleA nowNum={questionNum}>
-                                    <div className="w-full flex flex-row">
-                                        <DropDown setValue={setYear} value={year}
-                                                  options={yearArray}/>년
+                <div className='flex flex-col w-full lg:items-center lg:px-[300px] px-[10px]'>
+                    {page === 1 ?
+                        <>
+                            <div className="flex flex-col lg:w-[500px]">
+                                <ChatBubbleQ>모든 답변은 문장이 아닌 단답형으로<br/>적어주세요.</ChatBubbleQ>
+                                <ChatBubbleQ>이름이 무엇인가요?</ChatBubbleQ>
+                                {name ? (<><ChatBubbleA nowNum={questionNum} QuestionNum={0}
+                                                        setNumber={setQuestionNum}>{name}</ChatBubbleA>
+                                    <ChatBubbleQ>나이는 어떻게 되시나요?</ChatBubbleQ>
+                                    <ChatBubbleA nowNum={questionNum}>
+                                        <div className="w-full flex flex-row">
+                                            <DropDown setValue={setAge} value={age}
+                                                      options={yearArray}/>년
 
-                                    </div>
-                                </ChatBubbleA></>) : <></>}
-                            {year && <ChatBubbleQ>학번은요?</ChatBubbleQ>}
-                            {id ? <> <ChatBubbleA nowNum={questionNum} QuestionNum={2}
-                                                  setNumber={setQuestionNum}>{id}</ChatBubbleA>
-                                <ChatBubbleQ>학년은요?</ChatBubbleQ>
-                                <ChatBubbleA nowNum={questionNum}>
-                                    <div className="w-full flex flex-row">
-                                        <DropDown setValue={setGrade} value={grade}
-                                                  options={gradeData}
-                                        />
+                                        </div>
+                                    </ChatBubbleA></>) : <></>}
+                                {age && <ChatBubbleQ>학번은 어떻게 되시나요?</ChatBubbleQ>}
+                                {id ? <> <ChatBubbleA nowNum={questionNum} QuestionNum={2}
+                                                      setNumber={setQuestionNum}>{id}</ChatBubbleA>
+                                    <ChatBubbleQ>몇 학년 인가요?</ChatBubbleQ>
+                                    <ChatBubbleA nowNum={questionNum}>
+                                        <div className="w-full flex flex-row">
+                                            <DropDown setValue={setGrade} value={grade}
+                                                      options={gradeData}
+                                            />
 
-                                    </div>
-                                </ChatBubbleA>
-                            </> : <></>
-                            }
-                            {grade ? <> <ChatBubbleQ>단과대는 무엇인가요?</ChatBubbleQ>
-                                <ChatBubbleA nowNum={questionNum}>
-                                    <div className="w-full flex flex-row">
-                                        <DropDown setValue={setCollege} value={college}
-                                                  options={collegeData}/>
+                                        </div>
+                                    </ChatBubbleA>
+                                </> : <></>
+                                }
+                                {grade ? <> <ChatBubbleQ>단과대는 무엇인가요?</ChatBubbleQ>
+                                    <ChatBubbleA nowNum={questionNum}>
+                                        <div className="w-full flex flex-row">
+                                            <DropDown setValue={setCollege} value={college}
+                                                      options={collegeData}/>
 
-                                    </div>
-                                </ChatBubbleA>
+                                        </div>
+                                    </ChatBubbleA>
 
-                            </> : <></>}
-                            {college && <ChatBubbleQ>어떤 학과 소속인가요??</ChatBubbleQ>}
-                            {department ? <> <ChatBubbleA nowNum={questionNum} QuestionNum={5}
-                                                          setNumber={setQuestionNum}>{department}</ChatBubbleA>
-                                <ChatBubbleQ>전화번호는요?</ChatBubbleQ>
-                            </> : <></>}
-                            {phone && <ChatBubbleA nowNum={questionNum} QuestionNum={6}
-                                                   setNumber={setQuestionNum}>{phone}</ChatBubbleA>}
+                                </> : <></>}
+                                {college && <ChatBubbleQ>어떤 학과 소속인가요?</ChatBubbleQ>}
+                                {department ? <> <ChatBubbleA nowNum={questionNum} QuestionNum={5}
+                                                              setNumber={setQuestionNum}>{department}</ChatBubbleA>
+                                    <ChatBubbleQ>전화번호는요?</ChatBubbleQ>
+                                </> : <></>}
+                                {phone && <ChatBubbleA nowNum={questionNum} QuestionNum={6}
+                                                       setNumber={setQuestionNum}>{phone}</ChatBubbleA>}
 
-                            <div className="flex flex-row">
-                                {[0, 2, 5, 6].includes(questionNum) ?
-                                    <div
-                                        className='flex justify-center items-end w-full border-[2px] rounded-[20px] mt-[10px]
+                                <div className="flex flex-row">
+                                    {[0, 2, 5, 6].includes(questionNum) ?
+                                        <div
+                                            className='flex justify-center items-end w-full border-[2px] rounded-[20px] mt-[10px]
                                 p-[10px]'>
                                 <textarea
                                     className="w-full h-[30px] bg-[#ffffff] text-[#000000] focus:outline-none resize-none "
                                     placeholder="답장 보내기..." value={singleAns}
                                     onChange={handleInput}></textarea>
-                                        <button onClick={handleAns}><img src={'SendBTN.png'}/></button>
+                                            <button onClick={handleAns}><img src={'SendBTN.png'}/></button>
 
-                                    </div> : <></>
-                                }
-                                {questionNum == 7 &&
-                                    <div className="w-full flex justify-center">
-                                        <img src={'disabled_send_button_left.png'}
-                                             className='w-[30px] h-[30px] mx-[5px]'/>
-                                        {page === 1 && name && id && year !== '출생년도' && grade !== '학년' && college !== '소속 대학' && department && phone ?
-                                            <button onClick={() => setPage(2)}><img src={'send_button_right.png'}
-                                                                                    className='w-[30px] h-[30px] mx-[5px]'/>
-                                            </button>
-                                            :
-                                            <img src={'disabled_send_button_right.png'}
+                                        </div> : <></>
+                                    }
+                                    {questionNum == 7 &&
+                                        <div className="w-full flex justify-center">
+                                            <img src={'disabled_send_button_left.png'}
                                                  className='w-[30px] h-[30px] mx-[5px]'/>
-                                        }
-                                    </div>
-                                }
+                                            {page === 1 && name.trim()!=='' && id.trim()!=='' && age !== '출생년도' && grade !== '학년' && college !== '소속 대학' && department.trim()!=='' &&  phoneRegex.test(phone.trim())?
+                                                <button onClick={() => setPage(2)}><img src={'send_button_right.png'}
+                                                                                        className='w-[30px] h-[30px] mx-[5px]'/>
+                                                </button>
+                                                :
+                                                <img src={'disabled_send_button_right.png'}
+                                                     className='w-[30px] h-[30px] mx-[5px]'/>
+                                            }
+                                        </div>
+                                    }
+                                </div>
                             </div>
-                        </div>
-                    </>
-                    :
-                    <>{page === 2 ?
-                        <>
-                            {questionList.map((question, index) => {
-                                return (
-                                    <>
-                                        <LongQuestion length={longAnswer[index].length} key={index}>
-                                            {question}
-                                        </LongQuestion>
-                                        <LongAnswer setAnswer={setLongAnswer} Answer={longAnswer} num={index}/>
-                                    </>
-                                )
-                            })
-                            }
+                        </>
+                        :
+                        <>{page === 2 ?
+                            <>
+                                {questionList.map((question, index) => {
+                                    return (
+                                        <>
+                                            <LongQuestion length={longAnswer[index].length} key={index}>
+                                                {question}
+                                            </LongQuestion>
+                                            <LongAnswer setAnswer={setLongAnswer} Answer={longAnswer} num={index}/>
+                                        </>
+                                    )
+                                })
+                                }
 
-                            <div className="w-full flex justify-center">
-                                <button onClick={() => setPage(1)}><img src={'send_button_left.png'}
-                                                                        className='w-[30px] h-[30px] mx-[5px]'/>
-                                </button>
-                                {page === 2 && longAnswer.every(element => element) ?
-                                    <button onClick={() => handleSubmit()}><img src={'send_button_right.png'}
-                                                                                className='w-[30px] h-[30px] mx-[5px]'/>
+                                <div className="w-full flex justify-center">
+                                    <button onClick={() => setPage(1)}><img src={'send_button_left.png'}
+                                                                            className='w-[30px] h-[30px] mx-[5px]'/>
                                     </button>
-                                    :
-                                    <img src={'disabled_send_button_right.png'} className='w-[30px] h-[30px] mx-[5px]'/>
-                                }
-                            </div>
-                        </> : <></>
-                    }</>
-                }
-            </div>
+                                    {page === 2 && longAnswer.every(element => element.trim()) ?
+                                        <button onClick={() => handleSubmit()}><img src={'send_button_right.png'}
+                                                                                    className='w-[30px] h-[30px] mx-[5px]'/>
+                                        </button>
+                                        :
+                                        <img src={'disabled_send_button_right.png'}
+                                             className='w-[30px] h-[30px] mx-[5px]'/>
+                                    }
+                                </div>
+                            </> : <></>
+                        }</>
+                    }
+                </div>
             }
-            {submitSuccess === 'fail' ? <SubmitFailModal handleClose={setSubmitSuccess}></SubmitFailModal>: <></>}
+            {submitSuccess === 'fail' ? <SubmitFailModal handleClose={setSubmitSuccess}></SubmitFailModal> : <></>}
         </>
     )
 }
