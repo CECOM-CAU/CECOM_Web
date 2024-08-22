@@ -229,6 +229,7 @@ export const getRecruitSubmissionList = async () => {
             department: recruitSubmissionDoc.get("department"),
             grade: recruitSubmissionDoc.get("grade"),
             id: recruitSubmissionDoc.get("id"),
+            isPrivacyCollectAgree: recruitSubmissionDoc.get("isPrivacyCollectAgree"),
             name: recruitSubmissionDoc.get("name"),
             phone: recruitSubmissionDoc.get("phone"),
             timestamp: Number.parseInt(recruitSubmissionDoc.id)
