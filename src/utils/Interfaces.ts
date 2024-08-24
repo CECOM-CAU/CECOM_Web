@@ -91,6 +91,7 @@ export interface RecruitSubmissionDetail {
     department: string
     grade: string
     id: string
+    isPrivacyCollectAgree: boolean
     name: string
     phone: string
     timestamp: number
@@ -103,6 +104,7 @@ export interface RecruitSubmissionItem {
     department: string
     grade: string
     id: string
+    isPrivacyCollectAgree: boolean
     name: string
     phone: string
     timestamp: number

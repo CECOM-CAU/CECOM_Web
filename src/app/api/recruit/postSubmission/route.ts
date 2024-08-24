@@ -18,6 +18,7 @@ export async function POST(req: NextRequest) {
         || submissionBody.department.length == 0
         || submissionBody.grade.length == 0
         || submissionBody.id.length == 0
+        || !submissionBody.isPrivacyCollectAgree
         || submissionBody.name.length == 0
         || submissionBody.phone.length == 0){
         apiResult.RESULT_CODE = 100;

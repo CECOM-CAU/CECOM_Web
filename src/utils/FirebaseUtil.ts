@@ -179,6 +179,7 @@ export const getRecruitSubmissionDetail = async (studentID: string) => {
         department: "",
         grade: "",
         id: "",
+        isPrivacyCollectAgree: false,
         name: "",
         phone: "",
         timestamp: 0
@@ -197,6 +198,7 @@ export const getRecruitSubmissionDetail = async (studentID: string) => {
             submissionDetail.department = recruitSubmissionDoc.get("department");
             submissionDetail.grade = recruitSubmissionDoc.get("grade");
             submissionDetail.id = recruitSubmissionDoc.get("id");
+            submissionDetail.isPrivacyCollectAgree = recruitSubmissionDoc.get("isPrivacyCollectAgree");
             submissionDetail.name = recruitSubmissionDoc.get("name");
             submissionDetail.phone = recruitSubmissionDoc.get("phone");
             submissionDetail.timestamp = Number.parseInt(recruitSubmissionDoc.id);
@@ -229,6 +231,7 @@ export const getRecruitSubmissionList = async () => {
             department: recruitSubmissionDoc.get("department"),
             grade: recruitSubmissionDoc.get("grade"),
             id: recruitSubmissionDoc.get("id"),
+            isPrivacyCollectAgree: recruitSubmissionDoc.get("isPrivacyCollectAgree"),
             name: recruitSubmissionDoc.get("name"),
             phone: recruitSubmissionDoc.get("phone"),
             timestamp: Number.parseInt(recruitSubmissionDoc.id)
