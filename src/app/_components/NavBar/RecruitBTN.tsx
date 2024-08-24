@@ -10,7 +10,7 @@ const RecruitBTN = ({children}: Props) => {
 
     return (
         <Link href={
-            "https://docs.google.com/forms/d/e/1FAIpQLSdX_hqjckEER3C0kOIa70wN8OFtk9GnojKILWJ6r0oeOuDSWQ/viewform"
+            "/recruit"
         }>
             <div className={NAV_BTN_STYLE_NORMAL}>{children}</div>
         </Link>
