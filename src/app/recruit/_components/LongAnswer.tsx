@@ -17,7 +17,7 @@ const LongAnswer = ({setAnswer, Answer, num}: Props) => {
     }
 
     return (
-        <div className="w-full ">
+        <div className="w-full text-[16px]">
         <textarea
             className="w-full h-[150px]  bg-[#d9d9d950] text-[#000000] p-[15px] mb-[50px] rounded-[10px] focus:outline-none resize-none "
             placeholder="최대 500자" value={Answer[num]||''}
