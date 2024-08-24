@@ -5,7 +5,7 @@ interface Props {
 
 const ChatBubbleQ = ({children}: Props) => {
     return (
-        <div className='flex flex-row justify-start items-end my-[5px]'>
+        <div className='flex flex-row justify-start items-end my-[5px] text-[14px] md:text-[16px]'>
             <img src="MobileLogo.svg" alt="logo" width={40}/>
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between ">
