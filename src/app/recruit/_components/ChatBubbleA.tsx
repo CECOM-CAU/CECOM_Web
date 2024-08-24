@@ -12,7 +12,7 @@ interface Props {
 const ChatBubbleA = ({children, setNumber, QuestionNum, nowNum}: Props) => {
     return (
 
-        <div className='flex flex-row justify-end items-center my-[5px] ml-[60px]'>
+        <div className='flex flex-row justify-end items-center my-[5px] ml-[60px] text-[14px] md:text-[16px]'>
             {setNumber !== undefined && QuestionNum !== undefined ?
                 <button onClick={() => setNumber(QuestionNum)} className='mr-[5px]'>
                     {nowNum === QuestionNum ? <FontAwesomeIcon icon={faPencil} style={{color: '#000000'}}/> :
