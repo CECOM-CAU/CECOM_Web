@@ -67,6 +67,10 @@ const RecruitPage = () => {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [page]);
+
+    useEffect(() => {
         axios.get(`/api/recruit/getQuestionList`)
             .then((res) => {
                     setQuestionList(res.data.RESULT_DATA.list);
