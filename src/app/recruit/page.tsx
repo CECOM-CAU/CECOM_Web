@@ -13,7 +13,7 @@ import LongAnswer from "@/app/recruit/_components/LongAnswer";
 import axios from "axios";
 import SubmitSuccess from "@/app/recruit/_components/SubmitSuccess";
 import SubmitFailModal from "@/app/recruit/_components/SubmitFailModal";
-import {RecruitSubmissionItem} from "@/utils/Interfaces";
+import {RecruitAvailability, RecruitSubmissionItem} from "@/utils/Interfaces";
 import PersonalInfoConsent from "@/app/recruit/_components/PersonalInfoConsent";
 
 const RecruitPage = () => {
@@ -65,6 +65,16 @@ const RecruitPage = () => {
     for (let year = startYear; year <= endYear; year++) {
         yearArray.push({label: String(year), value: String(year)});
     }
+
+    useEffect(() => {
+        axios.get(`/api/recruit/getAvailibility`)
+            .then((res) => {
+                if(!res.data.RESULT_DATA.isAvail) {
+                    console.log(res.data.RESULT_DATA.isAvail);
+                    console.log(res.data.RESULT_DATA.message);
+                }
+        });
+    });
 
     useEffect(() => {
         window.scrollTo(0, 0);
