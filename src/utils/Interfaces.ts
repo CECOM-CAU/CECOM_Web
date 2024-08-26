@@ -79,6 +79,11 @@ export interface Photo {
     filename: string,
 }
 
+export interface RecruitAvailability {
+    isAvail: boolean
+    message: string
+}
+
 export interface RecruitQuestionList {
     count: number
     list: Array<string>
