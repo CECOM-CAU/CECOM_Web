@@ -13,7 +13,7 @@ import LongAnswer from "@/app/recruit/_components/LongAnswer";
 import axios from "axios";
 import SubmitSuccess from "@/app/recruit/_components/SubmitSuccess";
 import SubmitFailModal from "@/app/recruit/_components/SubmitFailModal";
-import {RecruitAvailability, RecruitSubmissionItem} from "@/utils/Interfaces";
+import {RecruitSubmissionItem} from "@/utils/Interfaces";
 import PersonalInfoConsent from "@/app/recruit/_components/PersonalInfoConsent";
 
 const RecruitPage = () => {
@@ -70,8 +70,7 @@ const RecruitPage = () => {
         axios.get(`/api/recruit/getAvailibility`)
             .then((res) => {
                 if(!res.data.RESULT_DATA.isAvail) {
-                    console.log(res.data.RESULT_DATA.isAvail);
-                    console.log(res.data.RESULT_DATA.message);
+                    window.location.replace(`/recruit/closed`);
                 }
         });
     });
