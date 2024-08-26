@@ -8,7 +8,12 @@ import {
     ActivityItem,
     Admin,
     AdminItem,
-    Member, RecruitQuestionList, RecruitSubmissionDetail, RecruitSubmissionItem, RecruitSubmissionList,
+    Member,
+    RecruitAvailability,
+    RecruitQuestionList,
+    RecruitSubmissionDetail,
+    RecruitSubmissionItem,
+    RecruitSubmissionList,
     Thing,
     ThingItem
 } from "@/utils/Interfaces";
@@ -155,6 +160,15 @@ export const getAdminList = async () => {
     }
 
     return adminList;
+}
+
+export const getRecruitAvailibility = () => {
+    const recruitAvail: RecruitAvailability = {
+        isAvail: false,
+        message: "Test Message"
+    };
+
+    return recruitAvail;
 }
 
 export const getRecruitQuestionList = async () => {
