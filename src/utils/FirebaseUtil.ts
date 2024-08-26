@@ -8,7 +8,12 @@ import {
     ActivityItem,
     Admin,
     AdminItem,
-    Member, RecruitQuestionList, RecruitSubmissionDetail, RecruitSubmissionItem, RecruitSubmissionList,
+    Member,
+    RecruitAvailability,
+    RecruitQuestionList,
+    RecruitSubmissionDetail,
+    RecruitSubmissionItem,
+    RecruitSubmissionList,
     Thing,
     ThingItem
 } from "@/utils/Interfaces";
@@ -155,6 +160,18 @@ export const getAdminList = async () => {
     }
 
     return adminList;
+}
+
+export const getRecruitAvailibility = async () => {
+    initFirebase();
+
+    const recruitAvailDoc = await getDoc(doc(firestoreDB!, "RecruitAvailibility", "availibility"));
+    const recruitAvail: RecruitAvailability = {
+        isAvail: recruitAvailDoc.get("isAvail"),
+        message: recruitAvailDoc.get("message"),
+    };
+
+    return recruitAvail;
 }
 
 export const getRecruitQuestionList = async () => {

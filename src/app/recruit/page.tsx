@@ -1,7 +1,5 @@
 'use client';
 
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCircleLeft, faCircleRight} from "@fortawesome/free-solid-svg-icons";
 import ChatBubbleQ from "@/app/recruit/_components/ChatBubbleQ";
 import ChatBubbleA from "@/app/recruit/_components/ChatBubbleA";
 import React, {useEffect, useState} from "react";
@@ -67,6 +65,15 @@ const RecruitPage = () => {
     }
 
     useEffect(() => {
+        axios.get(`/api/recruit/getAvailibility`)
+            .then((res) => {
+                if(!res.data.RESULT_DATA.isAvail) {
+                    window.location.replace(`/recruit/closed`);
+                }
+        });
+    });
+
+    useEffect(() => {
         window.scrollTo(0, 0);
     }, [page]);
 
@@ -76,8 +83,7 @@ const RecruitPage = () => {
                     setQuestionList(res.data.RESULT_DATA.list);
                     setLongAnswer(new Array(res.data.RESULT_DATA.count).fill(''));
                 }
-            ).catch((err) => {
-        })
+            )
     }, []);
 
     useEffect(() => {
@@ -155,9 +161,9 @@ const RecruitPage = () => {
             isPrivacyCollectAgree: personalInfoConsentChecked
 
         }
-        axios.post(`/api/recruit/postSubmission`, applicationData).then((res) => {
+        axios.post(`/api/recruit/postSubmission`, applicationData).then((_) => {
             setSubmitSuccess('success');
-        }).catch((err) => {
+        }).catch((_) => {
             setSubmitSuccess('fail');
         })
     }
