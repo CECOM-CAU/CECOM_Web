@@ -12,8 +12,7 @@ export async function GET(_: NextRequest) {
         RESULT_DATA: undefined
     }
 
-    const recruitAvail = await getRecruitAvailibility();
-    apiResult.RESULT_DATA = recruitAvail;
+    apiResult.RESULT_DATA = await getRecruitAvailibility();
 
     return NextResponse.json(apiResult, { status: 200, headers: corsHeader });
 }
