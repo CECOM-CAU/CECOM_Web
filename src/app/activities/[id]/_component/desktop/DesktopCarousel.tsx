@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleLeft, faAngleRight} from "@fortawesome/free-solid-svg-icons";
 
-const PhotoCarousel = ({count, data}: { count: number, data: Array<string> }) => {
+const DesktopCarousel = ({count, data}: { count: number, data: Array<string> }) => {
     const imageList: Array<string> = data;
     const [current, setCurrent] = useState(0);
     const moveStyle: { [key: number]: string } = {
@@ -67,4 +67,4 @@ const PhotoCarousel = ({count, data}: { count: number, data: Array<string> }) =>
 }
 
 
-export default PhotoCarousel;
+export default DesktopCarousel;
