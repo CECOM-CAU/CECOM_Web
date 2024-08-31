@@ -14,29 +14,22 @@ const NoticePage = () => {
                 <MobilePageTitle>Notice</MobilePageTitle>
             </div>
             <div className='flex flex-row w-full justify-center '>
-                <div className='flex flex-col w-[1020px] items-start'>
-                    <div className='flex flex-row justify-start'>
-
+                <div className='flex flex-col w-full lg:w-[1020px] items-center '>
+                    <div className='flex flex-row w-full px-[15px] justify-evenly lg:w-[1050px] lg:justify-start flex-wrap'>
                         <NoticeCard img={'/MemberFemale.png'} id={1} title={"룰루랄랄 쿠쿠루삐뽕"} tag={"#홍보부"}
                                     date={"8/19-9/20"}/>
                         <NoticeCard img={'/MemberMale.png'} id={2} title={"룰루랄랄 쿠쿠루삐뽕"} tag={"#홍보부"}
                                     date={"8/19-9/20"}/>
                         <NoticeCard img={'/MemberFemale.png'} id={3} title={"룰루랄랄 쿠쿠루삐뽕"} tag={"#홍보부"}
                                     date={"8/19-9/20"}/>
-                    </div>
-                    <div className='flex flex-row justify-start'>
                         <NoticeCard img={'/MemberFemale.png'} id={1} title={"룰루랄랄 쿠쿠루삐뽕"} tag={"#홍보부"}
                                     date={"8/19-9/20"}/>
                         <NoticeCard img={'/MemberMale.png'} id={2} title={"룰루랄랄 쿠쿠루삐dddd뽕"} tag={"#홍보부"}
                                     date={"8/19-9/20"}/>
                         <NoticeCard img={'/MemberFemale.png'} id={3} title={"룰루랄랄 쿠쿠루삐뽕"} tag={"#홍보부"}
                                     date={"8/19-9/20"}/>
-                    </div>
-                    <div className='flex flex-row justify-start'>
-                        <div className='flex flex-row'>
-                            <NoticeCard img={'/MemberMale.png'} id={2} title={"룰루랄랄 쿠쿠루삐뽕"} tag={"#홍보부"}
-                                        date={"8/19-9/20"}/>
-                        </div>
+                        <NoticeCard img={'/MemberMale.png'} id={2} title={"룰루랄랄 쿠쿠루삐뽕"} tag={"#홍보부"}
+                                    date={"8/19-9/20"}/>
                     </div>
                 </div>
             </div>
