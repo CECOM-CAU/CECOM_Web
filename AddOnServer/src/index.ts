@@ -10,9 +10,9 @@ const server = http.createServer(app);
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 
-app.get("/getImage/:projectID/:fileName", (req: Request, res: Response) => {
+app.get("/getImage/:type/:id/:fileName", (req: Request, res: Response) => {
     const params = req.params;
-    const filePath = `${process.env.FILE_DIR}/project/${params.projectID}/${params.fileName}`;
+    const filePath = `${process.env.FILE_DIR}/${params.type}/${params.id}/${params.fileName}`;
     let fileBuffer: Buffer | undefined;
     try{
         fileBuffer = fs.readFileSync(filePath);
