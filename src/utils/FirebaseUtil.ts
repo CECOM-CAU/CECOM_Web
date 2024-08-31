@@ -165,7 +165,7 @@ export const getAdminList = async () => {
 export const getRecruitAvailability = async () => {
     initFirebase();
 
-    const recruitAvailDoc = await getDoc(doc(firestoreDB!, "RecruitAvailability", "availibility"));
+    const recruitAvailDoc = await getDoc(doc(firestoreDB!, "RecruitAvailability", "availability"));
     const recruitAvail: RecruitAvailability = {
         isAvail: recruitAvailDoc.get("isAvail"),
         message: recruitAvailDoc.get("message"),
