@@ -77,6 +77,7 @@ export interface Member {
 export interface NoticeDetail {
     content: string
     date: string
+    id: string
     part: string
     photo: NoticeDetailPhoto
     photoCnt: number
@@ -95,6 +96,7 @@ export interface NoticeList {
 
 export interface NoticeListItem {
     date: string
+    id: string
     part: string
     thumbnail: string
     title: string
