@@ -9,7 +9,7 @@ const ClosedPage = () => {
     const [closeMessage, setCloseMessage] = useState("")
 
     useEffect(() => {
-        axios.get(`/api/recruit/getAvailibility`)
+        axios.get(`/api/recruit/getAvailability`)
             .then((res) => {
                 setCloseMessage(res.data.RESULT_DATA.message);
             });
