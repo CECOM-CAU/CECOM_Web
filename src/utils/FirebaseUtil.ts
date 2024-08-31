@@ -8,7 +8,7 @@ import {
     ActivityItem,
     Admin,
     AdminItem,
-    Member, NoticeList,
+    Member, NoticeList, NoticeListItem,
     RecruitAvailability,
     RecruitQuestionList,
     RecruitSubmissionDetail,
@@ -18,7 +18,7 @@ import {
     ThingItem
 } from "@/utils/Interfaces";
 import {getDocs} from "firebase/firestore";
-import {getActivityContent, getActivityPhoto, getActivityThumbnail} from "@/utils/FileUtil";
+import {getActivityContent, getActivityPhoto, getActivityThumbnail, getNoticeThumbnail} from "@/utils/FileUtil";
 
 let firebaseApp: FirebaseApp | null = null;
 let firestoreDB: Firestore | null = null;
@@ -163,10 +163,29 @@ export const getAdminList = async () => {
 }
 
 export const getNoticeList = async () => {
+    initFirebase();
+
     const noticeList: NoticeList = {
       count: 0,
       data: []
     };
+
+    const noticeListDocs = await getDocs(collection(firestoreDB!, "Notice"));
+    if(noticeListDocs.empty){
+        return noticeList;
+    }
+
+    for(const noticeDoc of noticeListDocs.docs){
+        const noticeItem: NoticeListItem = {
+            date: noticeDoc.get("date"),
+            part: noticeDoc.get("part"),
+            thumbnail: await getNoticeThumbnail(noticeDoc.id),
+            title: noticeDoc.get("title"),
+        };
+
+        noticeList.count++;
+        noticeList.data.push(noticeItem);
+    }
 
     return noticeList;
 }
