@@ -8,7 +8,7 @@ import {
     ActivityItem,
     Admin,
     AdminItem,
-    Member, NoticeList, NoticeListItem,
+    Member, NoticeDetail, NoticeList, NoticeListItem,
     RecruitAvailability,
     RecruitQuestionList,
     RecruitSubmissionDetail,
@@ -160,6 +160,19 @@ export const getAdminList = async () => {
     }
 
     return adminList;
+}
+
+export const getNoticeDetail = async () => {
+    const noticeDetail: NoticeDetail = {
+        content: "",
+        date: "",
+        part: "",
+        photo: [],
+        photoCnt: 0,
+        title: "",
+    }
+
+    return noticeDetail;
 }
 
 export const getNoticeList = async () => {
