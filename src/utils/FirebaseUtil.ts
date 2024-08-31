@@ -224,6 +224,7 @@ export const getNoticeList = async () => {
     for(const noticeDoc of noticeListDocs.docs){
         const noticeItem: NoticeListItem = {
             date: noticeDoc.get("date"),
+            id: noticeDoc.id,
             part: noticeDoc.get("part"),
             thumbnail: await getNoticeThumbnail(noticeDoc.id),
             title: noticeDoc.get("title"),
