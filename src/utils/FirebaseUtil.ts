@@ -8,7 +8,7 @@ import {
     ActivityItem,
     Admin,
     AdminItem,
-    Member,
+    Member, NoticeList,
     RecruitAvailability,
     RecruitQuestionList,
     RecruitSubmissionDetail,
@@ -160,6 +160,15 @@ export const getAdminList = async () => {
     }
 
     return adminList;
+}
+
+export const getNoticeList = async () => {
+    const noticeList: NoticeList = {
+      count: 0,
+      data: []
+    };
+
+    return noticeList;
 }
 
 export const getRecruitAvailability = async () => {
