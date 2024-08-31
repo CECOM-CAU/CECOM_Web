@@ -46,6 +46,17 @@ export const getMainImage = async (imageID: string) => {
     }
 }
 
+export const getNoticePhoto = async (noticeID: string, photoIdx: number) => {
+    unstable_noStore();
+    try{
+        setDefaultResultOrder("ipv4first");
+        const res = await axios.get(`http://${process.env.LOCALHOST_IP}:3001/getImage/notice/${noticeID}/${photoIdx}.png`);
+        return res.data;
+    }catch(e){
+        return undefined;
+    }
+}
+
 export const getNoticeThumbnail = async (noticeID: string) => {
     unstable_noStore();
     try{
