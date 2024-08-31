@@ -1,7 +1,7 @@
 export interface API_RESULT {
     RESULT_CODE: number
     RESULT_MSG: string
-    RESULT_DATA: Activity | ActivityContent | Array<Admin> | MainImage | Member | Photo | RecruitAvailability | RecruitQuestionList | RecruitSubmissionDetail | RecruitSubmissionList | Thing | undefined
+    RESULT_DATA: Activity | ActivityContent | Array<Admin> | MainImage | Member | NoticeDetail | NoticeList | Photo | RecruitAvailability | RecruitQuestionList | RecruitSubmissionDetail | RecruitSubmissionList | Thing | undefined
 }
 
 export interface Activity {
@@ -72,6 +72,15 @@ export interface Member {
     instagram: string
     name: string
     project: Array<string>
+}
+
+export interface NoticeDetail {
+    content: string
+    date: string
+    part: string
+    photo: Array<string>
+    photoCnt: number
+    title: string
 }
 
 export interface NoticeList {
