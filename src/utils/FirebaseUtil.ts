@@ -181,6 +181,7 @@ export const getNoticeDetail = async (id: string) => {
     const noticeDetail: NoticeDetail = {
         content: noticeDoc.get("content"),
         date: noticeDoc.get("date"),
+        id: noticeID,
         part: noticeDoc.get("part"),
         photo: await getNoticePhotos(noticeID, photoCnt),
         photoCnt: photoCnt,
