@@ -74,6 +74,18 @@ export interface Member {
     project: Array<string>
 }
 
+export interface NoticeList {
+    count: number
+    data: Array<NoticeListItem>
+}
+
+export interface NoticeListItem {
+    date: string
+    part: string
+    thumbnail: string
+    title: string
+}
+
 export interface Photo {
     data: string,
     filename: string,
