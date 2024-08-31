@@ -3,6 +3,7 @@ import {API_RESULT, RecruitSubmissionDetail} from "@/utils/Interfaces";
 import {corsHeader} from "@/utils/CorsUtil";
 import {postRecruitingSubmission} from "@/utils/FirebaseUtil";
 
+export const dynamic = "force-dynamic";
 export async function POST(req: NextRequest) {
     const apiResult: API_RESULT = {
         RESULT_CODE: 200,
