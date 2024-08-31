@@ -24,12 +24,13 @@ const NoticePage = () => {
                                     date={"8/19-9/20"}/>
                         <NoticeCard img={'/MemberFemale.png'} id={1} title={"룰루랄랄 쿠쿠루삐뽕"} tag={"#홍보부"}
                                     date={"8/19-9/20"}/>
-                        <NoticeCard img={'/MemberMale.png'} id={2} title={"룰루랄랄 쿠쿠루삐dddd뽕"} tag={"#홍보부"}
+                        <NoticeCard img={'/MemberMale.png'} id={2} title={"룰루랄랄 쿠쿠루삐ddddfdf fgdfgg df fddfdfddfddfsdsdfd뽕"} tag={"#홍보부"}
                                     date={"8/19-9/20"}/>
                         <NoticeCard img={'/MemberFemale.png'} id={3} title={"룰루랄랄 쿠쿠루삐뽕"} tag={"#홍보부"}
                                     date={"8/19-9/20"}/>
-                        <NoticeCard img={'/MemberMale.png'} id={2} title={"룰루랄랄 쿠쿠루삐뽕"} tag={"#홍보부"}
+                        <NoticeCard img={'/MemberFemale.png'} id={3} title={"룰루랄랄 쿠쿠루삐뽕"} tag={"#홍보부"}
                                     date={"8/19-9/20"}/>
+                        <div className='w-[160px] lg:w-[340px]'></div>
                     </div>
                 </div>
             </div>
