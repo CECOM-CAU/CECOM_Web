@@ -8,7 +8,7 @@ import {
     ActivityItem,
     Admin,
     AdminItem,
-    Member, NoticeDetail, NoticeList, NoticeListItem,
+    Member, NoticeDetail, NoticeDetailPhoto, NoticeList, NoticeListItem,
     RecruitAvailability,
     RecruitQuestionList,
     RecruitSubmissionDetail,
@@ -18,7 +18,13 @@ import {
     ThingItem
 } from "@/utils/Interfaces";
 import {getDocs} from "firebase/firestore";
-import {getActivityContent, getActivityPhoto, getActivityThumbnail, getNoticeThumbnail} from "@/utils/FileUtil";
+import {
+    getActivityContent,
+    getActivityPhoto,
+    getActivityThumbnail,
+    getNoticePhoto,
+    getNoticeThumbnail
+} from "@/utils/FileUtil";
 
 let firebaseApp: FirebaseApp | null = null;
 let firestoreDB: Firestore | null = null;
@@ -162,17 +168,43 @@ export const getAdminList = async () => {
     return adminList;
 }
 
-export const getNoticeDetail = async () => {
+export const getNoticeDetail = async (id: string) => {
+    initFirebase();
+
+    const noticeDoc = await getDoc(doc(firestoreDB!, "Notice", id));
+    if(!noticeDoc.exists()){
+        return undefined;
+    }
+
+    let noticeID = noticeDoc.id;
+    let photoCnt = noticeDoc.get("photoCnt");
     const noticeDetail: NoticeDetail = {
-        content: "",
-        date: "",
-        part: "",
-        photo: [],
-        photoCnt: 0,
-        title: "",
+        content: noticeDoc.get("content"),
+        date: noticeDoc.get("date"),
+        part: noticeDoc.get("part"),
+        photo: await getNoticePhotos(noticeID, photoCnt),
+        photoCnt: photoCnt,
+        title: noticeDoc.get("title"),
     }
 
     return noticeDetail;
+}
+
+const getNoticePhotos = async (noticeID: string, photoCnt: number) => {
+    const photoData: NoticeDetailPhoto = {
+        count: 0,
+        data: []
+    };
+
+    for(let photoIdx = 1; photoIdx <= photoCnt; photoIdx++){
+        const photoItem = await getNoticePhoto(noticeID, photoIdx);
+        if(photoItem !== undefined){
+            photoData.count++;
+            photoData.data.push(photoItem);
+        }
+    }
+
+    return photoData;
 }
 
 export const getNoticeList = async () => {
