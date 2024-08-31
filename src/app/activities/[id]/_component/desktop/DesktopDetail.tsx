@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PhotoCarousel from "@/app/activities/[id]/_component/desktop/PhotoCarousel";
+import DesktopCarousel from "@/app/activities/[id]/_component/desktop/DesktopCarousel";
 import Tag from "@/app/activities/_components/Tag";
 import MemberInfo from "@/app/activities/[id]/_component/MemberInfo";
 import React from "react";
@@ -15,7 +15,7 @@ export const DesktopDetail = ({contentData}: { contentData: ActivityContent }) =
                 <div className="text-[20px] font-gmarket-l ml-[10px]">{contentData.title}</div>
             </div>
             <div className='flex flex-col justify-center w-[950px] lg:flex-row'>
-                <PhotoCarousel count={Number(contentData.photo.count)} data={contentData.photo.data}/>
+                <DesktopCarousel count={Number(contentData.photo.count)} data={contentData.photo.data}/>
                 <div className="flex flex-col w-[400px] ml-[100px]">
                     <Tag tag={contentData.tag}/>
                     <div className=" w-[400px] text-[35px] border-b-[1px] border-[#000000] mb-[10px]">
