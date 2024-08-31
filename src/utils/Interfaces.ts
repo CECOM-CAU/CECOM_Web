@@ -78,9 +78,14 @@ export interface NoticeDetail {
     content: string
     date: string
     part: string
-    photo: Array<string>
+    photo: NoticeDetailPhoto
     photoCnt: number
     title: string
+}
+
+export interface NoticeDetailPhoto {
+    count: number,
+    data: Array<string>
 }
 
 export interface NoticeList {
