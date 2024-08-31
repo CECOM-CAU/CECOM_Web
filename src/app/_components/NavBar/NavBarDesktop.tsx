@@ -9,18 +9,18 @@ const NavBarDesktop = () => {
     const params = useSelectedLayoutSegment();
     const [activity, setActivity] = useState(false)
     const [member, setMember] = useState(false)
-    const [thing, setThing] = useState(false)
-    const handleNavBTN = (isActivity: boolean, isMember: boolean, isThing: boolean) => {
+    const [notice, setNotice] = useState(false)
+    const handleNavBTN = (isActivity: boolean, isMember: boolean, isNotice: boolean) => {
         setActivity(isActivity);
         setMember(isMember);
-        setThing(isThing);
+        setNotice(isNotice);
     }
     useEffect(() => {
         if (params === "activities") {
             handleNavBTN(true, false, false)
         } else if (params === "members") {
             handleNavBTN(false, true, false)
-        } else if (params === "things") {
+        } else if (params === "notice") {
             handleNavBTN(false, false, true)
         }else if (params ==="recruit"){
             handleNavBTN(false, false, false)
@@ -43,8 +43,8 @@ const NavBarDesktop = () => {
                     <NavButton link="/members" isClick={member}>
                         Members
                     </NavButton>
-                    <NavButton link="/things" isClick={thing}>
-                        Things
+                    <NavButton link="/notice" isClick={notice}>
+                        Notice
                     </NavButton>
                     <RecruitBTN>Recruit</RecruitBTN>
                 </div>
