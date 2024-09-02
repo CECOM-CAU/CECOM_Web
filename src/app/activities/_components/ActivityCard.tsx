@@ -1,5 +1,3 @@
-import ActivityCardFront from "@/app/activities/_components/ActivityCardFront";
-import ActivityCardBack from "@/app/activities/_components/ActivityCardBack";
 import {ActivityItem} from "@/utils/Interfaces";
 import Link from "next/link";
 import Tag from "@/app/activities/_components/Tag";
