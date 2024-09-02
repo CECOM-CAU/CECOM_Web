@@ -69,7 +69,7 @@ const ActivitiesPage = () => {
             <div className="hidden lg:block">
                 <PageTitle>Activities</PageTitle></div>
             <MobilePageTitle>Activities</MobilePageTitle>
-            <nav className="w-full flex flex-row justify-center ">
+            <nav className="w-full flex flex-row justify-center mb-[20px]">
                 <div onClick={() => handleMenuBtn(true, false, false, false)}>
                     <MenuBTN isClicked={all}>ALL</MenuBTN>
                 </div>
@@ -83,23 +83,25 @@ const ActivitiesPage = () => {
                     <MenuBTN isClicked={study}>Study</MenuBTN>
                 </div>
             </nav>
-            <div className="flex flex-col items-center ">
-                <div
-                    className="grid container lg:max-w-[1300px] grid-cols-1 lg:grid-cols-4 grid-flow-row gap-[10px] justify-items-center">
-                    {
-                        menuList.map(({
-                                          content,
-                                          member,
-                                          mentor,
-                                          tag,
-                                          thumbnail,
-                                          title,
-                                          id
-                                      }: ActivityItem, index: number) => (
-                            <ActivityCard key={index} content={content} member={member} mentor={mentor} tag={tag}
-                                          thumbnail={`data:image/png;base64,${thumbnail}`} title={title} id={id}/>
-                        ))
-                    }
+            <div className='flex flex-row w-full justify-center '>
+                <div className='flex flex-col w-full lg:w-[1020px] items-center '>
+                    <div
+                        className='flex flex-row w-full px-[6px] justify-evenly lg:w-[1050px] lg:justify-start flex-wrap'>
+                        {
+                            menuList.map(({
+                                              content,
+                                              member,
+                                              mentor,
+                                              tag,
+                                              thumbnail,
+                                              title,
+                                              id
+                                          }: ActivityItem, index: number) => (
+                                <ActivityCard key={index} content={content} member={member} mentor={mentor} tag={tag}
+                                              thumbnail={`data:image/png;base64,${thumbnail}`} title={title} id={id}/>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </div>
