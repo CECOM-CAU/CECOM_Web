@@ -101,6 +101,7 @@ const ActivitiesPage = () => {
                                               thumbnail={`data:image/png;base64,${thumbnail}`} title={title} id={id}/>
                             ))
                         }
+                        <div className='w-[165px] lg:w-[340px]'></div>
                     </div>
                 </div>
             </div>
