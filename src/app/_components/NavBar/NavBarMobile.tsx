@@ -35,8 +35,8 @@ const NavBarMobile = () => {
                                 </MobileNavButton>
                             </div>
                             <div onClick={() => setIsClicked(false)}>
-                                <MobileNavButton link="/things">
-                                    Things
+                                <MobileNavButton link="/notice">
+                                    Notice
                                 </MobileNavButton>
                             </div>
                             <div onClick={() => setIsClicked(false)}>
