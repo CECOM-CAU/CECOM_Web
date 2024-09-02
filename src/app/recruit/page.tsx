@@ -224,7 +224,7 @@ const RecruitPage = () => {
                                             </ChatBubbleA>
                                         </> : <></>
                                         }
-                                        {grade ? <> <ChatBubbleQ>단과대는 무엇인가요?</ChatBubbleQ>
+                                        {grade ? <> <ChatBubbleQ>어느 단과대 소속인가요?</ChatBubbleQ>
                                             <ChatBubbleA nowNum={questionNum}>
                                                 <div className="w-full flex flex-row">
                                                     <DropDown setValue={setCollege} value={college}
@@ -234,7 +234,7 @@ const RecruitPage = () => {
                                             </ChatBubbleA>
 
                                         </> : <></>}
-                                        {college && <ChatBubbleQ>어떤 학과 소속인가요?</ChatBubbleQ>}
+                                        {college && <ChatBubbleQ>어디 학과인가요?</ChatBubbleQ>}
                                         {department ? <> <ChatBubbleA nowNum={questionNum} QuestionNum={5}
                                                                       setNumber={setQuestionNum}>{department}</ChatBubbleA>
                                             <ChatBubbleQ>전화번호를 작성해주세요.<br/>( - 없이 작성)</ChatBubbleQ>
