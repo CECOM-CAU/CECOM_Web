@@ -17,7 +17,7 @@ const NoticeCard = ({img, id, title, tag, date}: Props) => {
             className="flex flex-col w-[165px] lg:w-[300px] items-start mb-[18px] lg:mb-[40px] lg:mx-[20px]">
             <Link href={`/notice/${id}`}>
                 <div className="w-[165px] h-[165px] lg:w-[300px] lg:h-[150px] rounded-md">
-                    <img className='object-cover w-[165px] h-[165px] lg:w-[300px] lg:h-[150px] rounded-md shadow-lg' src={`data:image/png;base64,${img}`}/>
+                    <img className='object-cover object-top w-[165px] h-[165px] lg:w-[300px] lg:h-[150px] rounded-md shadow-lg' src={`data:image/png;base64,${img}`}/>
                 </div>
                 <div className='font-gmarket-m text-[15px] lg:text-[16px] mt-[10px] break-words w-[165px] lg:w-[300px]'>{title}</div>
                 <div className='flex flex-row'>
