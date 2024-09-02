@@ -1,17 +1,18 @@
 import React, {useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleLeft, faAngleRight} from "@fortawesome/free-solid-svg-icons";
+import {NoticeDetailPhoto} from "@/utils/Interfaces";
 
-const PhotoCarousel = ({count, data}: { count: number, data: Array<string> }) => {
+const PhotoCarousel = ({count, data}: NoticeDetailPhoto) => {
     const imageList: Array<string> = data;
     const [current, setCurrent] = useState(0);
     const moveStyle: { [key: number]: string } = {
         0: 'translate-x-0',
-        1: 'translate-x-[-320px] lg:translate-x-[-450px]',
-        2: 'translate-x-[-640px] lg:translate-x-[-900px]',
-        3: 'translate-x-[-960px] lg:translate-x-[-1350px]',
-        4: 'translate-x-[-1280px] lg:translate-x-[-1800px]',
-        5: 'translate-x-[-1600px] lg:translate-x-[-2250px]',
+        1: 'translate-x-[-350px] lg:translate-x-[-700px]',
+        2: 'translate-x-[-700px] lg:translate-x-[-1400px]',
+        3: 'translate-x-[-1050px] lg:translate-x-[-2100px]',
+        4: 'translate-x-[-1400px] lg:translate-x-[-2800px]',
+        5: 'translate-x-[-1750px] lg:translate-x-[-3500px]',
     };
     const nextHandler = () => {
         setCurrent(() => {
@@ -32,13 +33,14 @@ const PhotoCarousel = ({count, data}: { count: number, data: Array<string> }) =>
         });
     };
     return (
-        <div className="relative flex lg:h-[400px] lg:x-[450px] h-[250px] x-[320px] items-center overflow-hidden bg-black-100">
+        <div
+            className="relative flex lg:h-[700px] lg:x-[700px] h-[300px] x-[350px] items-center overflow-hidden bg-black-100">
             <div
-                className={`flex lg:h-[400px] h-[250px] items-center ${moveStyle[current]} transition`}>
+                className={`flex lg:h-[700px] h-[300px] items-center ${moveStyle[current]} transition`}>
                 {imageList.map((image: string, index: number) => (
-                    <div key={index} className="lg:w-[450px] lg:h-[400px] w-[320px] h-[250px] bg-cover rounded-[20px]">
-                        <img src={`${image}`} className="lg:w-[450px] lg:h-[400px] w-[320px] h-[250px] rounded-[20px] object-cover"/>
-                       {/* <img src={`${image}`} className="lg:w-[450px] lg:h-[400px] w-[320px] h-[250px] rounded-[20px] object-cover"/>*/}
+                    <div key={index} className="lg:w-[700px] lg:h-[700px] w-[350px] h-[300px] bg-cover rounded-[20px]">
+                        <img src={`data:image/png;base64,${image}`}
+                             className="lg:w-[700px] lg:h-[700px] w-[350px] h-[300px] rounded-[20px] object-cover"/>
                     </div>
                 ))}
             </div>
