@@ -250,7 +250,7 @@ const RecruitPage = () => {
                                                         className="w-full h-[25px] bg-[#ffffff] text-[#000000] focus:outline-none resize-none "
                                                         placeholder="답장 보내기..." value={singleAns}
                                                         onChange={handleInput}
-                                                        onKeyDown={(e) => activeEnter(e)}
+                                                        onKeyUp={(e) => activeEnter(e)}
                                                     ></input>
                                                     <button onClick={handleAns}><img src={'SendBTN.png'}/></button>
 
