@@ -24,7 +24,7 @@ const ClosedPage = () => {
                 <MobilePageTitle>Recruit</MobilePageTitle>
             </div>
             <div className='flex flex-row justify-center w-full mt-[100px]'>
-                <div className='w-[310px] break-words text-center md:text-2xl text-[20px] font-bold'>
+                <div className='w-[310px] lg:w-[450px] break-words text-center md:text-2xl text-[20px] font-bold'>
                     {closeMessage}
                 </div>
             </div>
