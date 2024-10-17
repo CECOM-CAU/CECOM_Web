@@ -4,23 +4,32 @@
 
 @font-face {
     font-family: 'GmarketSansMedium';
-    src: url(../fonts/GmarketSansMedium.otf);
+    src: url(../fonts/GmarketSansMedium.woff2) format('woff2'),
+    url(../fonts/GmarketSansMedium.woff) format('woff'),
+    url(../fonts/GmarketSansMedium.otf) format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: block;
 }
 
 @font-face {
     font-family: 'GmarketSansBold';
-    src: url(../fonts/GmarketSansBold.otf);
+    src: url(../fonts/GmarketSansBold.woff2) format('woff2'),
+    url(../fonts/GmarketSansBold.woff) format('woff'),
+    url(../fonts/GmarketSansBold.otf) format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: block;
 }
 
 @font-face {
     font-family: 'GmarketSansLight';
-    src: url(../fonts/GmarketSansLight.otf);
+    src: url(../fonts/GmarketSansLight.woff2) format('woff2'),
+    url(../fonts/GmarketSansLight.woff) format('woff'),
+    url(../fonts/GmarketSansLight.otf) format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: block;
 }
 
 @layer base {
