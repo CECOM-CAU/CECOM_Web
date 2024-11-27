@@ -39,7 +39,7 @@ export const getMainImage = async (imageID: string) => {
     unstable_noStore();
     try{
         setDefaultResultOrder("ipv4first");
-        const res = await axios.get(`http://${process.env.LOCALHOST_IP}:3001/getImage/main/${imageID}/image.png`);
+        const res = await axios.get(`http://${process.env.LOCALHOST_IP}:3001/getImage/main/${imageID}/image.avif`);
         return res.data;
     }catch(e){
         return undefined;
