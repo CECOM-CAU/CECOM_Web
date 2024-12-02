@@ -1,7 +1,12 @@
+import dynamic from 'next/dynamic'
 import DesktopMainLogo from "@/app/_components/mainPage/desktop/DesktopMainLogo";
-import Who from "@/app/_components/mainPage/desktop/Who";
-import WhatWeDo from "@/app/_components/mainPage/desktop/WhatWeDo";
 import {MainImage} from "@/utils/Interfaces";
+import {Suspense} from "react";
+
+
+const LoadingComponent = () => <div className="h-screen">Loading... </div>;
+const Who = dynamic(() => import('@/app/_components/mainPage/desktop/Who'),{loading:()=><p></p>,  ssr: false});
+const WhatWeDo = dynamic(() => import('@/app/_components/mainPage/desktop/WhatWeDo'),{loading:()=><p></p>,  ssr: false});
 
 export const DesktopHome = ({project,study,mentoring,event} :MainImage) => {
     return (
@@ -13,8 +18,17 @@ export const DesktopHome = ({project,study,mentoring,event} :MainImage) => {
                     </div>
                 </div>
             </div>
-            <Who/>
-            <WhatWeDo project={project} mentoring={mentoring} study={study} event={event}/>
+            <Suspense fallback={<LoadingComponent />}>
+                <Who/>
+            </Suspense>
+            <Suspense fallback={<LoadingComponent />}>
+                <WhatWeDo
+                    project={project}
+                    mentoring={mentoring}
+                    study={study}
+                    event={event}
+                />
+            </Suspense>
         </div>
     );
 }
