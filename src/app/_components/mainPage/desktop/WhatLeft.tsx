@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface Props{
     children:React.ReactNode;
     comment:string[];
@@ -6,7 +8,7 @@ interface Props{
 const WhatLeft= ({children,comment,thumbnail}:Props) => {
     return (
         <div className="flex flex-row w-full">
-            <img src={thumbnail} alt="thumbnail" className="flex justify-end rounded-[60px] w-[450px] h-[350px] object-cover"/>
+            <Image src={thumbnail} alt="thumbnail" width={450} height={350} loading="lazy" className="flex justify-end rounded-[60px] object-cover"/>
             <div className="flex flex-col justify-center items-center w-[700px] ">
                 <div className='font-gmarket-m text-[40px] px-[20px] pb-[10px] border-b-[1px] border-[#000000] mb-[20px]'>{children}</div>
                 {comment.map((comment:string,index:number)=>(
