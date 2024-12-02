@@ -1,8 +1,12 @@
 'use client';
+import dynamic from "next/dynamic";
 import MobileMainLogo from "@/app/_components/mainPage/mobile/MobileMainLogo";
-import MobileWho from "@/app/_components/mainPage/mobile/MobileWho";
-import MobileWhatWeDo from "@/app/_components/mainPage/mobile/MobileWhatWeDo";
 import {MainImage} from "@/utils/Interfaces";
+import {Suspense} from "react";
+
+const LoadingComponent = () => <div className="h-screen">Loading... </div>;
+const Who = dynamic(() => import('@/app/_components/mainPage/mobile/MobileWho'),{loading:()=><p></p>,  ssr: false});
+const WhatWeDo = dynamic(() => import('@/app/_components/mainPage/mobile/MobileWhatWeDo'),{loading:()=><p></p>,  ssr: false});
 
 export const MobileHome = ({project,study,mentoring,event} :MainImage) => {
     return (
@@ -14,8 +18,17 @@ export const MobileHome = ({project,study,mentoring,event} :MainImage) => {
                     </div>
                 </div>
             </div>
-            <MobileWho/>
-            <MobileWhatWeDo project={project} mentoring={mentoring} study={study} event={event}/>
+            <Suspense fallback={<LoadingComponent />}>
+                <Who/>
+            </Suspense>
+            <Suspense fallback={<LoadingComponent />}>
+                <WhatWeDo
+                    project={project}
+                    mentoring={mentoring}
+                    study={study}
+                    event={event}
+                />
+            </Suspense>
         </div>
     )
 }
