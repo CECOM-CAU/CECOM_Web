@@ -13,12 +13,12 @@ const Who = () => {
     }
     return (
         <div className="flex flex-row w-full items-center justify-center h-[90vh]">
-            <div className="flex w-[1105px] flex-row items-center">
-                <div className="flex flex-col w-[435px]">
-                    <div className="font-gmarket-m text-[100px] h-[110px]">WHO</div>
-                    <div className="text-[100px] h-[130px]">WE ARE</div>
+            <div className="flex w-[1150px] flex-row items-center">
+                <div className="flex flex-col w-[450px]">
+                    <div className="font-gmarket-m text-[100px] w-[450px] h-[110px]">WHO</div>
+                    <div className="text-[100px] w-[450px] h-[130px]">WE ARE</div>
                 </div>
-                <div className="w-[570px] ml-[100px] z-20">
+                <div className="w-[650px] ml-[60px] z-20">
                     <div
                         className="flex flex-row w-full justify-between items-center border-y-[1px] border-[#000000] py-[20px]"
                         onMouseOver={() => handleClick(true, false, false)}
@@ -32,7 +32,7 @@ const Who = () => {
                                 <FontAwesomeIcon icon={faPlus} size="2x" className="mr-[20px]" />
                             </div> :
                             <div
-                                className="ml-[10px] mr-[20px] my-[20px] duration-500">
+                                className="flex flex-col ml-[10px] mr-[20px] my-[20px] duration-500">
 
                                 <div className="font-gmarket-m">1986년 6월,</div>
                                 <div>전기공학부의 소모임으로 시작한</div>
@@ -43,7 +43,7 @@ const Who = () => {
                                 </div>
                                 <div className="flex flex-row">
                                     <div className="font-gmarket-m">컴퓨터 하드웨어 중앙동아리&nbsp;</div>
-                                    활동하고 있습니다.
+                                    <div>활동하고 있습니다.</div>
                                 </div>
 
                             </div>
@@ -57,7 +57,6 @@ const Who = () => {
                         </div>
                         {!goal ?
                             <div className="flex justify-end w-full duration-200">
-
                                 <FontAwesomeIcon icon={faPlus} size="2x" className="mr-[20px]"/>
                             </div> :
                             <div className="ml-[10px] mr-[20px] my-[20px] duration-500">
@@ -69,7 +68,6 @@ const Who = () => {
                                     소프트웨어 · 하드웨어 프로젝트를 진행하고, 더 많은 사람들과
                                 </div>
                                 <div>이러한 즐거움을 나누는 것이 우리의 목표입니다.</div>
-
                             </div>
                         }
                     </div>

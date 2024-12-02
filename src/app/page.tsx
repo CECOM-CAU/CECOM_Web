@@ -10,20 +10,26 @@ export default function Home() {
     const [events, setEvents] = useState<string>('');
 
     useEffect(() => {
-        axios.get("/api/main/getMainImages")
-            .then((res) => {
-                setProject(res.data.RESULT_DATA.project);
-                setEvents(res.data.RESULT_DATA.event);
-                setStudy(res.data.RESULT_DATA.study);
-                setMentoring(res.data.RESULT_DATA.mentoring);
-            }).catch((err) => {
-        });
+        fetch("/api/main/getMainImages", {
+            next: {
+                revalidate: 3600
+            }
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setProject(data.RESULT_DATA.project);
+                setEvents(data.RESULT_DATA.event);
+                setStudy(data.RESULT_DATA.study);
+                setMentoring(data.RESULT_DATA.mentoring);
+            })
+            .catch((err) => {
+            });
     },[]);
 
     return (
         <main className="w-full flex-col items-center justify-between z-0">
-            <DesktopHome project={project} mentoring={mentoring} study={study} event={events}/>
-            <MobileHome project={project} mentoring={mentoring} study={study} event={events}/>
+            <DesktopHome project={`data:image/avif;base64,${project}`} mentoring={`data:image/avif;base64,${mentoring}`} study={`data:image/avif;base64,${study}`} event={`data:image/avif;base64,${events}`}/>
+            <MobileHome  project={`data:image/avif;base64,${project}`} mentoring={`data:image/avif;base64,${mentoring}`} study={`data:image/avif;base64,${study}`} event={`data:image/avif;base64,${events}`}/>
         </main>
     );
 }
