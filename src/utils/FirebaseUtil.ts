@@ -83,6 +83,11 @@ export const getActivityList = async () => {
         }
     }
 
+    activityList.data = activityList.data.sort(
+        (postA, postB) => {
+            return (postA.id < postB.id ? -1 : 1);
+        });
+
     return activityList;
 }
 
@@ -233,6 +238,11 @@ export const getNoticeList = async () => {
         noticeList.count++;
         noticeList.data.push(noticeItem);
     }
+
+    noticeList.data = noticeList.data.sort(
+        (postA, postB) => {
+            return (postA.id < postB.id ? -1 : 1);
+        });
 
     return noticeList;
 }
