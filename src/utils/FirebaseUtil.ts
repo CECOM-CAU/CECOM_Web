@@ -239,6 +239,11 @@ export const getNoticeList = async () => {
         noticeList.data.push(noticeItem);
     }
 
+    noticeList.data = noticeList.data.sort(
+        (postA, postB) => {
+            return (postA.id < postB.id ? -1 : 1);
+        });
+
     return noticeList;
 }
 
