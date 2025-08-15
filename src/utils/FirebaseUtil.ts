@@ -83,9 +83,9 @@ export const getActivityList = async () => {
         }
     }
 
-    activityList.data = activityList.data.sort(
+    activityList.data.sort(
         (postA, postB) => {
-            return (postA.id < postB.id ? -1 : 1);
+            return (Number.parseInt(postA.id) < Number.parseInt(postB.id) ? -1 : 1);
         });
 
     return activityList;
@@ -239,9 +239,9 @@ export const getNoticeList = async () => {
         noticeList.data.push(noticeItem);
     }
 
-    noticeList.data = noticeList.data.sort(
+    noticeList.data.sort(
         (postA, postB) => {
-            return (postA.id < postB.id ? -1 : 1);
+            return (Number.parseInt(postA.id) < Number.parseInt(postB.id) ? -1 : 1);
         });
 
     return noticeList;
