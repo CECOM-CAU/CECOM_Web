@@ -210,7 +210,7 @@ const RecruitPage = () => {
 
                                                 </div>
                                             </ChatBubbleA></>) : <></>}
-                                        {age && <ChatBubbleQ>학번은 어떻게 되시나요?</ChatBubbleQ>}
+                                        {age && <ChatBubbleQ>학번은 어떻게 되시나요? ex) 2025XXXX</ChatBubbleQ>}
                                         {id ? <> <ChatBubbleA nowNum={questionNum} QuestionNum={2}
                                                               setNumber={setQuestionNum}>{id}</ChatBubbleA>
                                             <ChatBubbleQ>몇 학년인가요?</ChatBubbleQ>
