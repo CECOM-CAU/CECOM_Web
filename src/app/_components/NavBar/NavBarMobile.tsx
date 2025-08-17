@@ -40,7 +40,7 @@ const NavBarMobile = () => {
                                 </MobileNavButton>
                             </div>
                             <div onClick={() => setIsClicked(false)}>
-                                <MobileRecruitButton link="https://docs.google.com/forms/d/e/1FAIpQLScFdhl1gyjc6JcxLMjnutXJITixr_nu79pWqZLitBNCIzCS5g/viewform">
+                                <MobileRecruitButton link="/recruit">
                                     Recruit
                                 </MobileRecruitButton>
                             </div>
