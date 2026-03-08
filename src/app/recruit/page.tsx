@@ -48,7 +48,8 @@ const RecruitPage = () => {
         {label: '약학대학', value: '약학대학'},
         {label: '적십자간호대학', value: '적십자간호대학'},
         {label: '예술공학대학', value: '예술공학대학'},
-        {label: '체육대학', value: '체육대학'}
+        {label: '체육대학', value: '체육대학'},
+        {label: '기타', value: '기타'},
     ];
     const gradeData = [{label: '학년', value: '학년'},
         {label: '1학년(1차, 2차)', value: '1학년(1차, 2차)'},
