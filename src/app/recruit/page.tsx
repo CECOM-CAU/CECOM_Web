@@ -48,14 +48,17 @@ const RecruitPage = () => {
         {label: '약학대학', value: '약학대학'},
         {label: '적십자간호대학', value: '적십자간호대학'},
         {label: '예술공학대학', value: '예술공학대학'},
-        {label: '체육대학', value: '체육대학'}
+        {label: '체육대학', value: '체육대학'},
+        {label: '기타', value: '기타'},
     ];
-    const gradeData = [{label: '학년', value: '학년'},
+    const gradeData = [
+        {label: '학년', value: '학년'},
         {label: '1학년(1차, 2차)', value: '1학년(1차, 2차)'},
         {label: '2학년(3차, 4차)', value: '2학년(3차, 4차)'},
         {label: '3학년(5차, 6차)', value: '3학년(5차, 6차)'},
         {label: '4학년(7차, 8차)', value: '4학년(7차, 8차)'},
-        {label: '9차 이상', value: '9차 이상'}];
+        {label: '9차 이상', value: '9차 이상'},
+    ];
     const phoneRegex = /^01[016789]\d{7,8}$/;
     const currentYear = new Date().getFullYear();
     const startYear = currentYear - 29;
@@ -213,7 +216,7 @@ const RecruitPage = () => {
                                         {age && <ChatBubbleQ>학번은 어떻게 되시나요? ex) 2025XXXX</ChatBubbleQ>}
                                         {id ? <> <ChatBubbleA nowNum={questionNum} QuestionNum={2}
                                                               setNumber={setQuestionNum}>{id}</ChatBubbleA>
-                                            <ChatBubbleQ>몇 학년인가요?</ChatBubbleQ>
+                                            <ChatBubbleQ>현재 학기 기준 학년을 알려주세요. (휴학생의 경우, 최종으로 수료한 학기)</ChatBubbleQ>
                                             <ChatBubbleA nowNum={questionNum}>
                                                 <div className="w-full flex flex-row">
                                                     <DropDown setValue={setGrade} value={grade}
